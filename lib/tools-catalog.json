@@ -1,0 +1,2208 @@
+{
+  "schemaVersion": "1.0",
+  "language": "zh-CN",
+  "checkedAt": "2026-09-19",
+  "editorialNote": "24 个工具场景条目覆盖 8 类，部分产品在不同任务下重复出现。官方能力与教学案例分列，案例均为本站设计的虚构示例。价格、API、地区能力未做统一比较，不作未验证承诺。",
+  "categories": [
+    {
+      "id": "meetings",
+      "name": "会议与移动办公",
+      "subtitle": "把讨论变成有负责人、有截止日期的行动"
+    },
+    {
+      "id": "spreadsheets",
+      "name": "表格与数据分析",
+      "subtitle": "从采购示例到自己的数据：清洗、编辑、统计与图表"
+    },
+    {
+      "id": "presentations",
+      "name": "PPT 与汇报",
+      "subtitle": "用真实业务材料练习模板约束、逐页生成与人工精修"
+    },
+    {
+      "id": "writing",
+      "name": "写作与知识整理",
+      "subtitle": "从带来源的资料问答，到可交付文稿与团队知识"
+    },
+    {
+      "id": "images",
+      "name": "图片与视觉创作",
+      "subtitle": "把用途、主体、构图和风格说清楚"
+    },
+    {
+      "id": "video",
+      "name": "视频与内容制作",
+      "subtitle": "用真实片段，完成脚本、剪辑、字幕、配音与视频导出"
+    },
+    {
+      "id": "research",
+      "name": "搜索与研究",
+      "subtitle": "让每个结论都能回到原始来源"
+    },
+    {
+      "id": "automation",
+      "name": "桌面与流程自动化",
+      "subtitle": "把重复步骤变成可检查、可复用的工作流"
+    }
+  ],
+  "tools": [
+    {
+      "id": "tingwu",
+      "category": "meetings",
+      "name": "通义听悟",
+      "officialUrl": "https://tingwu.aliyun.com/",
+      "summary": "把实时会议和上传的音视频整理成可检索的逐字稿、纪要与待办。",
+      "capabilities": [
+        "实时会议记录",
+        "上传音视频转写",
+        "发言人区分",
+        "章节与待办总结"
+      ],
+      "enterpriseExample": "项目例会结束后，提取交付风险、负责人和下一次检查时间。",
+      "quickStart": [
+        "选择“开启实时记录”或“上传音视频”；按实际场景设置语言。",
+        "会议结束或转写完成后，检查说话人、时间戳和专业术语。",
+        "查看摘要与待办，回到原文核对负责人、期限和决策状态。",
+        "人工复核后导出或分享；文件限制、额度和权限以官方页面为准。"
+      ],
+      "validation": [
+        "逐条回听重要金额与日期",
+        "未说出的负责人标注待确认"
+      ],
+      "constraints": [
+        "录音和共享应符合公司制度",
+        "噪声、重叠发言会影响转写"
+      ],
+      "sourceIds": [
+        "tingwu"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "feishu-minutes",
+      "category": "meetings",
+      "name": "飞书妙记",
+      "officialUrl": "https://www.feishu.cn/product/minutes",
+      "summary": "在飞书协作中保存、搜索会议文字并跟进结论。",
+      "capabilities": [
+        "音视频转文字",
+        "会议纪要与待办总结",
+        "文字笔记检索"
+      ],
+      "enterpriseExample": "采购与供应商沟通后，整理缺料事项并把行动清单交回项目群核对。",
+      "quickStart": [
+        "生成或上传妙记",
+        "对照原始发言校对",
+        "把已确认的待办交给责任人"
+      ],
+      "validation": [
+        "区分建议与已达成决定",
+        "检查笔记与录音分享范围"
+      ],
+      "constraints": [
+        "共享权限需要配置",
+        "待办提取结果仍需相关人员确认"
+      ],
+      "sourceIds": [
+        "minutes",
+        "minutes-help"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "tencent-meeting-ai",
+      "category": "meetings",
+      "name": "腾讯会议 AI 小助手",
+      "officialUrl": "https://meeting.tencent.com/ai/",
+      "summary": "围绕会议讨论提问，获得重点、待办和录制摘要。",
+      "capabilities": [
+        "实时讨论问答",
+        "提取会议待办",
+        "文件与云录制总结"
+      ],
+      "enterpriseExample": "中途加入跨部门例会时，询问已经确定的变更和仍待决定的问题。",
+      "quickStart": [
+        "在具备对应功能的会议内打开助手",
+        "询问当前决策及待办",
+        "会后核对录制与摘要"
+      ],
+      "validation": [
+        "核对是否覆盖完整会议",
+        "不要把讨论草案写成批准事项"
+      ],
+      "constraints": [
+        "功能取决于账号权益和会议配置",
+        "对外分发前复核内容与权限"
+      ],
+      "sourceIds": [
+        "tencent-meeting"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "feishu-base",
+      "category": "spreadsheets",
+      "name": "飞书多维表格",
+      "officialUrl": "https://base.feishu.cn/",
+      "summary": "在业务表中完成提取、分类和可视化，适合持续跟踪。",
+      "capabilities": [
+        "AI 提取与分类",
+        "协作数据表",
+        "仪表盘与流程"
+      ],
+      "enterpriseExample": "把供应商来信分成报价、交期、质量问题，按责任部门建立跟进看板。",
+      "quickStart": [
+        "明确字段和分类规则",
+        "用样本测试 AI 字段",
+        "在仪表盘查看分类和进度"
+      ],
+      "validation": [
+        "抽样核对分类",
+        "固定币种、日期和统计口径"
+      ],
+      "constraints": [
+        "不要把模型分类当作审批结果",
+        "字段权限与自动化规则需要单独配置"
+      ],
+      "sourceIds": [
+        "feishu-base",
+        "feishu-dashboard"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "wps-sheet",
+      "category": "spreadsheets",
+      "name": "WPS AI 表格助手",
+      "officialUrl": "https://ai.wps.cn/",
+      "summary": "把自然语言计算要求转成公式，结合表格继续核对。",
+      "capabilities": [
+        "AI 写公式",
+        "辅助理解表格任务"
+      ],
+      "enterpriseExample": "为销售明细补充毛利率公式，随后用已知样本验证计算。",
+      "quickStart": [
+        "提供列名与含义",
+        "描述公式和边界条件",
+        "先在副本中检查几个样本"
+      ],
+      "validation": [
+        "分母为零时的处理",
+        "金额单位和含税口径"
+      ],
+      "constraints": [
+        "本次官方资料核实到写公式能力",
+        "具体界面与功能以当前客户端为准"
+      ],
+      "sourceIds": [
+        "wps-ai"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "excel-copilot",
+      "category": "spreadsheets",
+      "name": "Copilot in Excel",
+      "officialUrl": "https://support.microsoft.com/en-us/excel/copilot/get-started-with-copilot-in-excel",
+      "summary": "用自然语言编辑工作簿、计算、制图并检查趋势。",
+      "capabilities": [
+        "公式生成",
+        "图表与数据透视表",
+        "筛选与条件格式"
+      ],
+      "enterpriseExample": "按地区汇总销售额与毛利，对比两个月变化并标注异常行。",
+      "quickStart": [
+        "整理成有明确表头的数据",
+        "描述汇总维度和指标",
+        "核对公式与图表范围"
+      ],
+      "validation": [
+        "总计与原表一致",
+        "趋势判断区分相关与因果"
+      ],
+      "constraints": [
+        "先确认企业许可证与产品版本",
+        "直接改动工作簿前保留版本"
+      ],
+      "sourceIds": [
+        "excel-copilot"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "kimi-slides",
+      "category": "presentations",
+      "name": "Kimi PPT",
+      "officialUrl": "https://www.kimi.com/slides",
+      "summary": "根据需求与材料形成汇报演示，适合先搭内容结构。",
+      "capabilities": [
+        "AI 演示文稿",
+        "基于材料整理汇报"
+      ],
+      "enterpriseExample": "把月度经营材料整理成 6 页管理层汇报，突出结论与所需决策。",
+      "quickStart": [
+        "注明受众和页数",
+        "给出可引用的数据",
+        "先确认提纲再调整页面"
+      ],
+      "validation": [
+        "数据能回到原表",
+        "每页只有一个主要问题"
+      ],
+      "constraints": [
+        "不要自动补造经营数据",
+        "导出后检查字体、图表与分页"
+      ],
+      "sourceIds": [
+        "kimi-slides",
+        "kimi-business"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "gamma",
+      "category": "presentations",
+      "name": "Gamma",
+      "officialUrl": "https://gamma.app/",
+      "summary": "由提纲或现有内容快速形成可编辑演示。",
+      "capabilities": [
+        "提纲生成演示",
+        "主题和内容编辑",
+        "PPT/PDF 导出"
+      ],
+      "enterpriseExample": "把新员工培训大纲变成配图演示，并输出给讲师继续编辑。",
+      "quickStart": [
+        "粘贴已确认提纲",
+        "选择主题并检查篇幅",
+        "导出后做一轮版式检查"
+      ],
+      "validation": [
+        "导出的内容和网页一致",
+        "检查图表标签与品牌样式"
+      ],
+      "constraints": [
+        "主题效果不等于内容准确",
+        "企业使用需核对工作区数据设置"
+      ],
+      "sourceIds": [
+        "gamma"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "wps-ppt",
+      "category": "presentations",
+      "name": "WPS AI PPT",
+      "officialUrl": "https://www.wps.com/feature/ai-ppt-maker/",
+      "summary": "生成演示后，可在 WPS 演示中继续编辑页面元素。",
+      "capabilities": [
+        "提示生成 PPT",
+        "原生演示编辑",
+        "PPTX/PDF 导出"
+      ],
+      "enterpriseExample": "将销售培训方案转成可由同事继续修改的课件。",
+      "quickStart": [
+        "输入主题、受众与页数",
+        "调整提纲与主题",
+        "在 WPS 演示中复核和编辑"
+      ],
+      "validation": [
+        "公司名称和数据准确",
+        "页面元素是否可继续编辑"
+      ],
+      "constraints": [
+        "不同地区版本的入口可能不同",
+        "模板素材和品牌应用需复核"
+      ],
+      "sourceIds": [
+        "wps-ppt"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "category": "writing",
+      "checkedAt": "2026-09-20",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前确认账号、计划、管理员设置和所在环境的可用性",
+      "id": "google-notebook",
+      "name": "Google Notebook / NotebookLM",
+      "officialUrl": "https://notebook.google.com",
+      "summary": "限定资料范围进行带引用问答，把长材料整理成笔记、导图和报告。",
+      "capabilities": [
+        "多来源资料问答",
+        "可回查的引用",
+        "思维导图与笔记"
+      ],
+      "enterpriseExample": "放入试点方案、最新例会纪要和验收清单，追问“现在能承诺上线吗”，点击引用核对原句，并把有用回答保存为笔记。",
+      "quickStart": [
+        "创建一个笔记本，添加有权使用的材料，并检查导入结果。",
+        "只选择本次问题相关的来源；旧版材料单独标记。",
+        "提问后点击引用，检查回答是否得到原句直接支持。",
+        "把可复用的答案保存为笔记，尝试按资料生成导图或报告。"
+      ],
+      "validation": [
+        "引用是否直接支持对应结论",
+        "是否混入旧版或未经审批的计划",
+        "没有依据的内容保持待确认"
+      ],
+      "constraints": [
+        "资料类型、额度和可用功能以当前官方说明与账号条件为准",
+        "本站只实际读取 TXT / MD 文本，PDF 上传流程与问答均为教学模拟"
+      ],
+      "sourceIds": [
+        "notebook-chat-v9",
+        "notebook-sources-v9",
+        "notebook-map-v9",
+        "notebook-reports-v9"
+      ]
+    },
+    {
+      "id": "notion-ai",
+      "category": "writing",
+      "name": "Notion AI",
+      "officialUrl": "https://www.notion.com/product/ai",
+      "summary": "在页面内起草与精修，把已有资料整理成可检索、可维护的团队知识。",
+      "capabilities": [
+        "段落改写与语气调整",
+        "工作区知识检索",
+        "摘要、关键词与知识页面"
+      ],
+      "enterpriseExample": "把采购审单试点的周报、风险记录和复核清单整理成团队知识页，再按需要提取摘要和行动项。",
+      "quickStart": [
+        "从工作区页面或指定的材料开始，明确要回答的问题与来源范围。",
+        "选中文字，尝试精简、展开或改变语气；逐段决定接受、重试或保留原文。",
+        "把已确认的结论沉淀成知识页，补充负责人、标签与复核状态。",
+        "更新知识后，再次核对旧版结论与相关行动项。"
+      ],
+      "validation": [
+        "改写前后事实、数字与待确认事项一致",
+        "工作区页面和引用版本仍然适用",
+        "负责人和截止日期来自明确记录"
+      ],
+      "constraints": [
+        "工作区检索、连接器和数据库功能依赖计划及管理员设置",
+        "本站演练采用本地规则与示例素材，没有连接 Notion 工作区"
+      ],
+      "sourceIds": [
+        "notion",
+        "notion-ai-faq-v9",
+        "notion-wikis-v9"
+      ],
+      "checkedAt": "2026-09-20",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前确认账号、计划、管理员设置和所在环境的可用性"
+    },
+    {
+      "category": "writing",
+      "checkedAt": "2026-09-20",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前确认账号、计划、管理员设置和所在环境的可用性",
+      "id": "wps-writing",
+      "name": "WPS AI 写作",
+      "officialUrl": "https://www.wps.com/",
+      "summary": "从材料和写作目标形成初稿，再通过改写、篇幅调整与人工精修完成工作文档。",
+      "capabilities": [
+        "文档初稿与结构整理",
+        "改写和篇幅调整",
+        "邮件写作辅助"
+      ],
+      "enterpriseExample": "用相同的供应链试点事实起草管理层周报和客户邮件；保留数字、风险与计划边界，再逐段调整表达。",
+      "quickStart": [
+        "提供材料，并交代读者、目的、文稿类型和篇幅。",
+        "生成初稿，先检查结构，再处理单个段落。",
+        "尝试精简、展开或改写；对照原文核对事实后接受建议。",
+        "继续人工编辑，导出文档并检查页面和格式。"
+      ],
+      "validation": [
+        "原始数字、日期和责任人没有变化",
+        "没有把演练结果写成生产成效",
+        "建议与既定安排区分清楚"
+      ],
+      "constraints": [
+        "不同 WPS 版本、客户端与计划的入口和额度可能不同",
+        "本站模拟一套通用写作流程，并非 WPS 产品实际运行结果"
+      ],
+      "sourceIds": [
+        "wps-writing-home-v9",
+        "wps-reword-v9",
+        "wps-email-v9"
+      ]
+    },
+    {
+      "id": "qwen-writing",
+      "category": "writing",
+      "name": "千问 / Qwen",
+      "officialUrl": "https://chat.qwen.ai/",
+      "summary": "通过对话整理思路、形成写作初稿和改写版本。",
+      "capabilities": [
+        "写作辅助",
+        "多轮对话改写"
+      ],
+      "enterpriseExample": "把交付延期事实分别写成内部周报和客户说明，保持日期与承诺一致。",
+      "quickStart": [
+        "提供事实清单",
+        "指定读者、语气与篇幅",
+        "要求未知内容列为待补充"
+      ],
+      "validation": [
+        "承诺不超过原始事实",
+        "姓名、金额、日期保持一致"
+      ],
+      "constraints": [
+        "模型能力不代表每个应用入口均开放",
+        "企业资料使用遵循账号与数据制度"
+      ],
+      "sourceIds": [
+        "qwen",
+        "qwen-capabilities"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "kimi-docs",
+      "category": "writing",
+      "name": "Kimi 文档",
+      "officialUrl": "https://www.kimi.com/docs",
+      "summary": "把材料整理成结构化工作报告或文档初稿。",
+      "capabilities": [
+        "文档生成",
+        "工作报告整理"
+      ],
+      "enterpriseExample": "根据项目笔记生成复盘报告，拆分事实、原因假设和改进行动。",
+      "quickStart": [
+        "上传可使用的材料",
+        "明确报告结构和读者",
+        "逐节复核事实与引文"
+      ],
+      "validation": [
+        "推断明确标注",
+        "没有依据的原因不要写成结论"
+      ],
+      "constraints": [
+        "资料缺失时要求列出问题",
+        "需要保留可追溯的原始材料"
+      ],
+      "sourceIds": [
+        "kimi-docs",
+        "kimi-business"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "jimeng-image",
+      "category": "images",
+      "name": "即梦 AI 图片",
+      "officialUrl": "https://jimeng.jianying.com/",
+      "summary": "用中文提示和参考图探索图片概念与画面风格。",
+      "capabilities": [
+        "文/图生图片",
+        "智能画布"
+      ],
+      "enterpriseExample": "为内部 AI 培训设计封面视觉，预留标题区域供后期排版。",
+      "quickStart": [
+        "写明主题、构图、画幅与风格",
+        "生成多个视觉方向",
+        "人工加上精确中文标题"
+      ],
+      "validation": [
+        "文字和标志是否正确",
+        "主体有没有变形"
+      ],
+      "constraints": [
+        "样图不能替代真实产品证据",
+        "品牌、人物与素材使用需有授权"
+      ],
+      "sourceIds": [
+        "jimeng"
+      ],
+      "checkedAt": "2026-09-21",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "adobe-firefly",
+      "category": "images",
+      "name": "Adobe Firefly",
+      "officialUrl": "https://www.adobe.com/products/firefly.html",
+      "summary": "从文本与参考图探索视觉方向，再进入局部编辑、裁剪与扩展。",
+      "capabilities": [
+        "文本生成图像",
+        "生成式填充与扩展",
+        "视觉概念画板"
+      ],
+      "enterpriseExample": "为活动主视觉探索不同背景，保留既有产品素材再精修。",
+      "quickStart": [
+        "先写主体、场景、光线与构图，选择所需画幅",
+        "生成候选后按任务用途比较；需要一致风格时使用参考图",
+        "选中结果继续局部修改，保留不需要改变的区域",
+        "下载后检查中文文字、边缘与真实展示尺寸"
+      ],
+      "validation": [
+        "真实产品特征保持一致",
+        "对外稿检查品牌和人物授权"
+      ],
+      "constraints": [
+        "平台包含不同模型，条款需按所选模型核对",
+        "生成结果需人工审稿"
+      ],
+      "sourceIds": [
+        "firefly",
+        "firefly-image-workflow",
+        "firefly-edit-workflow"
+      ],
+      "checkedAt": "2026-09-21",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "midjourney-image",
+      "category": "images",
+      "name": "Midjourney",
+      "officialUrl": "https://www.midjourney.com/",
+      "summary": "用清楚的画面描述、图像参考与风格参考，探索不同的视觉方向。",
+      "capabilities": [
+        "画面提示词",
+        "图像 / 风格参考",
+        "画幅控制"
+      ],
+      "enterpriseExample": "给供应链项目封面探索工业 3D 与插画风格，再将入选图片放入企业模板排版。",
+      "quickStart": [
+        "用简洁短语写清主体、媒介、环境、光线与构图",
+        "按交付用途设置画幅；重要数量要具体描述",
+        "区分图像参考与风格参考，并按所用模型支持的参数使用",
+        "比较候选，保留能给标题留出空间的方案"
+      ],
+      "validation": [
+        "主体、数量与材质是否符合预期",
+        "参考图与输出的使用范围是否适合本次任务",
+        "生成文字是否需要改为独立文字层"
+      ],
+      "constraints": [
+        "短提示与参数习惯不应直接套用到所有模型",
+        "账号、版本与使用条件以官方当前说明为准"
+      ],
+      "sourceIds": [
+        "midjourney-prompt",
+        "midjourney-style",
+        "midjourney-ratio"
+      ],
+      "checkedAt": "2026-09-21",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前确认账号、版本与可用环境"
+    },
+    {
+      "id": "canva-image",
+      "category": "images",
+      "name": "Canva AI 图片生成",
+      "officialUrl": "https://www.canva.com/ai-image-generator/",
+      "summary": "在设计页面内按风格和画幅生成图片并继续排版。",
+      "capabilities": [
+        "文本/参考图生成",
+        "风格与比例选项",
+        "设计内编辑"
+      ],
+      "enterpriseExample": "制作招聘海报背景，并在设计中加入可编辑职位信息。",
+      "quickStart": [
+        "先确定汇报、海报或课程需要的画幅",
+        "用文本或参考图片探索风格方向",
+        "把生成图片放进设计页，用独立文字层加入准确标题",
+        "调整层次和留白，再按实际用途导出"
+      ],
+      "validation": [
+        "标题可读且不遮挡主体",
+        "招聘条件以 HR 审定版本为准"
+      ],
+      "constraints": [
+        "生成图内文字需检查",
+        "模板与素材使用按当前条款核对"
+      ],
+      "sourceIds": [
+        "canva-image"
+      ],
+      "checkedAt": "2026-09-21",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "category": "video",
+      "pricing": "价格和权益以官方当前说明为准",
+      "availability": "使用前确认账号、版本与运行环境",
+      "checkedAt": "2026-09-21",
+      "id": "jianying-edit",
+      "name": "剪映专业版",
+      "officialUrl": "https://www.capcut.cn/",
+      "summary": "把真实素材、AI补镜、字幕与配音放在多轨时间线上，完成粗剪和成片。",
+      "capabilities": [
+        "智能解说粗剪",
+        "文本朗读",
+        "多轨道剪辑"
+      ],
+      "enterpriseExample": "把产品录屏剪成30秒介绍，核对术语、字幕和配音后导出。",
+      "quickStart": [
+        "导入素材，按脚本安排镜头",
+        "分割、裁短、排序，再添加字幕",
+        "使用文本朗读制作配音并检查音量",
+        "完整播放检查，按渠道导出"
+      ],
+      "validation": [
+        "没有切断关键操作和句子",
+        "配音、字幕与画面对应"
+      ],
+      "constraints": [
+        "自动粗剪仍需人工选择切点",
+        "原片压制字幕需回原工程修改"
+      ],
+      "sourceIds": [
+        "jianying-edit-official"
+      ]
+    },
+    {
+      "category": "video",
+      "pricing": "价格和权益以官方当前说明为准",
+      "availability": "使用前确认账号、版本与运行环境",
+      "checkedAt": "2026-09-21",
+      "id": "premiere-edit",
+      "name": "Adobe Premiere",
+      "officialUrl": "https://www.adobe.com/products/premiere.html",
+      "summary": "按转写文本定位口播内容，结合时间线完成字幕和精细后期。",
+      "capabilities": [
+        "语音转写",
+        "文本剪辑",
+        "字幕制作"
+      ],
+      "enterpriseExample": "从长访谈或演示中选取讲解片段，接入产品画面并统一字幕。",
+      "quickStart": [
+        "导入素材并生成转写",
+        "按文稿选择片段建立粗剪",
+        "校对字幕并调整镜头和声音",
+        "检查成片并导出"
+      ],
+      "validation": [
+        "转写人名和术语准确",
+        "文字剪辑之后切点自然"
+      ],
+      "constraints": [
+        "完整后期仍需剪辑判断",
+        "实际功能取决于版本和语言支持"
+      ],
+      "sourceIds": [
+        "premiere-edit-official"
+      ]
+    },
+    {
+      "id": "kling-video",
+      "category": "video",
+      "name": "可灵 AI",
+      "officialUrl": "https://kling.ai/",
+      "summary": "用文字或参考图生成视频片段，探索运动与镜头表达。",
+      "capabilities": [
+        "文生视频",
+        "图生视频",
+        "运动与参考控制"
+      ],
+      "enterpriseExample": "制作仓储流程培训的概念镜头，再加入真实操作说明。",
+      "quickStart": [
+        "先列镜头与动作",
+        "每段只描述清晰动作",
+        "逐帧核对后进入剪辑"
+      ],
+      "validation": [
+        "动作顺序是否正确",
+        "产品和人物是否连续一致"
+      ],
+      "constraints": [
+        "概念片段不能替代安全操作培训实拍证据",
+        "片长、分辨率与权益以当前版本为准"
+      ],
+      "sourceIds": [
+        "kling"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "jimeng-video",
+      "category": "video",
+      "name": "即梦 AI 视频",
+      "officialUrl": "https://jimeng.jianying.com/",
+      "summary": "用中文描述或首尾帧控制视频片段的画面变化。",
+      "capabilities": [
+        "文/图生视频",
+        "首尾帧输入",
+        "运镜控制"
+      ],
+      "enterpriseExample": "把培训封面做成短开场，镜头从设备细节移到整体场景。",
+      "quickStart": [
+        "定义开场和结束画面",
+        "描述镜头运动",
+        "生成后检查过渡和字幕区域"
+      ],
+      "validation": [
+        "首尾画面是否衔接",
+        "是否出现无关文字或多余物体"
+      ],
+      "constraints": [
+        "建议分镜后分段生成",
+        "对外成片需要单独处理声音、字幕和授权"
+      ],
+      "sourceIds": [
+        "jimeng"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "runway-video",
+      "category": "video",
+      "name": "Runway",
+      "officialUrl": "https://runway.com/",
+      "summary": "在统一工作区内生成和编辑视频、图像与音频。",
+      "capabilities": [
+        "视频生成与编辑",
+        "多媒体素材工作区"
+      ],
+      "enterpriseExample": "为产品方案制作概念短片，合并生成片段与已有素材。",
+      "quickStart": [
+        "定义镜头清单",
+        "准备可以使用的素材",
+        "分段生成、剪辑并检查"
+      ],
+      "validation": [
+        "画面风格与节奏统一",
+        "没有把生成场景当作实拍"
+      ],
+      "constraints": [
+        "不同模型能力和权益不同",
+        "生成内容仍需校验事实与使用权"
+      ],
+      "sourceIds": [
+        "runway"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "metaso-research",
+      "category": "research",
+      "name": "秘塔 AI 搜索",
+      "officialUrl": "https://metaso.cn/",
+      "summary": "围绕问题整理网络和文献信息，并提供来源。",
+      "capabilities": [
+        "结构化搜索答案",
+        "来源引用",
+        "学术与文库检索"
+      ],
+      "enterpriseExample": "搜集仓储自动化案例，按行业、场景、成效指标建立研究表。",
+      "quickStart": [
+        "限定问题、时期和来源类型",
+        "打开引用的原文",
+        "把核实事实和待确认信息分列"
+      ],
+      "validation": [
+        "引用是否支持对应结论",
+        "区分厂商宣传与独立证据"
+      ],
+      "constraints": [
+        "有引用不等于结论已经正确",
+        "不引用未核实的二手数字"
+      ],
+      "sourceIds": [
+        "metaso",
+        "metaso-app"
+      ],
+      "checkedAt": "2026-09-22",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "notebooklm",
+      "category": "research",
+      "name": "NotebookLM（Gemini Notebook）",
+      "officialUrl": "https://notebook.google/",
+      "summary": "围绕指定资料提问，获得带来源定位的解释和摘要。",
+      "capabilities": [
+        "上传资料问答",
+        "行内引用",
+        "导读与摘要"
+      ],
+      "enterpriseExample": "把脱敏后的供应商资料放入同一笔记本，对比交付条件与缺失信息。",
+      "quickStart": [
+        "只导入本次要研究的资料",
+        "问题写清比较维度",
+        "打开引文核对原段落"
+      ],
+      "validation": [
+        "没有答案时明确说资料未提供",
+        "不同版本文件单独标注"
+      ],
+      "constraints": [
+        "官方当前页面名称为 Gemini Notebook",
+        "需确认组织账号访问、支持地区与资料使用权限"
+      ],
+      "sourceIds": [
+        "notebook"
+      ],
+      "checkedAt": "2026-09-22",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "perplexity-research",
+      "category": "research",
+      "name": "Perplexity",
+      "officialUrl": "https://www.perplexity.ai/",
+      "summary": "联网整理答案并给出原文链接，适合做研究起点。",
+      "capabilities": [
+        "网络检索",
+        "多来源组织答案",
+        "引用链接"
+      ],
+      "enterpriseExample": "为市场进入研究建立公开资料清单，回到官方公告核对关键事实。",
+      "quickStart": [
+        "设定研究问题和时间范围",
+        "要求优先使用第一方来源",
+        "逐条核对事实与日期"
+      ],
+      "validation": [
+        "事件发生时间与发布日期分开",
+        "关键结论有直接来源"
+      ],
+      "constraints": [
+        "搜索答案不能代替完整尽调",
+        "高影响决策需要回到原文与业务复核"
+      ],
+      "sourceIds": [
+        "perplexity"
+      ],
+      "checkedAt": "2026-09-22",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "workbuddy",
+      "category": "automation",
+      "name": "腾讯 WorkBuddy",
+      "officialUrl": "https://www.workbuddy.ai/",
+      "summary": "把文件处理任务交给桌面智能体，并保留可检查的产物。",
+      "capabilities": [
+        "任务规划与执行",
+        "批量文件处理",
+        "专家与技能工作流"
+      ],
+      "enterpriseExample": "按培训材料的销售核价案例，匹配建议价、标记差异、另存核对表。",
+      "quickStart": [
+        "描述输入目录与输出规则",
+        "先用少量副本试跑",
+        "检查结果后保存可复用步骤"
+      ],
+      "validation": [
+        "匹配键唯一",
+        "未知 SKU 和重复价表单独报告",
+        "输出文件可回溯"
+      ],
+      "constraints": [
+        "外部连接与写入权限应明确",
+        "脚本离线运行与模型推理是不同环节",
+        "手机和定时运行条件应按当前版本确认"
+      ],
+      "sourceIds": [
+        "workbuddy",
+        "workbuddy-docs",
+        "course-workbuddy"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "power-automate",
+      "category": "automation",
+      "name": "Power Automate 桌面流",
+      "officialUrl": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/introduction",
+      "summary": "把稳定的文件、Excel 和桌面操作编排成规则流程。",
+      "capabilities": [
+        "预置动作",
+        "录制桌面操作",
+        "文件与 Excel 自动化"
+      ],
+      "enterpriseExample": "每天把规定目录的报表整理、校验命名，再复制到归档目录。",
+      "quickStart": [
+        "写清触发与输入",
+        "录制或组合动作",
+        "用异常文件测试并保留日志"
+      ],
+      "validation": [
+        "同名文件处理规则",
+        "程序窗口变化后的稳定性"
+      ],
+      "constraints": [
+        "这是规则自动化工具，AI 能力需按实际流程配置",
+        "执行环境、账号和无人值守条件需确认"
+      ],
+      "sourceIds": [
+        "power-automate"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    },
+    {
+      "id": "kimi-work",
+      "category": "automation",
+      "name": "Kimi Work",
+      "officialUrl": "https://www.kimi.com/business",
+      "summary": "连接本地文件并执行文档与数据类任务。",
+      "capabilities": [
+        "本地文件任务",
+        "定时任务",
+        "办公产物整理"
+      ],
+      "enterpriseExample": "定期读取指定业务文件夹，整理汇报草稿供负责人检查。",
+      "quickStart": [
+        "限定目录和输出类型",
+        "先完成一次手动测试",
+        "核对后配置周期任务"
+      ],
+      "validation": [
+        "只读与写入范围明确",
+        "失败时有可定位的任务记录"
+      ],
+      "constraints": [
+        "官方说明桌面端连接本地文件",
+        "组织权限和运行条件需依版本核实"
+      ],
+      "sourceIds": [
+        "kimi-business"
+      ],
+      "checkedAt": "2026-09-19",
+      "pricing": "以官方当前页面与企业合同为准",
+      "availability": "使用前由企业确认账号、版本和使用环境"
+    }
+  ],
+  "sources": [
+    {
+      "id": "tingwu",
+      "title": "通义听悟官网",
+      "url": "https://tingwu.aliyun.com/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "实时转写、多语言翻译、区分发言人、章节与待办总结。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "minutes",
+      "title": "飞书妙记产品页",
+      "url": "https://www.feishu.cn/product/minutes",
+      "evidenceLevel": "官方页面标题与搜索摘要",
+      "supports": "语音转文字、会议纪要和待办总结。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "minutes-help",
+      "title": "快速上手飞书妙记",
+      "url": "https://www.feishu.cn/hc/zh-CN/articles/330133403883-快速上手飞书妙记",
+      "evidenceLevel": "官方帮助搜索摘要",
+      "supports": "会议、培训、访谈音视频转成可搜索的文字笔记。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "tencent-meeting",
+      "title": "腾讯会议 AI 小助手 Pro",
+      "url": "https://meeting.tencent.com/ai/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "提炼讨论重点、整理会议待办，上传文件或云录制后分析总结。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "feishu-base",
+      "title": "飞书多维表格",
+      "url": "https://base.feishu.cn/",
+      "evidenceLevel": "官方产品搜索摘要",
+      "supports": "AI 字段支持提取、分类、翻译润色，业务数据协作与可视化。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "feishu-dashboard",
+      "title": "多维表格仪表盘入门",
+      "url": "https://base.feishu.cn/academy/videos/dashboard-3min",
+      "evidenceLevel": "官方课程搜索摘要",
+      "supports": "条形图、饼图、统计数字等仪表盘能力。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "wps-ai",
+      "title": "WPS AI 功能入口",
+      "url": "https://vip.wps.cn/",
+      "evidenceLevel": "官方产品搜索摘要",
+      "supports": "AI 内容创作、生成 PPT、写公式、阅读理解。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "excel-copilot",
+      "title": "Get started with Copilot in Excel",
+      "url": "https://support.microsoft.com/en-us/excel/copilot/get-started-with-copilot-in-excel",
+      "evidenceLevel": "官方帮助正文",
+      "supports": "编辑工作表、生成公式、图表和数据透视表，发现趋势与异常。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "kimi-slides",
+      "title": "Kimi Slides",
+      "url": "https://www.kimi.com/slides",
+      "evidenceLevel": "官方产品标题及企业产品正文交叉核实",
+      "supports": "AI 演示文稿制作。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "kimi-business",
+      "title": "Kimi 企业版",
+      "url": "https://www.kimi.com/business",
+      "evidenceLevel": "官方产品正文",
+      "supports": "PPT、文档、表格、PDF，Kimi Work 连接本地文件并支持定时任务。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "gamma",
+      "title": "Gamma 官方产品页",
+      "url": "https://gamma.app/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "从提示、提纲、现有内容制作演示，编辑主题，可导出 PPT/PDF。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "wps-ppt",
+      "title": "WPS AI PPT Maker",
+      "url": "https://www.wps.com/feature/ai-ppt-maker/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "提示生成演示，WPS Presentation 原生编辑，导出 PPTX/PDF。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "qwen",
+      "title": "Qwen 官方入口",
+      "url": "https://chat.qwen.ai/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "Qwen 官方对话应用入口。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "qwen-capabilities",
+      "title": "Alibaba: Our Approach",
+      "url": "https://www.alibabagroup.com/en-US/ai-governance/our-approach",
+      "evidenceLevel": "官方集团正文",
+      "supports": "Qwen 模型家族支持写作、代码及图像音频数据理解。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "kimi-docs",
+      "title": "Kimi Docs",
+      "url": "https://www.kimi.com/docs",
+      "evidenceLevel": "官方产品标题及企业产品正文交叉核实",
+      "supports": "AI 文档 Agent 与工作报告制作。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "notion",
+      "title": "Notion AI",
+      "url": "https://www.notion.com/product/ai",
+      "evidenceLevel": "官方产品正文",
+      "supports": "页面内生成初稿、改进写作，工作区检索，会议总结与数据库任务。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "jimeng",
+      "title": "即梦 AI",
+      "url": "https://jimeng.jianying.com/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "文/图生图片，文/图生视频，首尾帧与运镜控制，智能画布。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "firefly",
+      "title": "Adobe Firefly",
+      "url": "https://www.adobe.com/products/firefly.html",
+      "evidenceLevel": "官方产品正文",
+      "supports": "图像生成，生成式填充、扩展、提示编辑，视觉参考与协作画板。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "canva-image",
+      "title": "Canva AI Image Generator",
+      "url": "https://www.canva.com/ai-image-generator/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "文本或参考图生成，风格与画幅控制，设计内编辑。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "kling",
+      "title": "Kling AI Video Generator",
+      "url": "https://kling.ai/feature/ai-video-generator",
+      "evidenceLevel": "官方产品正文",
+      "supports": "文本/图像转视频，运动与人物参考控制。只采用通用能力，不复述营销绝对保证。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "runway",
+      "title": "Runway Creative",
+      "url": "https://runway.com/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "同一创作平台生成和编辑视频、图像、音频。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "metaso",
+      "title": "秘塔 AI 搜索",
+      "url": "https://metaso.cn/",
+      "evidenceLevel": "官方产品正文",
+      "supports": "AI 搜索、文件上传与幻灯片入口。",
+      "checkedAt": "2026-09-22"
+    },
+    {
+      "id": "metaso-app",
+      "title": "秘塔 AI 搜索开发者产品说明",
+      "url": "https://apps.apple.com/cn/app/秘塔ai搜索/id6478196963",
+      "evidenceLevel": "开发者在官方应用商店发布的第一方产品说明",
+      "supports": "带引用源的结构化搜索、学术与文库检索、大纲和脑图。",
+      "checkedAt": "2026-09-22"
+    },
+    {
+      "id": "notebook",
+      "title": "Google Notebook 官方帮助",
+      "url": "https://support.google.com/gemininotebook/answer/16164461?hl=en",
+      "evidenceLevel": "官方帮助正文",
+      "supports": "上传资料后基于来源回答并给出行内引用，可生成摘要与导读。当前标题为 Gemini Notebook。",
+      "checkedAt": "2026-09-22"
+    },
+    {
+      "id": "perplexity",
+      "title": "What is Perplexity?",
+      "url": "https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity",
+      "evidenceLevel": "官方帮助正文",
+      "supports": "网络搜索后组织答案，提供来源链接便于核对。",
+      "checkedAt": "2026-09-22"
+    },
+    {
+      "id": "workbuddy",
+      "title": "腾讯 WorkBuddy",
+      "url": "https://www.workbuddy.ai/",
+      "evidenceLevel": "官方产品搜索摘要",
+      "supports": "腾讯 AI 工作台，专家智能体规划、执行、并行任务。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "workbuddy-docs",
+      "title": "Tencent WorkBuddy 简介",
+      "url": "https://www.workbuddy.ai/docs/zh/",
+      "evidenceLevel": "官方帮助搜索摘要",
+      "supports": "可实际执行任务，批量整理、重命名、转换文件。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "power-automate",
+      "title": "Power Automate 桌面流入门",
+      "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/introduction",
+      "evidenceLevel": "官方帮助正文",
+      "supports": "通过预置动作或录制实现文件、Excel、网页、桌面应用的规则自动化。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "course-workbuddy",
+      "title": "用户培训材料：AI培训-workbuddy篇.pptx",
+      "url": "user-upload:AI培训-workbuddy篇.pptx",
+      "evidenceLevel": "用户提供资料；25 页 PPTX XML 文本提取",
+      "supports": "销售核价示例、专家、技能、连接器、手机助理、定时任务、资料库、协同与需求澄清。此来源不作为软件当前版本保证。",
+      "checkedAt": "2026-09-19"
+    },
+    {
+      "id": "notebook-chat-v9",
+      "title": "Google Notebook 官方：用来源聊天与引用核对",
+      "url": "https://support.google.com/gemininotebook/answer/16179559?hl=en",
+      "evidenceLevel": "官方产品文档",
+      "supports": "选择来源、来源内问答、点击引用、保存答案为笔记。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "notebook-sources-v9",
+      "title": "Google Notebook 官方：添加与管理来源",
+      "url": "https://support.google.com/gemininotebook/answer/16215270?hl=en",
+      "evidenceLevel": "官方产品文档",
+      "supports": "官方支持的来源类型与导入条件。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "notebook-map-v9",
+      "title": "Google Notebook 官方：思维导图",
+      "url": "https://support.google.com/gemininotebook/answer/16212283?hl=en",
+      "evidenceLevel": "官方产品文档",
+      "supports": "从资料探索主题与主题间的结构。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "notebook-reports-v9",
+      "title": "Google Notebook 官方：报告",
+      "url": "https://support.google.com/gemininotebook/answer/18323649?hl=en",
+      "evidenceLevel": "官方产品文档",
+      "supports": "基于资料创建结构化报告。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "notion-ai-faq-v9",
+      "title": "Notion AI 官方功能与使用说明",
+      "url": "https://www.notion.com/help/notion-ai-faqs",
+      "evidenceLevel": "官方产品文档",
+      "supports": "页面内起草、改写、语气与篇幅调整；接受或保留；知识检索、摘要和关键词。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "notion-wikis-v9",
+      "title": "Notion 官方：团队知识库",
+      "url": "https://www.notion.com/product/wikis",
+      "evidenceLevel": "官方产品文档",
+      "supports": "知识页面、负责人和内容验证。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "wps-writing-home-v9",
+      "title": "WPS 官方：AI 文档能力",
+      "url": "https://www.wps.com/",
+      "evidenceLevel": "官方产品文档",
+      "supports": "文档起草、结构整理、精修、展开和摘要问答。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "wps-reword-v9",
+      "title": "WPS 官方：AI Rewording Tool",
+      "url": "https://www.wps.com/tools/rewording-tool/",
+      "evidenceLevel": "官方产品文档",
+      "supports": "输入文字、调整篇幅、生成改写、审阅与复制。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "wps-email-v9",
+      "title": "WPS 官方：AI Email Writer",
+      "url": "https://www.wps.com/tools/ai-email-writer/",
+      "evidenceLevel": "官方产品文档",
+      "supports": "按目的生成邮件草稿并审阅结果。",
+      "checkedAt": "2026-09-20"
+    },
+    {
+      "id": "caie-visual",
+      "title": "CAIE 一级学习大纲",
+      "url": "https://www.caieglobal.com/studylevel1.html",
+      "evidenceLevel": "官方页面与用户参考材料",
+      "supports": "Prompt 与多模态学习结构；结合用户提供的文生图章节截图作理论参考。",
+      "checkedAt": "2026-09-21"
+    },
+    {
+      "id": "firefly-image-workflow",
+      "title": "Adobe Firefly 图像生成流程",
+      "url": "https://www.adobe.com/products/firefly/features/text-to-image.html",
+      "evidenceLevel": "官方产品文档",
+      "supports": "提示词、候选生成、参考图、迭代编辑与下载。",
+      "checkedAt": "2026-09-21"
+    },
+    {
+      "id": "firefly-edit-workflow",
+      "title": "Adobe Firefly 图像编辑",
+      "url": "https://www.adobe.com/products/firefly/features/ai-photo-editor.html",
+      "evidenceLevel": "官方产品文档",
+      "supports": "局部编辑、裁剪与扩展等图像修改能力。",
+      "checkedAt": "2026-09-21"
+    },
+    {
+      "id": "midjourney-prompt",
+      "title": "Midjourney Prompt Basics",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/32023408776205-Prompt-Basics",
+      "evidenceLevel": "官方产品文档",
+      "supports": "主体、媒介、环境、光线、颜色、情绪与构图的描述方法。",
+      "checkedAt": "2026-09-21"
+    },
+    {
+      "id": "midjourney-style",
+      "title": "Midjourney Style Reference",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference",
+      "evidenceLevel": "官方产品文档",
+      "supports": "用参考图片传达风格。",
+      "checkedAt": "2026-09-21"
+    },
+    {
+      "id": "midjourney-ratio",
+      "title": "Midjourney Aspect Ratio",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/31894244298125-Aspect-Ratio",
+      "evidenceLevel": "官方产品文档",
+      "supports": "控制生成图片的画幅比例。",
+      "checkedAt": "2026-09-21"
+    },
+    {
+      "id": "jianying-edit-official",
+      "title": "剪映 · AI工具与专业剪辑能力",
+      "url": "https://www.capcut.cn/"
+    },
+    {
+      "id": "premiere-edit-official",
+      "title": "Adobe Premiere · 转写、文本剪辑与字幕帮助",
+      "url": "https://helpx.adobe.com/premiere/desktop.html"
+    }
+  ],
+  "courseNotes": {
+    "file": "/workspace/scratch/1829f046b481/upload/AI培训-workbuddy篇.pptx",
+    "slideCount": 25,
+    "extraction": "直接解压 PPTX，按页读取 DrawingML 文本节点；未修改原稿。",
+    "keySlides": [
+      {
+        "pages": [
+          4,
+          5,
+          6
+        ],
+        "topic": "从问答到执行，销售核价与复用脚本案例"
+      },
+      {
+        "pages": [
+          7,
+          8,
+          11
+        ],
+        "topic": "专家决定处理视角，技能封装任务方法，连接器接入应用"
+      },
+      {
+        "pages": [
+          13,
+          14,
+          15
+        ],
+        "topic": "手机助理和本机定时周报"
+      },
+      {
+        "pages": [
+          16,
+          17
+        ],
+        "topic": "资料库与协同"
+      },
+      {
+        "pages": [
+          18,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "topic": "数据边界、选择场景、优化指令、模型与团队、先明确产物"
+      }
+    ],
+    "adaptations": [
+      {
+        "original": "对话式 AI 全部做不到直接处理文件等要求",
+        "siteCopy": "不同产品的执行能力、连接方式和权限不同。选择工具时确认它能否访问所需文件、执行步骤并交付可检查的产物。"
+      },
+      {
+        "original": "保存脚本后不消耗 token，也不会泄密",
+        "siteCopy": "不调用模型的本地脚本可以独立运行。是否联网、读取什么数据、是否泄露取决于脚本内容和运行环境，需要检查。"
+      },
+      {
+        "original": "连接器（Skill）",
+        "siteCopy": "连接器：连接外部应用的接口与授权；技能：完成任务的方法和操作说明。两者在培训中分开解释。"
+      },
+      {
+        "original": "电脑必须保持开机",
+        "siteCopy": "如果任务在本机运行，需要设备和执行环境可用；云端任务按实际部署方式确认。"
+      }
+    ],
+    "teachingPath": [
+      "选定真实重复任务",
+      "定义输入与产物",
+      "用脱敏样本跑通",
+      "检查异常与业务口径",
+      "保存步骤或脚本",
+      "按权限和运行条件决定是否自动执行"
+    ]
+  },
+  "demoCommon": {
+    "disclosure": "交互教学演示：使用虚构示例与确定性规则，不调用所列工具的在线模型。可复制提示词到官方工具实操。",
+    "behavior": "选项或输入改变后，结果必须重新计算或选择对应预制结果。显示输出采用的参数。支持重置、复制提示词和下载示例结果。",
+    "noFakeClaims": [
+      "不展示伪造的外部模型调用成功状态",
+      "不把教学样张标成刚刚实时生成",
+      "不把规划分镜标成已经生成视频",
+      "不把模拟桌面执行标成修改了用户电脑"
+    ],
+    "recommendedResultTabs": [
+      "结果预览",
+      "可复制提示词",
+      "人工检查"
+    ]
+  },
+  "demos": [
+    {
+      "id": "meeting-actions",
+      "category": "meetings",
+      "title": "把会议记录变成行动清单",
+      "goal": "学会区分决定、任务、风险和未明确事项",
+      "input": {
+        "date": "2026-09-21",
+        "transcript": "[00:10] 林悦：试点先选华东仓，10 月 9 日上线。\n[00:32] 赵宁：我在 9 月 25 日前完成主数据检查。\n[00:50] 陈晨：接口联调需要主数据先通过，计划 9 月 29 日完成。\n[01:15] 林悦：预算还没批，不要把试点费用写成已确认。\n[01:35] 王磊：培训由谁组织还需要确认。"
+      },
+      "controls": [
+        {
+          "id": "view",
+          "label": "整理目标",
+          "options": [
+            "行动清单",
+            "管理层摘要"
+          ]
+        },
+        {
+          "id": "risk",
+          "label": "包含风险与待确认",
+          "type": "boolean",
+          "default": true
+        }
+      ],
+      "outputs": {
+        "行动清单": {
+          "actions": [
+            {
+              "task": "完成主数据检查",
+              "owner": "赵宁",
+              "due": "2026-09-25",
+              "source": "00:32"
+            },
+            {
+              "task": "完成接口联调",
+              "owner": "陈晨",
+              "due": "2026-09-29",
+              "dependency": "主数据检查通过",
+              "source": "00:50"
+            },
+            {
+              "task": "确认培训组织者",
+              "owner": "待确认",
+              "due": "未明确",
+              "source": "01:35"
+            }
+          ],
+          "decisions": [
+            "试点范围：华东仓",
+            "计划上线日：2026-10-09"
+          ],
+          "risks": [
+            "试点预算尚未批准"
+          ]
+        },
+        "管理层摘要": {
+          "headline": "华东仓试点计划于 10 月 9 日上线，预算仍待批。",
+          "milestones": [
+            "9 月 25 日主数据检查",
+            "9 月 29 日接口联调"
+          ],
+          "needsDecision": [
+            "试点预算审批",
+            "培训负责人安排"
+          ]
+        }
+      },
+      "prompt": "请仅依据以下会议逐字稿整理{整理目标}。行动项必须包含任务、负责人、截止日期、前置条件和原文时间戳。原文未说明的字段写“待确认”，不得补全。将已决定事项与风险分开。逐字稿：{transcript}",
+      "validation": [
+        "计划日期不等于最终承诺",
+        "预算不得标为已批准",
+        "不为培训任务编造负责人"
+      ],
+      "implementation": "切换视图展示不同结构；风险开关只控制风险栏可见性。用户若修改文本，可用逐行结构化输入编辑任务，或明确仅提供示例材料运行，不能对任意输入返回固定结果。"
+    },
+    {
+      "id": "sheet-analysis",
+      "category": "spreadsheets",
+      "title": "采购台账：从原始数据到多维协作",
+      "goal": "理解数据清洗、主键、透视与可复核图表",
+      "input": {
+        "csv": "月份,地区,销售额,成本,订单数\n2026-07,华东,120000,84000,24\n2026-07,华南,90000,67500,18\n2026-07,华北,80000,56000,16\n2026-08,华东,150000,102000,30\n2026-08,华南,100000,72000,20\n2026-08,华北,95000,66500,19",
+        "unit": "人民币元；教学数据，不含真实客户"
+      },
+      "controls": [
+        {
+          "id": "metric",
+          "label": "指标",
+          "options": [
+            "销售额",
+            "毛利",
+            "毛利率"
+          ]
+        },
+        {
+          "id": "group",
+          "label": "查看维度",
+          "options": [
+            "按月份",
+            "按地区"
+          ]
+        },
+        {
+          "id": "chart",
+          "label": "图表",
+          "options": [
+            "柱状图",
+            "折线图"
+          ]
+        }
+      ],
+      "outputs": {
+        "byMonth": {
+          "labels": [
+            "2026-07",
+            "2026-08"
+          ],
+          "sales": [
+            290000,
+            345000
+          ],
+          "cost": [
+            207500,
+            240500
+          ],
+          "grossProfit": [
+            82500,
+            104500
+          ],
+          "grossMargin": [
+            28.4482758621,
+            30.2898550725
+          ]
+        },
+        "byRegion": {
+          "labels": [
+            "华东",
+            "华南",
+            "华北"
+          ],
+          "sales": [
+            270000,
+            190000,
+            175000
+          ],
+          "grossProfit": [
+            84000,
+            50500,
+            52500
+          ],
+          "grossMargin": [
+            31.1111111111,
+            26.5789473684,
+            30
+          ]
+        },
+        "comparison": {
+          "salesGrowthPct": 18.9655172414,
+          "grossProfitGrowthPct": 26.6666666667,
+          "grossMarginChangePp": 1.8415792104
+        }
+      },
+      "prompt": "请先预览采购台账的清洗变更，经我确认后执行。以订单号+行号为主键，只移除完全重复行，冲突行保留待核对。按提供的主数据统一供应商，金额转为数值、日期统一格式，缺失值不得猜填。仅汇总通过校验的 CNY 未税记录，数量为吨。采购金额=数量×单价，加权单价=汇总金额/汇总数量。按供应商与月份建立透视表，点击汇总可追溯明细；图表写清单位，保留原始表和变更日志。",
+      "validation": [
+        "同一订单的不同明细行不能误删；主键冲突需核对双方记录",
+        "加权单价不能直接平均；去重订单数的总计要从明细重算",
+        "格式显示、统计单位与图表刻度保持一致",
+        "多维关联和自动化规则在真实工具中另行配置"
+      ],
+      "implementation": "必须解析和计算 CSV；若允许编辑，金额非数值和缺少列时显示清楚错误；图表和摘要都从聚合结果生成。可下载聚合 CSV。"
+    },
+    {
+      "id": "ppt-outline",
+      "category": "presentations",
+      "title": "宝信供应链 AI 材料：图文编辑与汇报制作工作台",
+      "goal": "把 AI 生成草稿改成有来源、遵守模板、可以审核的工作汇报",
+      "input": {
+        "brief": "华东仓 AI 单据试点：目标减少手工录入。教学样本 200 张单据，人工复核发现 12 张需修正。试点 4 周，团队 3 人。下一阶段需确认接口与试点预算。未测算节省工时，不得写 ROI。"
+      },
+      "controls": [
+        {
+          "id": "audience",
+          "label": "受众",
+          "options": [
+            "管理层",
+            "项目执行团队"
+          ]
+        },
+        {
+          "id": "pages",
+          "label": "页数",
+          "options": [
+            4,
+            6
+          ]
+        },
+        {
+          "id": "style",
+          "label": "视觉风格",
+          "options": [
+            "简洁商务",
+            "教学讲解"
+          ]
+        }
+      ],
+      "outputs": {
+        "管理层": [
+          "试点进展与所需决策",
+          "样本复核：200 张中 12 张需修正",
+          "下一阶段的范围与风险",
+          "需要批准的事项"
+        ],
+        "项目执行团队": [
+          "试点目标与工作范围",
+          "当前处理流程与人工复核",
+          "12 张需修正样本的分类计划",
+          "接口联调与验收安排"
+        ],
+        "additionalPages": [
+          "交付物与验收清单",
+          "责任分工与后续检查时间"
+        ],
+        "facts": {
+          "sampleCount": 200,
+          "correctionCount": 12,
+          "correctionRatePct": 6,
+          "durationWeeks": 4,
+          "teamSize": 3
+        }
+      },
+      "prompt": "仅依据提供的供应链 AI 产品 PDF，为指定受众按已确认的逐页策划制作汇报。每页配图使用提供的材料截图或用户图片，保留来源，按数量与文字长度排版。先确认逐页标题、主要信息、最多 3 个要点、版式和来源页，再生成。必须使用给定 PPTX/POTX 母版，只填占位符，不更换 Logo、字体、主题、页脚或页码。如果不支持母版，请输出逐页结构化内容供人工套用。数字必须有原文依据；规划、案例与已上线结果分开。每页保留来源与讲者备注，信息过多时拆页或移入备注。生成后逐页人工核对，并在导出文件中检查字体、裁切、编辑性与显示。",
+      "validation": [
+        "PDF 视觉参考不等于正式 PPT 母版",
+        "文件名日期与原封面日期不一致，汇报日期另行确认",
+        "材料没有提供的准确率、ROI 或效率提升比例不可补造",
+        "规划与 MVP 清单不自动等于生产全面上线",
+        "规则检查不能代替逐页事实审核；本站导出内容包不是 PPTX"
+      ],
+      "implementation": "预览生成真实的页面缩略图与可翻页文字；页数切换改变实际页数，风格改变配色排版，受众改变提纲。可下载 Markdown 提纲，不把它标成 PPTX。"
+    },
+    {
+      "id": "writing-variants",
+      "category": "writing",
+      "title": "资料、文稿与团队知识工作台",
+      "goal": "理解来源约束、段落精修、人工复核与知识复用的完整过程",
+      "input": {
+        "notes": "选择“采购审单助手试点”或“海外 ERP 上线准备”的教学资料，可补充本地文本和粘贴笔记。"
+      },
+      "controls": [
+        {
+          "id": "source",
+          "label": "资料范围",
+          "options": [
+            "最新材料",
+            "包含旧版",
+            "补充资料"
+          ]
+        },
+        {
+          "id": "format",
+          "label": "文稿类型",
+          "options": [
+            "项目周报",
+            "客户沟通邮件",
+            "决策简报",
+            "操作与复核清单"
+          ]
+        },
+        {
+          "id": "audience",
+          "label": "受众",
+          "options": [
+            "管理层",
+            "客户业务负责人",
+            "项目交付团队"
+          ]
+        },
+        {
+          "id": "tone",
+          "label": "语气",
+          "options": [
+            "正式清楚",
+            "直接易懂"
+          ]
+        }
+      ],
+      "prompt": "请仅依据所选来源，为{受众}撰写{文稿类型}，使用{语气}，篇幅{要求}。保留数字、日期、责任人与“计划/已完成”的差别；不新增上线承诺、准确率或收益。每段附来源和版本，缺少依据写待确认，发现版本冲突列出差异。输出标题、分节正文、行动清单和待确认事项。改写时逐段提出建议，让我比较后决定是否采用。",
+      "validation": [
+        "每段引用能直接支持结论，旧版资料已区分",
+        "数字、日期和责任人没有因改写而变化",
+        "计划、演练、验收和生产效果没有混写",
+        "人工修改后重新复核；导出包含当前版本和来源"
+      ],
+      "implementation": "可选择来源并回查引用，模拟 PDF 导入，实际读取 TXT/MD；从所选资料按模板起草，逐段编辑并采用或撤回规则改写，保留本次会话版本；生成可编辑知识卡、主题导图与行动清单；导出实际 DOCX、Markdown、知识卡 JSON 和 CSV。问答和改写不调用外部模型。"
+    },
+    {
+      "id": "image-brief",
+      "category": "images",
+      "title": "写出可控的图片创作简报",
+      "goal": "理解用途、画幅、主体位置与文字空间",
+      "input": {
+        "subject": "企业 AI 实操培训",
+        "scene": "一张整洁桌面上的笔记本电脑与纸质任务清单",
+        "headline": "让 AI 完成下一项工作"
+      },
+      "controls": [
+        {
+          "id": "style",
+          "label": "风格",
+          "options": [
+            "真实摄影",
+            "纸感拼贴",
+            "几何插画"
+          ]
+        },
+        {
+          "id": "ratio",
+          "label": "用途与画幅",
+          "options": [
+            "演示封面 16:9",
+            "手机海报 9:16"
+          ]
+        },
+        {
+          "id": "copyPosition",
+          "label": "标题位置",
+          "options": [
+            "左侧",
+            "上方"
+          ]
+        }
+      ],
+      "outputs": {
+        "真实摄影": {
+          "palette": [
+            "暖白",
+            "墨绿",
+            "自然木色"
+          ],
+          "lighting": "柔和侧窗光",
+          "detail": "真实办公材质，浅景深，主体简洁"
+        },
+        "纸感拼贴": {
+          "palette": [
+            "米白",
+            "橙红",
+            "黑"
+          ],
+          "lighting": "平面均匀光",
+          "detail": "剪纸边缘、纸张纹理与少量手写符号"
+        },
+        "几何插画": {
+          "palette": [
+            "奶油白",
+            "蓝绿",
+            "黄色"
+          ],
+          "lighting": "无摄影光照要求",
+          "detail": "平面几何形状与明确轮廓，避免复杂背景"
+        }
+      },
+      "prompt": "用途：供应链 AI 项目汇报封面。主体：钢铁制造园区、卷材、仓库与港口物流。风格：等距工业 3D。构图：16:9，主体偏右，左侧预留标题空间。光色：柔和日光，深蓝与铜色点缀。约束：图片中不生成文字、Logo 或业务数字，标题在后期独立排版。",
+      "validation": [
+        "检查主体、数量、边缘与空间关系",
+        "确认文字可读，画幅符合使用场景",
+        "保留制作提示词和参考图来源",
+        "概念图与真实项目证据区分，按真实显示尺寸复核"
+      ],
+      "implementation": "展示三张事先准备的教学样张，明确标注“预制风格样张”；切换画幅应用对应裁切与标题层，并更新可复制提示词。不使用假在线生成进度。"
+    },
+    {
+      "id": "video-storyboard",
+      "category": "video",
+      "title": "从真实素材剪出一段短片",
+      "goal": "用两条练习掌握选材、脚本、剪辑、字幕、声音和导出",
+      "input": {
+        "brief": "面向新员工，介绍把会议记录整理为行动清单的过程。不得展示真实客户信息。",
+        "subject": "会议记录变行动清单"
+      },
+      "controls": [
+        {
+          "id": "duration",
+          "label": "成片时长",
+          "options": [
+            15,
+            30
+          ]
+        },
+        {
+          "id": "format",
+          "label": "画幅",
+          "options": [
+            "横屏 16:9",
+            "竖屏 9:16"
+          ]
+        },
+        {
+          "id": "tone",
+          "label": "节奏",
+          "options": [
+            "清晰教学",
+            "轻快宣传"
+          ]
+        }
+      ],
+      "outputs": {
+        "15": [
+          {
+            "start": 0,
+            "end": 4,
+            "shot": "杂乱会议笔记近景",
+            "voice": "会议结束，下一步谁来做？"
+          },
+          {
+            "start": 4,
+            "end": 10,
+            "shot": "画面分成任务、负责人、截止日期三栏",
+            "voice": "让 AI 提取行动，再逐条回到原文核对。"
+          },
+          {
+            "start": 10,
+            "end": 15,
+            "shot": "核对后的清单，待确认项显著标注",
+            "voice": "确认事实后，把行动交回团队。"
+          }
+        ],
+        "30": [
+          {
+            "start": 0,
+            "end": 5,
+            "shot": "会议场景与零散笔记",
+            "voice": "会议记录很多，行动却需要重新整理。"
+          },
+          {
+            "start": 5,
+            "end": 12,
+            "shot": "输入脱敏会议文字",
+            "voice": "先提供完整记录，说明输出字段。"
+          },
+          {
+            "start": 12,
+            "end": 21,
+            "shot": "任务清单形成，显示原文时间戳",
+            "voice": "提取负责人、日期和前置条件，保留来源。"
+          },
+          {
+            "start": 21,
+            "end": 30,
+            "shot": "人工检查清单中的待确认项",
+            "voice": "复核重要内容，再确认责任和下一步。"
+          }
+        ]
+      },
+      "prompt": "请作为视频编导，依据我的目的、观众、可用镜头及实际时长，编写镜头作用和简短旁白；不添加未经确认的产品能力和成效数字。指出还缺哪一种镜头，并写出包含主体、动作、运镜、衔接和约束的补镜提示词。",
+      "validation": [
+        "切点、开头和结尾已完整播放检查",
+        "产品名、术语、数字和字幕时间已校对",
+        "声音清楚，生成画面与真实实拍用途清晰"
+      ],
+      "implementation": "真实 HTML 视频与本机时间线剪辑；Canvas + MediaRecorder 合成文字和声音轨道；SRT 字幕导入导出。云端仅按镜头描述改写旁白，外部工具生成补镜、识别字幕和配音后可导入。"
+    },
+    {
+      "id": "mobile-todo",
+      "category": "meetings",
+      "title": "把移动口述整理为待办",
+      "goal": "先解析相对时间和责任，再创建任务",
+      "input": {
+        "referenceDate": "2026-09-21（周一）",
+        "voiceText": "明天下午三点前，提醒我把华东仓报价复核一遍；这周五请赵宁确认主数据。采购会的资料也要准备，时间还没定。"
+      },
+      "controls": [
+        {
+          "id": "referenceDate",
+          "label": "口述日期",
+          "type": "date",
+          "default": "2026-09-21"
+        },
+        {
+          "id": "group",
+          "label": "整理方式",
+          "options": [
+            "按截止时间",
+            "按负责人"
+          ]
+        }
+      ],
+      "outputs": {
+        "tasks": [
+          {
+            "title": "复核华东仓报价",
+            "owner": "我",
+            "dueRule": "referenceDate + 1 day, 15:00"
+          },
+          {
+            "title": "确认主数据",
+            "owner": "赵宁",
+            "dueRule": "referenceDate 所在周的星期五；未给具体时刻"
+          },
+          {
+            "title": "准备采购会资料",
+            "owner": "待确认",
+            "dueRule": "未明确"
+          }
+        ]
+      },
+      "prompt": "请把口述记录整理为待办。口述日期为{referenceDate}。将相对日期转换为绝对日期，未说明时间或负责人时标为“待确认”。按{整理方式}排列。只输出可审核任务草稿，不直接发送或创建日程。口述：{voiceText}",
+      "validation": [
+        "明天根据口述日期计算",
+        "周五不自动编造具体时间",
+        "“请赵宁”需由团队确认后再分派"
+      ],
+      "implementation": "日期选择器必须实际改变绝对日期。若只有文本输入，按钮写“整理口述文本”，不得暗示已录音。只在接入浏览器麦克风与语音识别后才展示真实录音入口。"
+    },
+    {
+      "id": "research-evidence",
+      "category": "research",
+      "title": "从研究问题到可追溯简报",
+      "goal": "明确问题、设计搜索、收集资料、核对结论、交付简报",
+      "input": {
+        "question": "试点是否已达到推广条件？",
+        "documents": [
+          {
+            "id": "S1",
+            "title": "试点说明 v1",
+            "text": "目标为连续 4 周观察后评审。目前仅完成第 2 周。"
+          },
+          {
+            "id": "S2",
+            "title": "样本复核记录",
+            "text": "教学样本 200 张，12 张需人工修正。未记录处理耗时。"
+          },
+          {
+            "id": "S3",
+            "title": "周会记录",
+            "text": "推广预算尚未批准，接口验收时间待定。"
+          }
+        ]
+      },
+      "controls": [
+        {
+          "id": "scope",
+          "label": "依据资料",
+          "type": "multiselect",
+          "options": [
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "default": [
+            "S1",
+            "S2",
+            "S3"
+          ]
+        },
+        {
+          "id": "output",
+          "label": "输出形式",
+          "options": [
+            "结论与证据",
+            "待补资料清单"
+          ]
+        }
+      ],
+      "outputs": {
+        "claims": [
+          {
+            "text": "当前资料不足以确认已达到推广条件。",
+            "requires": [
+              "S1",
+              "S2",
+              "S3"
+            ]
+          },
+          {
+            "text": "观察期尚未完成。",
+            "requires": [
+              "S1"
+            ]
+          },
+          {
+            "text": "样本需修正比例为 6%，尚不能据此判断处理效率。",
+            "requires": [
+              "S2"
+            ]
+          },
+          {
+            "text": "预算与接口验收仍待确认。",
+            "requires": [
+              "S3"
+            ]
+          }
+        ],
+        "gaps": [
+          "第 3、4 周观察数据",
+          "处理耗时与对照口径",
+          "接口验收记录",
+          "预算批准记录"
+        ]
+      },
+      "prompt": "仅使用所选来源回答：{question}。每条事实标注来源编号。区分事实、推断和缺失信息。来源没有提供的信息请明确写“资料未提供”，不要用常识补齐。",
+      "validation": [
+        "每条结论有支持它的来源",
+        "关闭某来源后相应结论消失",
+        "不把 6% 需修正率等同于整体模型准确率"
+      ],
+      "implementation": "内置两个案例，支持添加 TXT / Markdown 或粘贴原文。材料内搜索、来源选择、引用原句定位与简报导出为真实交互；可调用网站已配置的免费模型整理所选资料。联网找资料通过官方工具入口完成，本页不伪装实时搜索。"
+    },
+    {
+      "id": "desktop-price-check",
+      "category": "automation",
+      "title": "批量核对销售价格",
+      "goal": "把输入、匹配规则、异常和输出文件讲清楚",
+      "input": {
+        "sales": [
+          {
+            "file": "华东销售.xlsx",
+            "sku": "A100",
+            "actual": 98
+          },
+          {
+            "file": "华东销售.xlsx",
+            "sku": "A200",
+            "actual": 210
+          },
+          {
+            "file": "华南销售.xlsx",
+            "sku": "A300",
+            "actual": 150
+          },
+          {
+            "file": "华南销售.xlsx",
+            "sku": "A999",
+            "actual": 85
+          }
+        ],
+        "priceList": [
+          {
+            "sku": "A100",
+            "suggested": 100
+          },
+          {
+            "sku": "A200",
+            "suggested": 200
+          },
+          {
+            "sku": "A300",
+            "suggested": 150
+          }
+        ],
+        "origin": "改编自用户 WorkBuddy 培训第 5 页"
+      },
+      "controls": [
+        {
+          "id": "tolerance",
+          "label": "忽略差异金额（元）",
+          "type": "number",
+          "min": 0,
+          "default": 0
+        },
+        {
+          "id": "outputMode",
+          "label": "输出内容",
+          "options": [
+            "全部记录",
+            "仅差异与未匹配"
+          ]
+        },
+        {
+          "id": "destination",
+          "label": "输出文件夹",
+          "type": "text",
+          "default": "核对结果"
+        }
+      ],
+      "outputs": {
+        "rows": [
+          {
+            "sku": "A100",
+            "suggested": 100,
+            "diff": -2,
+            "status": "低于建议价",
+            "color": "blue"
+          },
+          {
+            "sku": "A200",
+            "suggested": 200,
+            "diff": 10,
+            "status": "高于建议价",
+            "color": "red"
+          },
+          {
+            "sku": "A300",
+            "suggested": 150,
+            "diff": 0,
+            "status": "一致",
+            "color": "default"
+          },
+          {
+            "sku": "A999",
+            "suggested": null,
+            "diff": null,
+            "status": "未匹配，需人工确认",
+            "color": "amber"
+          }
+        ],
+        "files": [
+          "华东销售_核对表.csv",
+          "华南销售_核对表.csv",
+          "异常记录.csv"
+        ],
+        "scriptPlan": [
+          "枚举销售文件",
+          "校验价格表 SKU 唯一性",
+          "按 SKU 左连接",
+          "计算差异并保留未匹配行",
+          "保存副本与异常日志"
+        ]
+      },
+      "prompt": "请在{输入目录}中识别销售表和价格表，先校验 SKU 是否唯一。按 SKU 匹配建议销售价，比较实际价；差异绝对值不超过{tolerance}元视为容差内。低于建议价标蓝，高于标红，未匹配单独标注。原文件保留，结果另存到{destination}，同名增加序号。输出核对表、异常清单和处理日志。先用样本验证规则，再提供可复用脚本。",
+      "validation": [
+        "价格表重复键不得静默覆盖",
+        "未匹配行不能丢失",
+        "容差改变后状态应重新计算",
+        "重复执行不覆盖原件"
+      ],
+      "implementation": "教学模拟只处理页面内数据。逐步显示输入、匹配、异常、输出，可下载实际生成的 CSV；若没有 XLSX 库，不宣称 CSV 能保存字体颜色。提示保存为 XLSX 才能保留红蓝格式。"
+    }
+  ],
+  "implementationPriorities": [
+    "所有官方链接可点击，工具卡展示核查日期与来源入口",
+    "分类筛选、关键词搜索与收藏必须真实工作",
+    "每个演示至少一个改变计算或输出内容的参数",
+    "结果可复制，CSV/Markdown 下载扩展名应与实际内容一致",
+    "无模型后端时明确教学模拟，不混淆演示与工具实测",
+    "事实、推断、待确认和人工复核项分别显示"
+  ],
+  "recommendedToolCardFields": [
+    "工具名称",
+    "一句话用途",
+    "适合任务",
+    "三步开始",
+    "需要人工检查什么",
+    "官方入口",
+    "来源与核查日期"
+  ]
+}

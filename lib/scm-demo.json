@@ -1,0 +1,918 @@
+{
+  "meta": {
+    "version": 1,
+    "language": "zh-CN",
+    "dataMode": "synthetic",
+    "disclosure": "所有公司、订单、库存与代码均为教学演示数据。",
+    "currency": "CNY",
+    "amountBasis": "未税金额；不含运费、折扣与汇率换算。",
+    "interactionDisclosure": "代码修改与测试结果为预设教学演示，不连接业务系统，也不实际运行 TypeScript。"
+  },
+  "ui": {
+    "siteTitle": "AI × ERP / SCM 实践课堂",
+    "siteSubtitle": "从业务数据到工程改进，亲手走一遍可验证的 AI 工作流。",
+    "tabs": {
+      "matching": "三单匹配",
+      "inventory": "库存补货",
+      "coding": "工程助手"
+    },
+    "matching": {
+      "title": "让差异先被看见",
+      "description": "核对采购、收货与发票，找出数量、单价和审批例外。",
+      "action": "开始核对",
+      "reset": "重置演示",
+      "empty": "点击“开始核对”，查看本批次匹配结果。",
+      "filters": {
+        "all": "全部单据",
+        "exception": "差异待处理",
+        "approval": "大额待审批",
+        "matched": "三单匹配"
+      },
+      "quantityDefinition": "数量差异 = 发票数量 − 收货数量",
+      "priceDefinition": "单价差异 = 发票单价 − 采购单价",
+      "amountDefinition": "金额差异 = 发票金额 − 收货数量 × 采购单价",
+      "approvalRule": "发票金额达到 ¥100,000 时需大额审批；三单一致也不能跳过。",
+      "thresholdLabel": "大额审批阈值",
+      "varianceLabel": "差异说明",
+      "reviewLabel": "待人工复核",
+      "statusNote": "数量或单价存在差异时先复核；匹配一致的大额发票进入审批。"
+    },
+    "inventory": {
+      "title": "看懂需求、交期与安全库存",
+      "description": "调整需求或交期，观察补货建议如何变化。",
+      "formula": "建议补货量 = max(0, 日均需求 ×（采购交期 + 安全天数）− 现有库存)",
+      "assumptions": "简化演示：需求与交期固定，不考虑在途、预留、批量约束和缺货回补。",
+      "dailyDemand": "日均需求",
+      "leadDays": "采购交期（天）",
+      "onHand": "现有库存",
+      "safetyDays": "安全天数",
+      "targetStock": "目标库存",
+      "reorder": "建议补货量",
+      "reset": "恢复初始参数",
+      "scenarioLabel": "情景调整",
+      "demandMultiplier": "需求系数",
+      "extraLeadDays": "交期增加天数",
+      "calculationNote": "情景值代入同一公式；展示数值时保留必要精度，原始计算不提前四舍五入。"
+    },
+    "coding": {
+      "title": "把“帮我修一下”变成可验证的任务",
+      "description": "选择一个真实业务形态的代码缺陷，比较提示词与修复前后的测试结果。",
+      "scenario": "选择场景",
+      "weakPrompt": "模糊提示",
+      "specificPrompt": "明确提示",
+      "testAwarePrompt": "带验收条件",
+      "before": "修改前",
+      "after": "建议修改",
+      "tests": "预设测试结果",
+      "run": "查看修复演示",
+      "reset": "重置场景",
+      "passed": "通过",
+      "failed": "未通过",
+      "explanation": "为什么这样改",
+      "takeaway": "提示词要点",
+      "copyPrompt": "复制提示词",
+      "copied": "已复制",
+      "simulationBadge": "预设演示",
+      "simulationNote": "展示预设的代码与测试结果，不实际调用模型或执行代码。"
+    }
+  },
+  "invoiceMatching": {
+    "largeAmountApprovalThreshold": 100000,
+    "tolerance": {
+      "quantity": 0,
+      "unitPrice": 0
+    },
+    "summary": {
+      "recordCount": 6,
+      "quantityVarianceCount": 2,
+      "priceVarianceCount": 1,
+      "exceptionCount": 3,
+      "approvalCount": 1,
+      "matchedCount": 2,
+      "invoiceAmountTotal": 184200,
+      "amountVarianceTotal": 809
+    },
+    "records": [
+      {
+        "id": "INV-260901",
+        "purchaseOrderId": "PO-260901",
+        "receiptId": "GR-260901",
+        "invoiceId": "INV-260901",
+        "sku": "SKU-MOTOR",
+        "itemName": "伺服电机",
+        "supplier": "华东机电",
+        "currency": "CNY",
+        "orderedQty": 24,
+        "receivedQty": 24,
+        "invoicedQty": 24,
+        "poUnitPrice": 680,
+        "invoiceUnitPrice": 680,
+        "invoiceAmount": 16320,
+        "expectedReceivedAmount": 16320,
+        "quantityVariance": 0,
+        "unitPriceVariance": 0,
+        "amountVariance": 0,
+        "hasQuantityVariance": false,
+        "hasPriceVariance": false,
+        "requiresLargeAmountApproval": false,
+        "status": "matched",
+        "statusLabel": "三单匹配",
+        "explanation": "采购单、收货单与发票的数量及单价一致，可进入下一步。"
+      },
+      {
+        "id": "INV-260902",
+        "purchaseOrderId": "PO-260902",
+        "receiptId": "GR-260902",
+        "invoiceId": "INV-260902",
+        "sku": "SKU-BEARING",
+        "itemName": "精密轴承",
+        "supplier": "苏州精工",
+        "currency": "CNY",
+        "orderedQty": 100,
+        "receivedQty": 98,
+        "invoicedQty": 100,
+        "poUnitPrice": 32,
+        "invoiceUnitPrice": 32,
+        "invoiceAmount": 3200,
+        "expectedReceivedAmount": 3136,
+        "quantityVariance": 2,
+        "unitPriceVariance": 0,
+        "amountVariance": 64,
+        "hasQuantityVariance": true,
+        "hasPriceVariance": false,
+        "requiresLargeAmountApproval": false,
+        "status": "exception",
+        "statusLabel": "差异待处理",
+        "explanation": "发票数量 100，收货数量 98，多开票 2 件；请核对补收货或更正发票。"
+      },
+      {
+        "id": "INV-260903",
+        "purchaseOrderId": "PO-260903",
+        "receiptId": "GR-260903",
+        "invoiceId": "INV-260903",
+        "sku": "SKU-SENSOR",
+        "itemName": "温度传感器",
+        "supplier": "深南电子",
+        "currency": "CNY",
+        "orderedQty": 60,
+        "receivedQty": 60,
+        "invoicedQty": 60,
+        "poUnitPrice": 40,
+        "invoiceUnitPrice": 42,
+        "invoiceAmount": 2520,
+        "expectedReceivedAmount": 2400,
+        "quantityVariance": 0,
+        "unitPriceVariance": 2,
+        "amountVariance": 120,
+        "hasQuantityVariance": false,
+        "hasPriceVariance": true,
+        "requiresLargeAmountApproval": false,
+        "status": "exception",
+        "statusLabel": "差异待处理",
+        "explanation": "发票单价 ¥42，采购单价 ¥40，每件高 ¥2，合计差额 ¥120。"
+      },
+      {
+        "id": "INV-260904",
+        "purchaseOrderId": "PO-260904",
+        "receiptId": "GR-260904",
+        "invoiceId": "INV-260904",
+        "sku": "SKU-VALVE",
+        "itemName": "控制阀",
+        "supplier": "宁波流体",
+        "currency": "CNY",
+        "orderedQty": 80,
+        "receivedQty": 75,
+        "invoicedQty": 80,
+        "poUnitPrice": 125,
+        "invoiceUnitPrice": 125,
+        "invoiceAmount": 10000,
+        "expectedReceivedAmount": 9375,
+        "quantityVariance": 5,
+        "unitPriceVariance": 0,
+        "amountVariance": 625,
+        "hasQuantityVariance": true,
+        "hasPriceVariance": false,
+        "requiresLargeAmountApproval": false,
+        "status": "exception",
+        "statusLabel": "差异待处理",
+        "explanation": "发票数量 80，收货数量 75，多开票 5 件；请核对补收货或更正发票。"
+      },
+      {
+        "id": "INV-260905",
+        "purchaseOrderId": "PO-260905",
+        "receiptId": "GR-260905",
+        "invoiceId": "INV-260905",
+        "sku": "SKU-CONTROLLER",
+        "itemName": "工业控制器",
+        "supplier": "远航自动化",
+        "currency": "CNY",
+        "orderedQty": 10,
+        "receivedQty": 10,
+        "invoicedQty": 10,
+        "poUnitPrice": 15000,
+        "invoiceUnitPrice": 15000,
+        "invoiceAmount": 150000,
+        "expectedReceivedAmount": 150000,
+        "quantityVariance": 0,
+        "unitPriceVariance": 0,
+        "amountVariance": 0,
+        "hasQuantityVariance": false,
+        "hasPriceVariance": false,
+        "requiresLargeAmountApproval": true,
+        "status": "approval",
+        "statusLabel": "大额待审批",
+        "explanation": "数量和单价一致；发票金额 ¥150,000，达到 ¥100,000 的演示审批阈值。"
+      },
+      {
+        "id": "INV-260906",
+        "purchaseOrderId": "PO-260906",
+        "receiptId": "GR-260906",
+        "invoiceId": "INV-260906",
+        "sku": "SKU-PACK",
+        "itemName": "缓冲包装套件",
+        "supplier": "同益包装",
+        "currency": "CNY",
+        "orderedQty": 120,
+        "receivedQty": 120,
+        "invoicedQty": 120,
+        "poUnitPrice": 18,
+        "invoiceUnitPrice": 18,
+        "invoiceAmount": 2160,
+        "expectedReceivedAmount": 2160,
+        "quantityVariance": 0,
+        "unitPriceVariance": 0,
+        "amountVariance": 0,
+        "hasQuantityVariance": false,
+        "hasPriceVariance": false,
+        "requiresLargeAmountApproval": false,
+        "status": "matched",
+        "statusLabel": "三单匹配",
+        "explanation": "采购单、收货单与发票的数量及单价一致，可进入下一步。"
+      }
+    ]
+  },
+  "inventory": {
+    "formula": "Math.max(0, dailyDemand * (leadDays + safetyDays) - onHand)",
+    "parameterRanges": {
+      "dailyDemand": {
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "leadDays": {
+        "min": 0,
+        "max": 40,
+        "step": 1
+      },
+      "safetyDays": {
+        "min": 0,
+        "max": 15,
+        "step": 1
+      },
+      "onHand": {
+        "min": 0,
+        "max": 500,
+        "step": 1
+      }
+    },
+    "summary": {
+      "skuCount": 6,
+      "reorderSkuCount": 4,
+      "baselineReorderTotal": 137
+    },
+    "skus": [
+      {
+        "sku": "SKU-MOTOR",
+        "name": "伺服电机",
+        "unit": "件",
+        "dailyDemand": 12,
+        "leadDays": 5,
+        "onHand": 60,
+        "safetyDays": 2,
+        "leadTimeDemand": 60,
+        "safetyStock": 24,
+        "targetStock": 84,
+        "baselineReorder": 24,
+        "stockStatus": "reorder",
+        "stockStatusLabel": "建议补货",
+        "calculation": "max(0, 12 × (5 + 2) − 60) = 24",
+        "explanation": "按当前需求和交期，目标库存为 84 件，现有 60 件，建议补货 24 件。"
+      },
+      {
+        "sku": "SKU-BEARING",
+        "name": "精密轴承",
+        "unit": "件",
+        "dailyDemand": 20,
+        "leadDays": 3,
+        "onHand": 50,
+        "safetyDays": 2,
+        "leadTimeDemand": 60,
+        "safetyStock": 40,
+        "targetStock": 100,
+        "baselineReorder": 50,
+        "stockStatus": "reorder",
+        "stockStatusLabel": "建议补货",
+        "calculation": "max(0, 20 × (3 + 2) − 50) = 50",
+        "explanation": "按当前需求和交期，目标库存为 100 件，现有 50 件，建议补货 50 件。"
+      },
+      {
+        "sku": "SKU-SENSOR",
+        "name": "温度传感器",
+        "unit": "件",
+        "dailyDemand": 8,
+        "leadDays": 10,
+        "onHand": 130,
+        "safetyDays": 3,
+        "leadTimeDemand": 80,
+        "safetyStock": 24,
+        "targetStock": 104,
+        "baselineReorder": 0,
+        "stockStatus": "sufficient",
+        "stockStatusLabel": "库存充足",
+        "calculation": "max(0, 8 × (10 + 3) − 130) = 0",
+        "explanation": "按当前需求和交期，目标库存为 104 件，现有 130 件，建议补货 0 件。"
+      },
+      {
+        "sku": "SKU-VALVE",
+        "name": "控制阀",
+        "unit": "件",
+        "dailyDemand": 15,
+        "leadDays": 4,
+        "onHand": 40,
+        "safetyDays": 2,
+        "leadTimeDemand": 60,
+        "safetyStock": 30,
+        "targetStock": 90,
+        "baselineReorder": 50,
+        "stockStatus": "reorder",
+        "stockStatusLabel": "建议补货",
+        "calculation": "max(0, 15 × (4 + 2) − 40) = 50",
+        "explanation": "按当前需求和交期，目标库存为 90 件，现有 40 件，建议补货 50 件。"
+      },
+      {
+        "sku": "SKU-CONTROLLER",
+        "name": "工业控制器",
+        "unit": "件",
+        "dailyDemand": 1,
+        "leadDays": 20,
+        "onHand": 12,
+        "safetyDays": 5,
+        "leadTimeDemand": 20,
+        "safetyStock": 5,
+        "targetStock": 25,
+        "baselineReorder": 13,
+        "stockStatus": "reorder",
+        "stockStatusLabel": "建议补货",
+        "calculation": "max(0, 1 × (20 + 5) − 12) = 13",
+        "explanation": "按当前需求和交期，目标库存为 25 件，现有 12 件，建议补货 13 件。"
+      },
+      {
+        "sku": "SKU-PACK",
+        "name": "缓冲包装套件",
+        "unit": "套",
+        "dailyDemand": 30,
+        "leadDays": 2,
+        "onHand": 100,
+        "safetyDays": 1,
+        "leadTimeDemand": 60,
+        "safetyStock": 30,
+        "targetStock": 90,
+        "baselineReorder": 0,
+        "stockStatus": "sufficient",
+        "stockStatusLabel": "库存充足",
+        "calculation": "max(0, 30 × (2 + 1) − 100) = 0",
+        "explanation": "按当前需求和交期，目标库存为 90 套，现有 100 套，建议补货 0 套。"
+      }
+    ]
+  },
+  "coding": {
+    "simulationOnly": true,
+    "language": "typescript",
+    "scenarios": [
+      {
+        "id": "quantity-variance",
+        "title": "把数量差异算成了比值",
+        "topic": "三单匹配 · 算术与边界",
+        "bug": "数量差异应等于发票数量减去收货数量；当前函数错误地返回了两者的比值。",
+        "targetFile": "src/erp/invoices/quantityVariance.ts",
+        "beforeCode": "export function getQuantityVariance(receivedQty: number, invoicedQty: number): number {\n  return invoicedQty / receivedQty;\n}",
+        "afterCode": "export function getQuantityVariance(receivedQty: number, invoicedQty: number): number {\n  return invoicedQty - receivedQty;\n}",
+        "prompts": {
+          "weak": "帮我修一下发票计算。",
+          "specific": "检查 src/erp/invoices/quantityVariance.ts 中的 getQuantityVariance。数量差异定义为 invoicedQty - receivedQty；正数代表发票多开，负数代表少开。修正运算符，保持函数签名不变。",
+          "testAware": "修正 getQuantityVariance，使结果等于 invoicedQty - receivedQty。先用 receivedQty=98、invoicedQty=100 的测试复现错误，再补充数量相等和发票少开两种测试。保持输入参数顺序和函数签名不变，解释修复前后差异。"
+        },
+        "explanation": "差值的单位是“件”，比值没有数量单位。用减法后，98 件收货、100 件开票会得到 +2 件；数量一致得到 0；少开票得到负数。",
+        "scopeNote": "演示假设输入是已校验的非负整数；输入校验不在本次修改范围内。",
+        "tests": [
+          {
+            "id": "quantity-over",
+            "label": "多开 2 件",
+            "input": {
+              "receivedQty": 98,
+              "invoicedQty": 100
+            },
+            "expected": 2,
+            "beforeResult": 1.0204081632653061,
+            "afterResult": 2,
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          },
+          {
+            "id": "quantity-equal",
+            "label": "数量一致",
+            "input": {
+              "receivedQty": 10,
+              "invoicedQty": 10
+            },
+            "expected": 0,
+            "beforeResult": 1,
+            "afterResult": 0,
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          },
+          {
+            "id": "quantity-under",
+            "label": "少开 2 件",
+            "input": {
+              "receivedQty": 10,
+              "invoicedQty": 8
+            },
+            "expected": -2,
+            "beforeResult": 0.8,
+            "afterResult": -2,
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          }
+        ],
+        "expectedBooleanChanges": [
+          {
+            "testId": "quantity-over",
+            "before": false,
+            "after": true
+          },
+          {
+            "testId": "quantity-equal",
+            "before": false,
+            "after": true
+          },
+          {
+            "testId": "quantity-under",
+            "before": false,
+            "after": true
+          }
+        ],
+        "takeaway": "提示词给出业务公式、参数含义和可验证的例子，比“修一下”更容易得到正确修改。"
+      },
+      {
+        "id": "unsupported-currency",
+        "title": "不支持的币种被直接入账",
+        "topic": "总账 · 明确失败",
+        "bug": "系统尚未实现汇率换算，却直接返回外币金额，导致调用方把外币数值当作账本币金额。",
+        "targetFile": "src/erp/ledger/toLedgerAmount.ts",
+        "beforeCode": "export function toLedgerAmount(\n  amount: number,\n  invoiceCurrency: string,\n  ledgerCurrency: string\n): number {\n  return amount;\n}",
+        "afterCode": "export function toLedgerAmount(\n  amount: number,\n  invoiceCurrency: string,\n  ledgerCurrency: string\n): number {\n  if (invoiceCurrency !== ledgerCurrency) {\n    throw new Error(\"UNSUPPORTED_CURRENCY\");\n  }\n  return amount;\n}",
+        "prompts": {
+          "weak": "让这个函数支持多币种。",
+          "specific": "修复 src/erp/ledger/toLedgerAmount.ts。当前版本没有汇率服务，只允许 invoiceCurrency 与 ledgerCurrency 相同；不同则抛出 Error(\"UNSUPPORTED_CURRENCY\")。不要猜测汇率，保留同币种返回金额的行为。",
+          "testAware": "修复 toLedgerAmount：同币种正常返回金额；不同币种必须抛出 Error(\"UNSUPPORTED_CURRENCY\")，即使金额为 0。验证 CNY→CNY 100 返回 100、USD→CNY 100 抛错、USD→CNY 0 也抛错。保持函数签名不变。"
+        },
+        "explanation": "币种不一致时静默返回数值会产生错误账务。没有汇率能力的版本应明确拒绝跨币种入账，调用方才能阻止后续记账并提示人工处理。",
+        "scopeNote": "演示使用已经规范化的大写币种代码；不接入汇率服务，也不模拟换汇。",
+        "tests": [
+          {
+            "id": "currency-same",
+            "label": "同币种保留金额",
+            "input": {
+              "amount": 100,
+              "invoiceCurrency": "CNY",
+              "ledgerCurrency": "CNY"
+            },
+            "expected": {
+              "returns": 100
+            },
+            "beforeResult": {
+              "returns": 100
+            },
+            "afterResult": {
+              "returns": 100
+            },
+            "beforePass": true,
+            "afterPass": true,
+            "booleanChange": {
+              "from": true,
+              "to": true
+            }
+          },
+          {
+            "id": "currency-foreign",
+            "label": "跨币种必须失败",
+            "input": {
+              "amount": 100,
+              "invoiceCurrency": "USD",
+              "ledgerCurrency": "CNY"
+            },
+            "expected": {
+              "throws": "UNSUPPORTED_CURRENCY"
+            },
+            "beforeResult": {
+              "returns": 100
+            },
+            "afterResult": {
+              "throws": "UNSUPPORTED_CURRENCY"
+            },
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          },
+          {
+            "id": "currency-zero",
+            "label": "零金额也校验币种",
+            "input": {
+              "amount": 0,
+              "invoiceCurrency": "USD",
+              "ledgerCurrency": "CNY"
+            },
+            "expected": {
+              "throws": "UNSUPPORTED_CURRENCY"
+            },
+            "beforeResult": {
+              "returns": 0
+            },
+            "afterResult": {
+              "throws": "UNSUPPORTED_CURRENCY"
+            },
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          }
+        ],
+        "expectedBooleanChanges": [
+          {
+            "testId": "currency-same",
+            "before": true,
+            "after": true
+          },
+          {
+            "testId": "currency-foreign",
+            "before": false,
+            "after": true
+          },
+          {
+            "testId": "currency-zero",
+            "before": false,
+            "after": true
+          }
+        ],
+        "takeaway": "说明系统尚不具备的能力，并指定失败方式，能避免助手擅自补上未经设计的业务行为。"
+      },
+      {
+        "id": "tenant-filter",
+        "title": "订单列表遗漏租户过滤",
+        "topic": "多租户 · 数据隔离",
+        "bug": "列表函数忽略了当前租户 ID，返回了输入中的全部订单。",
+        "targetFile": "src/erp/orders/listTenantOrders.ts",
+        "beforeCode": "type Order = { id: string; tenantId: string };\n\nexport function listTenantOrders(orders: Order[], tenantId: string): Order[] {\n  return orders;\n}",
+        "afterCode": "type Order = { id: string; tenantId: string };\n\nexport function listTenantOrders(orders: Order[], tenantId: string): Order[] {\n  return orders.filter((order) => order.tenantId === tenantId);\n}",
+        "prompts": {
+          "weak": "订单列表有问题，检查一下。",
+          "specific": "修复 src/erp/orders/listTenantOrders.ts 的 listTenantOrders。只返回 order.tenantId 与传入 tenantId 严格相等的订单，保持原始顺序，不修改输入数组。",
+          "testAware": "给 listTenantOrders 补上租户过滤。用包含 A、B 两个租户的订单数组复现数据混入，验证 A 只能看到自己的订单、未知租户得到空数组、空输入仍返回空数组；保持输入顺序和函数签名不变。"
+        },
+        "explanation": "租户 ID 是每次读取的必要条件。精确过滤既排除其他租户记录，也让没有订单的租户得到空列表。这个纯函数演示只覆盖过滤逻辑。",
+        "scopeNote": "实际服务还需要从可信身份上下文确定 tenantId，并在数据库查询和权限校验中执行租户隔离。",
+        "tests": [
+          {
+            "id": "tenant-own",
+            "label": "只返回当前租户订单",
+            "input": {
+              "orders": [
+                {
+                  "id": "PO-A1",
+                  "tenantId": "A"
+                },
+                {
+                  "id": "PO-B1",
+                  "tenantId": "B"
+                },
+                {
+                  "id": "PO-A2",
+                  "tenantId": "A"
+                }
+              ],
+              "tenantId": "A"
+            },
+            "expected": [
+              {
+                "id": "PO-A1",
+                "tenantId": "A"
+              },
+              {
+                "id": "PO-A2",
+                "tenantId": "A"
+              }
+            ],
+            "beforeResult": [
+              {
+                "id": "PO-A1",
+                "tenantId": "A"
+              },
+              {
+                "id": "PO-B1",
+                "tenantId": "B"
+              },
+              {
+                "id": "PO-A2",
+                "tenantId": "A"
+              }
+            ],
+            "afterResult": [
+              {
+                "id": "PO-A1",
+                "tenantId": "A"
+              },
+              {
+                "id": "PO-A2",
+                "tenantId": "A"
+              }
+            ],
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          },
+          {
+            "id": "tenant-missing",
+            "label": "未知租户没有订单",
+            "input": {
+              "orders": [
+                {
+                  "id": "PO-A1",
+                  "tenantId": "A"
+                }
+              ],
+              "tenantId": "C"
+            },
+            "expected": [],
+            "beforeResult": [
+              {
+                "id": "PO-A1",
+                "tenantId": "A"
+              }
+            ],
+            "afterResult": [],
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          },
+          {
+            "id": "tenant-empty",
+            "label": "空输入安全返回",
+            "input": {
+              "orders": [],
+              "tenantId": "A"
+            },
+            "expected": [],
+            "beforeResult": [],
+            "afterResult": [],
+            "beforePass": true,
+            "afterPass": true,
+            "booleanChange": {
+              "from": true,
+              "to": true
+            }
+          }
+        ],
+        "expectedBooleanChanges": [
+          {
+            "testId": "tenant-own",
+            "before": false,
+            "after": true
+          },
+          {
+            "testId": "tenant-missing",
+            "before": false,
+            "after": true
+          },
+          {
+            "testId": "tenant-empty",
+            "before": true,
+            "after": true
+          }
+        ],
+        "takeaway": "把“谁能看见哪些记录”写成明确条件，并用跨租户样例检验，而不是只测单租户的顺利路径。"
+      },
+      {
+        "id": "duplicate-posting",
+        "title": "重试请求重复记账",
+        "topic": "总账 · 幂等性",
+        "bug": "每次调用都追加记账记录，网络重试会让同一租户下的同一发票被重复记账。",
+        "targetFile": "src/erp/ledger/postInvoice.ts",
+        "beforeCode": "type Posting = { tenantId: string; invoiceId: string };\ntype PostingResult = { ledger: Posting[]; posted: boolean };\n\nexport function postInvoice(\n  tenantId: string, invoiceId: string, ledger: Posting[]\n): PostingResult {\n  return { ledger: [...ledger, { tenantId, invoiceId }], posted: true };\n}",
+        "afterCode": "type Posting = { tenantId: string; invoiceId: string };\ntype PostingResult = { ledger: Posting[]; posted: boolean };\n\nexport function postInvoice(\n  tenantId: string, invoiceId: string, ledger: Posting[]\n): PostingResult {\n  const alreadyPosted = ledger.some(\n    (entry) => entry.tenantId === tenantId && entry.invoiceId === invoiceId\n  );\n  if (alreadyPosted) {\n    return { ledger: [...ledger], posted: false };\n  }\n  return { ledger: [...ledger, { tenantId, invoiceId }], posted: true };\n}",
+        "prompts": {
+          "weak": "避免重复记账。",
+          "specific": "修复 src/erp/ledger/postInvoice.ts。用 tenantId 与 invoiceId 的组合识别重复请求；已记账时保持账本内容不变并返回 posted: false，新请求追加一条并返回 posted: true。不要修改输入数组。",
+          "testAware": "为 postInvoice 实现演示用幂等逻辑。验证首次记账追加一条；同一租户、同一发票重试时不追加且 posted=false；另一租户使用相同发票号仍能记账。以 tenantId+invoiceId 组合判断，保持原函数签名。"
+        },
+        "explanation": "幂等意味着重复执行同一个业务请求不会重复产生结果。用租户与发票号的组合检查已有记录，能区分同一请求重试和另一租户的独立请求。",
+        "scopeNote": "这是单进程数组演示；生产系统还需数据库唯一约束或事务来处理并发重试。",
+        "tests": [
+          {
+            "id": "posting-first",
+            "label": "首次记账成功",
+            "input": {
+              "tenantId": "A",
+              "invoiceId": "INV-1",
+              "ledger": []
+            },
+            "expected": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "beforeResult": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "afterResult": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "beforePass": true,
+            "afterPass": true,
+            "booleanChange": {
+              "from": true,
+              "to": true
+            }
+          },
+          {
+            "id": "posting-retry",
+            "label": "重复请求不再追加",
+            "input": {
+              "tenantId": "A",
+              "invoiceId": "INV-1",
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ]
+            },
+            "expected": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": false
+            },
+            "beforeResult": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                },
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "afterResult": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": false
+            },
+            "beforePass": false,
+            "afterPass": true,
+            "booleanChange": {
+              "from": false,
+              "to": true
+            }
+          },
+          {
+            "id": "posting-other-tenant",
+            "label": "另一租户相同号码可入账",
+            "input": {
+              "tenantId": "B",
+              "invoiceId": "INV-1",
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                }
+              ]
+            },
+            "expected": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                },
+                {
+                  "tenantId": "B",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "beforeResult": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                },
+                {
+                  "tenantId": "B",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "afterResult": {
+              "ledger": [
+                {
+                  "tenantId": "A",
+                  "invoiceId": "INV-1"
+                },
+                {
+                  "tenantId": "B",
+                  "invoiceId": "INV-1"
+                }
+              ],
+              "posted": true
+            },
+            "beforePass": true,
+            "afterPass": true,
+            "booleanChange": {
+              "from": true,
+              "to": true
+            }
+          }
+        ],
+        "expectedBooleanChanges": [
+          {
+            "testId": "posting-first",
+            "before": true,
+            "after": true
+          },
+          {
+            "testId": "posting-retry",
+            "before": false,
+            "after": true
+          },
+          {
+            "testId": "posting-other-tenant",
+            "before": true,
+            "after": true
+          }
+        ],
+        "takeaway": "把重复请求的识别条件、返回值和跨租户行为一并写清楚，才能验证幂等逻辑是否符合业务。"
+      }
+    ]
+  }
+}

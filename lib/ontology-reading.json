@@ -1,0 +1,359 @@
+{
+  "conceptTutorial": [
+    {
+      "id": "objects",
+      "step": 1,
+      "title": "对象：先知道在谈什么",
+      "term": "Object / Object type",
+      "explanation": "对象类型定义一类业务实体或事件，对象是带稳定身份的具体实例。先统一身份，才能把采购、仓储、财务和生产中的同一件事连起来。",
+      "example": "物料是类型；MAT-CU-01 铜套组件是对象。采购单 PO-260901 与收货单 GR-260917 都引用同一物料身份。",
+      "interaction": "点选“铜套组件”，展开它在采购、收货、库存和工单中的关联。",
+      "sourceRefs": [
+        "palantir_concepts",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            9,
+            16
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "id": "properties",
+      "step": 2,
+      "title": "属性：让业务数值有完整含义",
+      "term": "Property",
+      "explanation": "属性描述对象特征。金额、数量和日期应同时带单位、口径、时间角色、来源与有效版本，不能只存一个数字。",
+      "example": "采购行单价 120 元/件，未税，CNY，生效日 2026-09-01；收货日期与承诺到货日期是不同属性。",
+      "interaction": "切换“业务属性 / 来源字段”，查看单位、粒度和快照。",
+      "sourceRefs": [
+        "palantir_concepts",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            7,
+            9,
+            12
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "id": "links",
+      "step": 3,
+      "title": "关系：从单据走到影响面",
+      "term": "Link / Relationship",
+      "explanation": "关系表达有业务含义的连接，并要标明方向、基数和有效期。图上连得上，还需验证真实主外键和业务映射。",
+      "example": "采购单→采购行→物料；收货行→采购行；发票行→收货行；工单→消耗物料；客户订单→由工单履约。",
+      "interaction": "从延期到货出发，高亮受影响物料、工单与客户订单；查看每条边的映射依据。",
+      "sourceRefs": [
+        "palantir_concepts",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            9,
+            12,
+            16,
+            17
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "id": "governed_meaning",
+      "step": 4,
+      "title": "语义与指标：同一问题用同一口径",
+      "term": "Ontology + Metric Registry",
+      "explanation": "本体定义对象和关系；指标注册表治理公式、粒度、可加性、币种、版本和责任人。不同系统的名字不自动意味着同一个概念。",
+      "example": "“按时到货”按采购承诺日还是改约日？“采购金额”按订单、收货还是发票？先选已审批定义，再做计算。",
+      "interaction": "切换采购金额的“订单 / 收货 / 发票”口径，显示不同金额及适用场景。",
+      "sourceRefs": [
+        "w3c_owl",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            4,
+            7,
+            9,
+            12
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "id": "rules_models",
+      "step": 5,
+      "title": "规则与 AI：各自承担擅长的任务",
+      "term": "Deterministic logic / Probabilistic model",
+      "explanation": "合同公式、库存守恒、权限和审批条件由明确规则执行；AI 适合理解问法、提出候选解释、抽取条款和组织证据。逻辑推导不等于统计预测。",
+      "example": "AI 从扫描合同抽取“铜价涨幅≥5%”；业务复核后，规则引擎计算是否触发。AI 不能临时改成 3%，也不能自行认定一个未认证替代料可用。",
+      "interaction": "并排显示“AI 抽取候选→人工确认→规则版本→试算结果”。",
+      "sourceRefs": [
+        "w3c_primer",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            6,
+            7,
+            17,
+            25
+          ],
+          "kind": "用户提供材料"
+        },
+        {
+          "document": "价格联动管理与返利预测业务需求(1).pdf",
+          "pages": [
+            3,
+            4
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "step": 6,
+      "title": "证据：每个结论都能回到来源",
+      "term": "Evidence Bundle",
+      "explanation": "把业务定义、物理映射、数据快照、计算步骤、质量检查和限制绑定到同一次回答。观察、情景假设与模型预测应分开标记。",
+      "example": "“2 张订单可能延期”附带采购延期情景、库存 300 件、需求 700 件、排产规则和各订单承诺日。它是情景计算，不是已经发生的损失。",
+      "interaction": "展开任一数字，看输入、公式、对象清单和数据截至时间。",
+      "sourceRefs": [
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            7,
+            10,
+            11,
+            17,
+            23
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "id": "actions",
+      "step": 7,
+      "title": "动作：建议经过控制才能执行",
+      "term": "Action",
+      "explanation": "动作把一个业务决定定义为带参数、前置条件、权限和回执的受控变化。审批后仍需重新检查库存、版本和权限，防止用旧状态执行。",
+      "example": "“调拨 400 件铜套组件”要满足可调库存、最低保有量、到货日期和审批条件；未审批、库存过期或替代料未认证时阻断。",
+      "interaction": "提交方案草案、查看审批状态、尝试一个被阻断的方案并展示原因。演示只模拟状态。",
+      "sourceRefs": [
+        "palantir_actions",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            3,
+            17,
+            18,
+            22,
+            23
+          ],
+          "kind": "用户提供材料"
+        },
+        {
+          "document": "价格联动管理与返利预测业务需求(1).pdf",
+          "pages": [
+            4
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    }
+  ],
+  "comparison": [
+    {
+      "name": "关系数据库",
+      "answers": "数据怎样按表、键、事务和查询保存与计算？",
+      "example": "采购行表、收货行表、发票行表按键关联。",
+      "limit": "表结构本身不替代跨系统术语定义、指标治理和权限工作流。",
+      "sourceRefs": [
+        "w3c_r2rml",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            7,
+            12
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "name": "知识图谱 / 图模型",
+      "answers": "哪些对象通过什么关系相连？",
+      "example": "供应商供应物料，物料被工单消耗，工单履行订单。",
+      "limit": "一张节点连线图不自动具备完备语义、推理、数据质量或因果证据。图可承载本体和实例。",
+      "sourceRefs": [
+        "w3c_rdf",
+        "w3c_owl",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            6
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "name": "Ontology",
+      "answers": "对象和关系的业务含义是什么，哪些概念和逻辑应一致复用？",
+      "example": "定义供应商、替代物料、订单，以及替代关系的适用条件与有效期。",
+      "limit": "需要治理和来源映射；不能替代事实数据、计算引擎或企业授权。",
+      "sourceRefs": [
+        "w3c_owl",
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            7,
+            9,
+            16
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    },
+    {
+      "name": "规则 / 优化器 / AI",
+      "answers": "按哪些确定条件计算与约束？哪些结果是预测或候选解释？",
+      "example": "规则算缺口；优化器比较成本和交期；AI解释原因候选并提案。",
+      "limit": "概率或语言流畅度不等于事实正确，也不能越过权限。",
+      "sourceRefs": [
+        {
+          "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+          "pages": [
+            7,
+            17,
+            25
+          ],
+          "kind": "用户提供材料"
+        }
+      ]
+    }
+  ],
+  "implementationNuances": [
+    "关系库、图模型和本体是可协作的层次，不是只能三选一。R2RML 明确支持关系库到 RDF 的映射。",
+    "OWL 可表达术语与逻辑公理；SHACL 更适合对已给定数据图做必填、类型、基数等校验。不能用“OWL 中未发现资质”直接推导“供应商无资质”；运营规则可规定缺少有效资质证据时不得自动执行。",
+    "展示的是最小业务对象模型。若实现没有真实 OWL/RDF、IRI、版本和约束发布流程，应称“业务语义演示”，不能伪装成完整本体平台。",
+    "本方案“轻本体”是面对亿级明细的工程选择，不是说所有 RDF/图平台都不能处理大数据。交易和事件事实保留在源系统/湖仓/OLAP，语义路径编译到合适引擎。",
+    "图中的影响传播得到相关对象集合；是否延期取决于库存、替代资格、可用产能、运输与日历等约束。根因结论还需要支持证据和反证。"
+  ],
+  "productionArchitecture": {
+    "narrative": "业务对象与指标治理定义问题；Catalog验证真实表列和权限；流批数据平台完成规模计算；Agent在预算内选择工具、组织证据和提案；审批后的受控API才允许改变业务状态。",
+    "planes": [
+      {
+        "name": "体验与信任",
+        "components": "门户、证据展开、人工审批"
+      },
+      {
+        "name": "受控Agent",
+        "components": "路由、语义解析、元数据验证、计划、执行、解释；显式状态与预算"
+      },
+      {
+        "name": "语义控制",
+        "components": "概念与关系、指标注册表、映射、版本、校验"
+      },
+      {
+        "name": "数据治理",
+        "components": "目录、权限、质量、血缘、审计"
+      },
+      {
+        "name": "数据计算",
+        "components": "事件流、湖仓、OLAP、聚合、受控查询API"
+      }
+    ],
+    "sourceRefs": [
+      {
+        "document": "Ontology驱动的可信智能问数与工业供应链AI方案_V1.0.pdf",
+        "pages": [
+          7,
+          8,
+          9,
+          10,
+          16,
+          17,
+          20,
+          22
+        ],
+        "kind": "用户提供材料"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "palantir_overview",
+      "title": "Palantir — Ontology overview",
+      "url": "https://www.palantir.com/docs/foundry/ontology/overview/",
+      "kind": "官方产品文档",
+      "verifiedOn": "2026-09-19",
+      "supports": "Ontology 作为连接数字资产和业务对象的操作层；包含对象、属性、链接以及动作、函数和安全控制。"
+    },
+    {
+      "id": "palantir_concepts",
+      "title": "Palantir — Core concepts",
+      "url": "https://www.palantir.com/docs/foundry/ontology/core-concepts/",
+      "kind": "官方产品文档",
+      "verifiedOn": "2026-09-19",
+      "supports": "对象类型、对象实例、属性、链接类型、动作类型；对象与数据集行、属性与列之间可作类比。"
+    },
+    {
+      "id": "palantir_actions",
+      "title": "Palantir — Action types",
+      "url": "https://www.palantir.com/docs/foundry/action-types/overview/",
+      "kind": "官方产品文档",
+      "verifiedOn": "2026-09-19",
+      "supports": "动作可定义对象、属性和链接的变更与副作用，包含逻辑、参数与验证；并非天然等于已获企业业务审批。"
+    },
+    {
+      "id": "palantir_submission",
+      "title": "Palantir — Submission criteria",
+      "url": "https://www.palantir.com/docs/foundry/action-types/submission-criteria/",
+      "kind": "官方产品文档",
+      "verifiedOn": "2026-09-19",
+      "supports": "动作提交可配置校验条件。"
+    },
+    {
+      "id": "w3c_owl",
+      "title": "W3C — OWL 2 Overview",
+      "url": "https://www.w3.org/TR/owl2-overview/",
+      "kind": "W3C Recommendation",
+      "supports": "形式化词汇、类、属性、个体和数据值；关系规定词义；OWL 可以以 RDF 图表示。"
+    },
+    {
+      "id": "w3c_rdf",
+      "title": "W3C — RDF 1.1 Concepts",
+      "url": "https://www.w3.org/TR/rdf11-concepts/",
+      "kind": "W3C Recommendation",
+      "supports": "RDF 图由主语、谓语、宾语三元组构成；图是一种数据模型。"
+    },
+    {
+      "id": "w3c_primer",
+      "title": "W3C — OWL 2 Primer",
+      "url": "https://www.w3.org/TR/owl2-primer/",
+      "kind": "W3C Recommendation",
+      "supports": "OWL 是声明式逻辑表示，开放世界假设下缺失事实不能直接视为假；数据库可以成为本体系统的底座。"
+    },
+    {
+      "id": "w3c_shacl",
+      "title": "W3C — SHACL",
+      "url": "https://www.w3.org/TR/shacl/",
+      "kind": "W3C Recommendation",
+      "supports": "用形状与条件校验 RDF 数据图。"
+    },
+    {
+      "id": "w3c_r2rml",
+      "title": "W3C — R2RML: RDB to RDF Mapping Language",
+      "url": "https://www.w3.org/TR/r2rml/",
+      "kind": "W3C Recommendation",
+      "supports": "关系数据库可映射到 RDF 数据集，可生成数据或提供虚拟访问；两者可以协同。"
+    }
+  ]
+}

@@ -1,0 +1,851 @@
+{
+  "schemaVersion": "1.0",
+  "language": "zh-CN",
+  "verifiedAt": "2026-09-19",
+  "contentNotice": "以下为本站原创中文教学归纳，不是官方课程翻译或官方认证材料。officialFact 为官方页面事实的简短转述；explanation、example、practiceTask 与验收阈值为原创 ERP／SCM 教学设计。示例数据均为虚构。",
+  "implementationNotes": [
+    "展示每课 sourceLinks，并显示核验日期；不要把本站学习完成状态称为 PMI 学分、认证或官方结业。",
+    "tutorialResources 是经核验的官方教程或课程页面；未核验视频播放器或 video ID，因此应使用外部教程链接卡片，不要伪造视频嵌入。",
+    "Dify 的云端文档与实际自托管版本可能有功能差异；节点名称、可选功能和发布入口应以目标实例为准。",
+    "Dify 应用嵌入、API 集成、Dify 管理控制台属于不同入口；官方嵌入文档描述的是已发布 Web App。"
+  ],
+  "lessons": [
+    {
+      "id": "prompt-engineering",
+      "title": "提示词工程：把业务要求变成可验收的任务",
+      "summary": "把“帮我分析采购风险”写成有输入边界、判断规则和输出格式的任务。先定义何为正确，再用同一组案例比较提示词版本。",
+      "durationMinutes": 18,
+      "level": "入门",
+      "learningOutcome": "能写出一个采购异常分类提示词，并用正常、异常和缺失数据三个案例检验它。",
+      "coreConcepts": [
+        {
+          "name": "先写成功标准",
+          "officialFact": "Anthropic 建议先确定成功标准、测试方法和初稿，再优化提示词。",
+          "sourceIds": [
+            "prompt-overview"
+          ],
+          "explanation": "把“分析得好”改成业务人员可以逐项判断的结果。准确分类、依据可追溯、缺失信息被标出，可以分别验收。",
+          "example": "采购异常助手必须返回采购单号、异常类型、证据字段和待核实项；无法获得承诺交期时，标记“缺少交期”，不能猜测是否逾期。"
+        },
+        {
+          "name": "明确任务与使用场景",
+          "officialFact": "官方提示实践强调清晰直接的指令，并说明任务背景。",
+          "sourceIds": [
+            "prompt-best-practices"
+          ],
+          "explanation": "描述使用者下一步要做什么，模型才能决定信息粒度。角色是辅助定位，任务、条件与交付物才决定是否可执行。",
+          "example": "说明结果供采购员晨会使用：按承诺交期早于基准日且未完全收货的规则列出待跟催订单，每条建议不超过两句。"
+        },
+        {
+          "name": "把规则、数据、示例分开",
+          "officialFact": "官方文档建议用明确结构区分指令、上下文、示例和可变输入。",
+          "sourceIds": [
+            "prompt-best-practices"
+          ],
+          "explanation": "分区使提示词容易维护，也能让评审人发现规则到底来自哪里。业务数据中的文字应作为待分析内容，不能替代审批规则。",
+          "example": "使用“判断规则／订单数据／输出要求”三个区块。供应商备注“请忽略逾期”只是一条备注，不应覆盖交期计算规则。"
+        },
+        {
+          "name": "用有差异的示例校准输出",
+          "officialFact": "官方建议示例贴近实际任务、覆盖不同情况，并与指令清楚区隔。",
+          "sourceIds": [
+            "prompt-best-practices"
+          ],
+          "explanation": "示例需要呈现判断边界。只给一种异常会让学习者忽略正常情况，也难以判断模型是否真的理解规则。",
+          "example": "分别提供“逾期未收货”“按期已收货”“交期缺失”三条样例，展示为什么缺失数据不能归为正常。"
+        },
+        {
+          "name": "固定案例比较版本",
+          "officialFact": "官方把经验测试作为优化提示词的前提，也指出成本或延迟问题未必靠提示词解决。",
+          "sourceIds": [
+            "prompt-overview"
+          ],
+          "explanation": "每次改动只针对一个已观察到的失败。保留旧版结果，比较错误是否减少；对数字和格式采用程序校验，对业务判断采用人工复核。",
+          "example": "V1 把部分收货误判为已完成，V2 明确“已收数量小于订单数量”。用同一批十条订单复测，记录修正和新出现的错误。"
+        }
+      ],
+      "pitfall": {
+        "summary": "把“你是资深专家”当成完整提示词，或不断堆叠要求却没有测试案例。",
+        "fix": "先补齐基准日期、业务规则、缺失值处理和输出字段，再用固定案例检验。"
+      },
+      "practiceTask": {
+        "title": "完成采购异常分类器 V1",
+        "scenario": "采购员需要在晨会前判断哪些订单应跟催。",
+        "input": "基准日：2026-09-19。PO-101：订单100件，已收40件，承诺交期2026-09-17。PO-102：订单50件，已收50件，承诺交期2026-09-18。PO-103：订单80件，已收0件，承诺交期未知。",
+        "steps": [
+          "写出判断规则：只有交期早于基准日且未全部收货，才属于逾期未完成。",
+          "限定输出为采购单号、状态、依据和待核实项。",
+          "运行一次，逐行检查是否使用了真实输入。",
+          "把 PO-101 的交期改为基准日，检查边界结果是否随规则变化。"
+        ],
+        "deliverable": "一份可复制提示词、一张三条订单结果表、一条改进记录。",
+        "acceptanceCriteria": [
+          "PO-101 为逾期未完成，PO-102 为已完成，PO-103 为信息不足。",
+          "不编造供应商原因、金额或承诺日期。",
+          "基准日当天不自动按“早于基准日”判逾期。"
+        ],
+        "starterPrompt": "你需要帮助采购员准备晨会跟催清单。\n【判断规则】承诺交期早于基准日，且已收数量小于订单数量，才标记为逾期未完成；已收齐标记为已完成；缺少判断所需字段时标记为信息不足。\n【订单数据】粘贴本练习输入。\n【输出要求】以表格输出采购单号、状态、证据字段、待核实项。仅使用输入信息。"
+      },
+      "sourceLinks": [
+        {
+          "id": "prompt-overview",
+          "title": "Anthropic：Prompt engineering overview",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+          "publisher": "Anthropic",
+          "verified": true
+        },
+        {
+          "id": "prompt-best-practices",
+          "title": "Anthropic：Prompting best practices",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+          "publisher": "Anthropic",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "context-engineering",
+      "title": "上下文工程：让 AI 在每一步拿到正确资料",
+      "summary": "提示词描述要做什么；上下文工程还要决定本轮提供哪些资料、通过什么工具取数，以及跨轮保留什么。用一张采购差异单练习组织证据。",
+      "durationMinutes": 20,
+      "level": "进阶",
+      "learningOutcome": "能为 ERP 业务问题设计一份包含任务、证据、工具与待办的上下文包。",
+      "coreConcepts": [
+        {
+          "name": "把上下文视为一整套输入",
+          "officialFact": "Anthropic 将上下文工程概括为推理时信息的选择与维护，范围包括指令、工具、外部数据与历史。",
+          "sourceIds": [
+            "context-engineering"
+          ],
+          "explanation": "先列出完成任务必须知道的信息，再决定各自从哪里来。这样能区分“模型没理解任务”和“模型根本没拿到数据”。",
+          "example": "分析采购价差需要订单、收货、发票、币种和容差规则；仅给发票金额，无法可靠判断差异来源。"
+        },
+        {
+          "name": "优先放入相关且足够的信息",
+          "officialFact": "官方把上下文视为有限资源，建议选择高信息量的内容，而非无差别扩充。",
+          "sourceIds": [
+            "context-engineering"
+          ],
+          "explanation": "一个好上下文包应让评审人快速找到本次问题的证据。信息是否足够由任务决定，不能简单用字数衡量。",
+          "example": "调查 PO-301 的差异时，提供该订单三张相关单据及适用容差，不把整个季度数万条采购明细都贴进去。"
+        },
+        {
+          "name": "需要时再取明细",
+          "officialFact": "官方介绍按需检索策略：先保留轻量引用，再由工具在运行时加载内容。",
+          "sourceIds": [
+            "context-engineering"
+          ],
+          "explanation": "把常用规则放在基础资料里，把变化快的业务状态交给查询工具。查询结果需要带对象标识，便于后续核对。",
+          "example": "先给采购单号和发票号；需要核对收货时再查询 ERP，返回收货数量、单位和查询时间。"
+        },
+        {
+          "name": "保留任务状态而非整段流水账",
+          "officialFact": "官方提出压缩历史和结构化笔记，以帮助长任务保持连续性。",
+          "sourceIds": [
+            "context-engineering"
+          ],
+          "explanation": "进度记录写清已确认事实、证据位置、未解决问题和下一步。推测应保留标签，避免下轮被误当成事实。",
+          "example": "笔记记录“发票数量与收货数量一致；币种待核实；已查看 INV-301；下一步查询订单币种”，而不是复制所有对话。"
+        },
+        {
+          "name": "让工具职责明确",
+          "officialFact": "官方建议工具含义和参数清楚，并减少功能重叠造成的选择歧义。",
+          "sourceIds": [
+            "context-engineering"
+          ],
+          "explanation": "业务流程中的工具应有明确输入与返回结果。用查询、解释、提交三个环节组织任务，可以分别检查事实与操作。",
+          "example": "query_receipt 只查询收货；explain_variance 生成解释；创建差异处理单由另一个经过权限校验的接口执行。"
+        }
+      ],
+      "pitfall": {
+        "summary": "把更多文档等同于更可靠，或者让旧摘要覆盖新查到的 ERP 状态。",
+        "fix": "给证据注明单据号、版本和查询时间；遇到冲突时返回原始记录核对，并更新任务状态。"
+      },
+      "practiceTask": {
+        "title": "组装一份采购价差上下文包",
+        "scenario": "发票总额为10,500元，采购订单总额为10,000元，需要判断还缺什么资料。",
+        "input": "已知 PO-301 与 INV-301；金额均未注明含税口径，币种和运费信息未知。练习中不要推断供应商涨价。",
+        "steps": [
+          "写明任务：识别差异因素与待核实字段，不直接批准付款。",
+          "把已知事实、适用业务规则、待查询数据分成三个区块。",
+          "为每个待查询字段选择来源，例如订单币种、税率、运费行或收货记录。",
+          "设计一条任务状态记录，包含已确认、未确认和下一步。"
+        ],
+        "deliverable": "一页上下文包与一个查询清单。",
+        "acceptanceCriteria": [
+          "显式保留税口径、币种和运费未知状态。",
+          "每个事实能指向单据或查询结果。",
+          "只请求本次判断需要的资料，避免加入无关供应商历史。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "context-engineering",
+          "title": "Anthropic：Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "publisher": "Anthropic",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "ai-project-management",
+      "title": "AI 项目管理：从业务问题走到可运营的试点",
+      "summary": "学习用 AI 整理纪要与管理一个 AI 项目，是两类学习目标。这里借助 PMI 介绍的 CPMAI 六阶段，为供应链助手设计一个有数据、有评估、有运营责任人的试点。",
+      "durationMinutes": 25,
+      "level": "进阶",
+      "learningOutcome": "能完成一张 AI 试点卡，说明价值、数据、验证方式、负责人和上线后的反馈机制。",
+      "coreConcepts": [
+        {
+          "name": "业务理解：先决定是否值得做",
+          "officialFact": "CPMAI 第一阶段明确问题、目标，并判断 AI 是否适合。",
+          "sourceIds": [
+            "pmi-six-phases"
+          ],
+          "explanation": "以可改变的业务结果定义范围。若简单筛选规则已能解决问题，先建立这个基线，再判断 AI 增加了多少价值。",
+          "example": "试点只处理某工厂采购员的订单跟催说明，不承诺自动处理全公司的采购异常；记录当前每单整理耗时作为基线。"
+        },
+        {
+          "name": "数据理解：确认数据能否支持目标",
+          "officialFact": "第二阶段检查可用数据、可访问性，以及数据对真实场景的代表性。",
+          "sourceIds": [
+            "pmi-six-phases"
+          ],
+          "explanation": "建立字段清单和业务口径说明，确认正常、异常和缺失数据是否都能取得。数据所有者应参与判断。",
+          "example": "订单交期可能是申请日期、原始承诺日期或最新承诺日期。若未统一口径，跟催助手可能使用错误基准。"
+        },
+        {
+          "name": "数据准备：把业务口径整理清楚",
+          "officialFact": "第三阶段按需清洗、标注、标准化和去重；PMI 也强调数据质量控制与责任分配。",
+          "sourceIds": [
+            "pmi-six-phases",
+            "pmi-data-governance"
+          ],
+          "explanation": "保留数据来源与修正记录。为样本建立经业务人员确认的预期结果，避免拿含糊的历史结论作为答案。",
+          "example": "将箱和件转换到一致单位，合并重复的收货记录，并把“交期未知”单列，不能用默认日期填成正常订单。"
+        },
+        {
+          "name": "模型开发：围绕目标做小范围实验",
+          "officialFact": "第四阶段选择、开发和调整模型，并由前面定义的可测目标引导。",
+          "sourceIds": [
+            "pmi-six-phases"
+          ],
+          "explanation": "在本课程的生成式 AI 试点中，把提示词、检索配置和流程作为实验项；不把自行训练模型设为必经步骤。",
+          "example": "对比“规则筛选加人工说明”与“规则筛选加 AI 起草说明”，只改变说明生成环节，便于解释效果来源。"
+        },
+        {
+          "name": "模型评估：同时看技术和业务结果",
+          "officialFact": "第五阶段要求依据业务与技术标准评估表现。",
+          "sourceIds": [
+            "pmi-six-phases"
+          ],
+          "explanation": "评价不只看文字通顺。要记录错误订单、错误依据、人工修订量、处理耗时和单次成本，并指定验收人。",
+          "example": "准备20个教学样本，其中包含部分收货和交期缺失；采购主管逐条核对，不因平均分高就忽略一条错误付款建议。"
+        },
+        {
+          "name": "运营落地：上线后继续迭代",
+          "officialFact": "第六阶段整合业务流程、建立监测与反馈；六阶段允许迭代往返。",
+          "sourceIds": [
+            "pmi-six-phases"
+          ],
+          "explanation": "把谁维护规则、谁处理错误和何时暂停写进试点卡。业务政策、数据字段或模型变化，都应触发有针对性的复核。",
+          "example": "采购经理负责规则，数据负责人处理接口变更；当交期字段失效时，助手停止生成确定结论并返回待核实清单。"
+        }
+      ],
+      "pitfall": {
+        "summary": "把演示成功当作项目验收，或先选平台再寻找业务价值。",
+        "fix": "用同一批代表性任务建立基线，记录业务收益与错误类型，并让实际使用者参与验收。"
+      },
+      "practiceTask": {
+        "title": "写一张两周采购跟催助手试点卡",
+        "scenario": "选择一个工厂、一个采购团队，验证 AI 能否减少跟催说明整理时间。",
+        "input": "教学假设：当前每单整理6分钟，计划试验20个历史案例；目标数值可修改，但必须保留基线。",
+        "steps": [
+          "写明业务问题、范围和预计使用者。",
+          "列出数据来源、字段口径和数据负责人。",
+          "按六阶段列出最小交付物，并安排采购主管复核样本。",
+          "定义暂停条件与上线后每周收集反馈的方式。"
+        ],
+        "deliverable": "一张包含目标、范围、基线、数据、评估、责任人和运营安排的试点卡。",
+        "acceptanceCriteria": [
+          "时间目标和质量目标同时存在；示例目标不冒充行业标准。",
+          "20个样本包含正常、异常与信息缺失情况。",
+          "能说明试点不通过时回到哪个阶段补工作。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "pmi-six-phases",
+          "title": "PMI：6 Phases to Run a Successful AI Project",
+          "url": "https://www.pmi.org/blog/6-stages-to-run-a-successful-ai-project",
+          "publisher": "Project Management Institute",
+          "verified": true
+        },
+        {
+          "id": "pmi-data-governance",
+          "title": "PMI：AI Data Governance Best Practices",
+          "url": "https://www.pmi.org/blog/ai-data-governance-best-practices",
+          "publisher": "Project Management Institute",
+          "verified": true
+        },
+        {
+          "id": "pmi-ai-course",
+          "title": "PMI：Generative AI Overview for Project Managers",
+          "url": "https://www.pmi.org/shop/p-/elearning/generative-ai-overview-for-project-managers/el083",
+          "publisher": "Project Management Institute",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "dify-workflow-chatflow",
+      "title": "Dify 基础：选对 Workflow 与 Chatflow",
+      "summary": "从业务交互方式选择应用类型，再设计输入、节点输出和会话状态。完成一张订单摘要用 Workflow；围绕订单连续追问适合 Chatflow。",
+      "durationMinutes": 18,
+      "level": "入门",
+      "learningOutcome": "能解释两种应用的差异，并画出一个输入明确、变量衔接完整的订单助手流程。",
+      "coreConcepts": [
+        {
+          "name": "Workflow：一次执行完成一项任务",
+          "officialFact": "Workflow 面向单轮任务；可由 User Input 或 Trigger 开始。",
+          "sourceIds": [
+            "dify-concepts"
+          ],
+          "explanation": "把一次运行当成有清楚起点和交付物的处理过程。是否需要自动触发，应依据业务时机与实际实例能力选择。",
+          "example": "上传一份采购订单文件，抽取字段、检查缺失项并输出订单摘要；运行结束后交付一份结果。"
+        },
+        {
+          "name": "Chatflow：每轮对话运行流程",
+          "officialFact": "Chatflow 每轮触发，始于 User Input，支持会话变量与 LLM 节点记忆。",
+          "sourceIds": [
+            "dify-concepts"
+          ],
+          "explanation": "需要用户补充信息或连续追问时，要设计本轮输入与已有会话状态如何结合。多轮对话也应给出明确的阶段结果。",
+          "example": "用户问“PO-201 为什么没到”，补充供应商后再问“还有哪些订单受影响”；流程逐轮查询并回复。"
+        },
+        {
+          "name": "把节点输出接到下一步",
+          "officialFact": "输入变量和节点输出可被后续节点引用；它们在运行中不可直接改写。",
+          "sourceIds": [
+            "dify-concepts"
+          ],
+          "explanation": "画连线时同时写明传递字段。流程顺序正确但变量选错，仍然可能让后续节点读取空值或错误对象。",
+          "example": "参数提取产生 po_number，订单查询工具使用 po_number，LLM 再读取查询结果；不能用整个用户句子替代订单号参数。"
+        },
+        {
+          "name": "区分会话记忆与会话变量",
+          "officialFact": "Chatflow 会话变量在同一会话跨轮保留，并可由 Variable Assigner 更新。",
+          "sourceIds": [
+            "dify-concepts"
+          ],
+          "explanation": "把需要稳定引用的业务状态存成明确字段；对话文字本身不应成为唯一状态记录。切换业务对象时要定义更新规则。",
+          "example": "用 selected_po 保存当前订单号。用户从 PO-201 切换到 PO-202 后更新字段，下一轮“它的供应商是谁”应查询新订单。"
+        },
+        {
+          "name": "保存流程并复用确定的子任务",
+          "officialFact": "Dify 应用可导出 YAML DSL；User Input 开始的 Workflow 可封装为工具，Chatflow 不可。",
+          "sourceIds": [
+            "dify-concepts",
+            "dify-tools"
+          ],
+          "explanation": "把可独立验收的查询和检查步骤单独保存，便于多个业务助手共用；迁移后仍需核对凭证、模型及外部服务。",
+          "example": "将“根据订单号获取未收货数量”做成 Workflow 工具，供采购跟催与供应商沟通两个助手使用。"
+        }
+      ],
+      "pitfall": {
+        "summary": "把 Chatflow 等同于“带聊天窗口的 Workflow”，忽略跨轮状态；或认为导出 DSL 就包含所有运行依赖。",
+        "fix": "对每个字段注明作用范围，并在导入后核查模型、工具凭证与目标实例支持的节点。"
+      },
+      "practiceTask": {
+        "title": "为两个订单场景选型",
+        "scenario": "A：一次上传文件生成订单摘要。B：连续追问同一订单并允许切换订单。",
+        "input": "教学字段：po_number、supplier_name、ordered_qty、received_qty、selected_po。",
+        "steps": [
+          "为 A、B 选择应用类型并写一句理由。",
+          "画出开始、查询、整理、输出四个业务步骤。",
+          "标明每个步骤使用的输入与输出。",
+          "为 B 写一个切换订单后的第二轮测试。"
+        ],
+        "deliverable": "两张小流程图及一份变量表。",
+        "acceptanceCriteria": [
+          "A 的交付物在一次运行内完成。",
+          "B 的 selected_po 更新后，追问引用新订单。",
+          "每个后续节点所需字段都有明确来源。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "dify-concepts",
+          "title": "Dify：Key Concepts",
+          "url": "https://docs.dify.ai/en/learn/key-concepts",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-tools",
+          "title": "Dify：Tools",
+          "url": "https://docs.dify.ai/en/cloud/use-dify/workspace/tools",
+          "publisher": "Dify",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "dify-retrieval-routing-tools",
+      "title": "Dify 实战：知识检索、条件分支与业务工具",
+      "summary": "把制度问答和实时订单查询接到合适的节点。检索提供依据，条件分支控制路径，工具读取业务系统状态，LLM 负责依据这些输入组织回答。",
+      "durationMinutes": 28,
+      "level": "实战",
+      "learningOutcome": "能设计一个既能查采购制度、又能查订单状态，并对缺失信息正确回退的助手。",
+      "coreConcepts": [
+        {
+          "name": "检索结果需要显式传给 LLM",
+          "officialFact": "Knowledge Retrieval 返回 result 数组；LLM 需要配置该结果为上下文并在提示中引用。",
+          "sourceIds": [
+            "dify-retrieval"
+          ],
+          "explanation": "上传文档只是准备知识，连好数据路径才能让回答使用检索片段。检查结果时，应同时查看检索命中内容与最终回答。",
+          "example": "采购制度助手先检索“紧急采购审批”，再用命中的制度段落回答，并保留制度名称或出处供采购员核验。"
+        },
+        {
+          "name": "用检索设置收窄相关资料",
+          "officialFact": "Dify 支持元数据过滤、重排、Top K 和分数阈值；知识库层与节点层设置先后生效。",
+          "sourceIds": [
+            "dify-retrieval"
+          ],
+          "explanation": "先明确应该检索哪一类文件，再比较参数对答案的影响。阈值是配置值，不应当作答案真实概率。",
+          "example": "上海工厂的问题只检索适用工厂与有效版本的制度，避免把其他地区或过期审批限额混进结果。"
+        },
+        {
+          "name": "IF／ELIF／ELSE 表达显式业务条件",
+          "officialFact": "If-Else 按配置条件选择分支；ELIF 顺序检查，ELSE 作为未匹配时的回退。",
+          "sourceIds": [
+            "dify-ifelse"
+          ],
+          "explanation": "优先用已提取和已验证的字段判断。先考虑无数据的情况，确保流程不会在缺失证据时继续生成确定性结论。",
+          "example": "缺订单号先请用户补充；有订单号再查 ERP；工具未找到订单时返回未找到，不让 LLM 编写一个订单状态。"
+        },
+        {
+          "name": "AND／OR 与数据类型要匹配",
+          "officialFact": "If-Else 支持 AND／OR、空值、文本和数值等比较，并可使用上游节点变量。",
+          "sourceIds": [
+            "dify-ifelse"
+          ],
+          "explanation": "把业务规则写成能验证的条件表达式。应在进入分支前统一单位与数据类型，并为边界值准备案例。",
+          "example": "逾期未完成 = promised_date 早于基准日 AND received_qty 小于 ordered_qty；“100”与“20”应先作为数值处理。"
+        },
+        {
+          "name": "工具负责实时数据与外部动作",
+          "officialFact": "Tool 节点可调用外部服务和 API；部分工具需要配置凭证。",
+          "sourceIds": [
+            "dify-tool-node"
+          ],
+          "explanation": "制度适合知识检索，库存与订单当前状态应从业务接口读取。工具返回失败也需要作为正常业务分支来处理。",
+          "example": "用户问“可用库存还有多少”时调用 ERP 库存查询，并在回答中显示仓库和查询时间；不能只根据知识库说明猜数量。"
+        },
+        {
+          "name": "分别测试检索与完整流程",
+          "officialFact": "Dify 提供检索测试；测试页调整的参数只在本次测试会话中生效。",
+          "sourceIds": [
+            "dify-retrieval-test"
+          ],
+          "explanation": "先确认找到正确依据，再测试分支和回答。把有效参数同步到正式配置后，应再跑一遍端到端案例。",
+          "example": "分别测试“紧急采购”“加急下单”能否命中同一制度，以及无相关制度时是否返回“未找到足够依据”。"
+        }
+      ],
+      "pitfall": {
+        "summary": "以为建好知识库就会自动使用；把相关性分数当作事实置信度；忽略空检索和接口失败。",
+        "fix": "检查 result 到 LLM 的实际变量引用，为无命中、缺字段和接口失败各设置一个可验证的回退结果。"
+      },
+      "practiceTask": {
+        "title": "设计采购助手的三种回复路径",
+        "scenario": "同一助手回答采购制度问题、查询订单状态，并处理缺少订单号的请求。",
+        "input": "测试句：①紧急采购找谁审批？②PO-101 收货了吗？③帮我查下这张订单。另加两个异常：制度未命中、ERP 接口超时。",
+        "steps": [
+          "给三类请求定义路由字段与必填参数。",
+          "制度路径连接知识检索、证据检查和 LLM。",
+          "订单路径先检查订单号，再调用查询工具。",
+          "为缺参数、空检索、接口超时写出各自回复。",
+          "用五个案例逐一检查走到的分支和输出。"
+        ],
+        "deliverable": "一张路由图、五条测试记录，以及每条记录对应的证据或失败原因。",
+        "acceptanceCriteria": [
+          "制度回答能指向检索片段，订单状态来自查询结果。",
+          "空结果或接口错误不会变成肯定的业务结论。",
+          "学习者能解释每条测试为什么进入该分支。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "dify-retrieval",
+          "title": "Dify：Knowledge Retrieval",
+          "url": "https://docs.dify.ai/en/cloud/use-dify/nodes/knowledge-retrieval",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-ifelse",
+          "title": "Dify：If-Else",
+          "url": "https://docs.dify.ai/en/cloud/use-dify/nodes/ifelse",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-tool-node",
+          "title": "Dify：Tool Node",
+          "url": "https://docs.dify.ai/en/cloud/use-dify/nodes/tools",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-retrieval-test",
+          "title": "Dify：Test Knowledge Retrieval",
+          "url": "https://docs.dify.ai/en/cloud/use-dify/knowledge/test-retrieval",
+          "publisher": "Dify",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "dify-deployment-and-license",
+      "title": "Dify 集成：分清发布、自托管与许可边界",
+      "summary": "把已发布助手接入企业学习网站时，先选择 Web App 嵌入或后端 API，再核对部署依赖与许可。能自行部署不等于所有商业使用方式都没有附加条件。",
+      "durationMinutes": 18,
+      "level": "集成",
+      "learningOutcome": "能为内部采购助手选择集成方式，并列出需核实的运行和许可条件。",
+      "coreConcepts": [
+        {
+          "name": "自托管是一种运行方式",
+          "officialFact": "Dify 官方提供 Docker Compose 自托管部署指南及运行前提。",
+          "sourceIds": [
+            "dify-self-host"
+          ],
+          "explanation": "部署选择需要同时考虑应用服务、模型服务、业务接口和维护责任。自托管应用不自动代表所连接的模型也在本地运行。",
+          "example": "ERP 助手部署在公司服务器后，仍需检查其模型端点、知识库和 ERP API 分别位于哪里，并指定更新与备份负责人。"
+        },
+        {
+          "name": "嵌入的是已发布 Web App",
+          "officialFact": "官方支持 iframe、聊天气泡及 JavaScript 配置；它们使用已经发布的 Web App。",
+          "sourceIds": [
+            "dify-embed"
+          ],
+          "explanation": "集成前取得真实发布地址与嵌入配置，并测试目标站点中的加载和交互。没有运行实例时，只能展示原型或配置入口。",
+          "example": "采购学习页嵌入发布后的问答助手；学员看到的是应用使用界面，而非 Dify 的节点编辑控制台。"
+        },
+        {
+          "name": "自定义界面通过后端调用 API",
+          "officialFact": "Dify 要求从后端调用 API，避免把 API key 放入前端；自托管使用自身 API base URL。",
+          "sourceIds": [
+            "dify-api"
+          ],
+          "explanation": "当网站需要自定义交互时，由网站后端保管密钥并调用 Dify。网页可见的嵌入配置不能被当作后端 API 密钥的存放位置。",
+          "example": "采购门户前端提交问题给门户后端，后端调用 Dify 并返回结果；页面源码和前端构建文件不包含 Dify API key。"
+        },
+        {
+          "name": "许可包含额外条件",
+          "officialFact": "仓库许可基于修改后的 Apache 2.0，允许商业使用，但带有额外条件。",
+          "sourceIds": [
+            "dify-license"
+          ],
+          "explanation": "选型记录应链接实际使用版本的许可，不能只写“Apache 2.0，随意使用”。技术上能够实现的集成也要符合相应授权。",
+          "example": "内部采购助手可以把许可证链接放入部署评审材料，明确是否使用 Dify 前端、是否向多个工作区提供服务。"
+        },
+        {
+          "name": "多租户条件按工作区定义",
+          "officialFact": "许可将一个 workspace 定义为一个租户；未经 Dify 书面授权，不得用源码运营多租户环境。",
+          "sourceIds": [
+            "dify-license"
+          ],
+          "explanation": "不要只按用户数量判断租户数量。设计向不同客户或组织提供平台服务时，需要结合工作区方案核对商业许可要求。",
+          "example": "为三家客户各开独立 Dify workspace 并运营服务，与一个企业内部单工作区的使用方式不同，需要按许可核对。"
+        },
+        {
+          "name": "前端品牌限制与后端使用不同",
+          "officialFact": "使用 Dify 前端时，不得移除或修改控制台或应用中的 LOGO、版权信息；不涉及其前端的使用不适用此项限制。",
+          "sourceIds": [
+            "dify-license"
+          ],
+          "explanation": "嵌入官方应用界面并不会使品牌条款失效。自建前端调用后端，也不能据此推断其他许可条件自动免除。",
+          "example": "把 Dify Web App 放进 iframe 后保留其标识；若计划修改前端标识，应先核实所需授权。"
+        }
+      ],
+      "pitfall": {
+        "summary": "把自托管等同于免费白标多租户平台，或直接把 API 密钥写进学习网站前端。",
+        "fix": "分别核对部署方式、Web App／API 集成方式和许可证条件；生产接入应使用真实实例配置，并由后端保管密钥。"
+      },
+      "practiceTask": {
+        "title": "完成采购助手接入决策卡",
+        "scenario": "公司已有学习网站，计划加入采购制度问答助手。当前有一个可访问的 Dify 实例。",
+        "input": "比较方案 A：嵌入已发布 Web App。方案 B：网站自建聊天界面，由网站后端调用 Dify API。",
+        "steps": [
+          "为每个方案写明页面入口、请求经过的服务以及配置来源。",
+          "标明是否使用 Dify 前端，以及计划使用多少 workspace。",
+          "列出模型端点、访问控制和运维负责人。",
+          "用真实发布地址完成一次端到端测试；缺配置时保持待配置状态。"
+        ],
+        "deliverable": "一张集成方式对照表与一份待核实配置清单。",
+        "acceptanceCriteria": [
+          "明确区分应用嵌入地址与后端 API 地址。",
+          "API key 不出现在浏览器端代码或可见配置中。",
+          "对多租户和前端品牌限制分别给出适用性判断及许可链接。",
+          "没有把模拟回复标为已连通生产 Dify。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "dify-self-host",
+          "title": "Dify：Deploy with Docker Compose",
+          "url": "https://docs.dify.ai/en/self-host/deploy/quick-start/docker-compose",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-embed",
+          "title": "Dify：Embed Your Web App",
+          "url": "https://docs.dify.ai/en/cloud/use-dify/publish/webapp/embedding-in-websites",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-api",
+          "title": "Dify：Get Started with the API",
+          "url": "https://docs.dify.ai/en/api-reference/guides/get-started",
+          "publisher": "Dify",
+          "verified": true
+        },
+        {
+          "id": "dify-license",
+          "title": "Dify 仓库 LICENSE",
+          "url": "https://github.com/langgenius/dify/blob/main/LICENSE",
+          "publisher": "langgenius / Dify",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "title": "评测与验收：让好坏有证据",
+      "summary": "从任务级结果、过程轨迹和业务收益三个层次，判断系统是否可用。以下为结合官方实践整理的教学框架。",
+      "durationMinutes": 12,
+      "level": "实践",
+      "learningOutcome": "把理念转为可验证的业务设计。",
+      "coreConcepts": [
+        {
+          "name": "先定义任务完成",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "评分单位是完整任务，包括是否使用授权证据、正确完成动作和处理失败。",
+          "example": "采购助手解释出了价差，却遗漏币种不一致，应当判为未完成。"
+        },
+        {
+          "name": "建立分层测试集",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "把真实任务拆为正常、缺信息、越权、工具失败和边界条件；保留独立验证样本。",
+          "example": "20 个演示问题不能证明已覆盖所有法人、币种和业务异常。"
+        },
+        {
+          "name": "规则评分与人工量表分工",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "确定性字段用规则核对，解释质量用有样例的人工量表；模型评分也要校准。",
+          "example": "金额与币种精确匹配，处理建议由采购主管按证据与可执行性评价。"
+        },
+        {
+          "name": "定位过程，而不只看终稿",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "保存检索、工具参数、响应和版本，区分检索失败、规则缺失和生成错误。",
+          "example": "查错采购单号与生成错金额，修复路径完全不同。"
+        },
+        {
+          "name": "将回归纳入发布",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "更换模型、提示词、知识或工具后，用同一测试集比较，并增加新发现的失败案例。",
+          "example": "新制度上线后，旧审批阈值问题必须重新验证。"
+        },
+        {
+          "name": "核算成功任务的全部成本",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "把重试、人工复核、返工和模型调用一起计入；与现状基线比较。",
+          "example": "一个回答便宜，但每次都需要会计重做，不一定产生价值。"
+        }
+      ],
+      "pitfall": {
+        "summary": "只验证演示成功的情况，会遗漏真实业务中的边界。",
+        "fix": "同时设计缺数据、越权、失败与人工接管路径。"
+      },
+      "practiceTask": {
+        "title": "为采购审单助手做一份分场景验收集",
+        "scenario": "面向一个采购团队的企业 AI 试点。",
+        "input": "使用站内合成数据，明确当前能力与限制。",
+        "steps": [
+          "写清目标用户与任务边界。",
+          "列出正常、缺信息和失败三类样例。",
+          "给出验收条件，并与原人工流程比较。"
+        ],
+        "deliverable": "一份可审阅的任务说明与测试记录。",
+        "acceptanceCriteria": [
+          "每条关键规则都有对应样例。",
+          "需要人工负责的环节可识别。",
+          "效果指标不使用未经验证的数字。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "12",
+          "title": "Anthropic Agent评测实践",
+          "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+          "publisher": "官方资料",
+          "verified": true
+        },
+        {
+          "id": "41",
+          "title": "Langfuse 文档",
+          "url": "https://langfuse.com/docs",
+          "publisher": "官方资料",
+          "verified": true
+        },
+        {
+          "id": "43",
+          "title": "promptfoo 入门",
+          "url": "https://www.promptfoo.dev/docs/intro/",
+          "publisher": "官方资料",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "id": "product-design",
+      "title": "AI 产品设计：先设计用户任务与失败体验",
+      "summary": "从人怎样完成工作出发，决定 AI 负责什么、用户怎样判断结果、何时接管。",
+      "durationMinutes": 12,
+      "level": "实践",
+      "learningOutcome": "把理念转为可验证的业务设计。",
+      "coreConcepts": [
+        {
+          "name": "任务先于聊天框",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "明确触发条件、输入、结果和用户的下一步，再选择交互形态。",
+          "example": "采购员需要一张可追踪的差异清单，不一定需要自由聊天。"
+        },
+        {
+          "name": "看见证据，才能判断信任",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "展示引用、数据时间、口径和系统能力边界，避免只给一个自信结论。",
+          "example": "问数结果旁同时显示法人、期间、币种和可追溯单据。"
+        },
+        {
+          "name": "把纠正设计成正常操作",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "提供编辑、重新检索、撤销或人工接管，让用户能纠正系统。",
+          "example": "用户修改供应商映射后，重新计算差异并记录修改原因。"
+        },
+        {
+          "name": "依任务风险开放自主权",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "可逆、低影响任务可以提高自动化程度；金额、权限与审批作为明确边界。",
+          "example": "摘要可自动生成，付款指令必须经过企业规定的审批。"
+        },
+        {
+          "name": "先验证价值，再扩大范围",
+          "officialFact": "",
+          "sourceIds": [],
+          "explanation": "比较完成任务的时间、质量与采用情况，识别用户弃用的原因。",
+          "example": "用户能理解摘要，却仍然复制回 Excel，可能说明产品没有接上工作流程。"
+        }
+      ],
+      "pitfall": {
+        "summary": "只验证演示成功的情况，会遗漏真实业务中的边界。",
+        "fix": "同时设计缺数据、越权、失败与人工接管路径。"
+      },
+      "practiceTask": {
+        "title": "为一个 AI 采购助手设计正常与失败两套用户流程",
+        "scenario": "面向一个采购团队的企业 AI 试点。",
+        "input": "使用站内合成数据，明确当前能力与限制。",
+        "steps": [
+          "写清目标用户与任务边界。",
+          "列出正常、缺信息和失败三类样例。",
+          "给出验收条件，并与原人工流程比较。"
+        ],
+        "deliverable": "一份可审阅的任务说明与测试记录。",
+        "acceptanceCriteria": [
+          "每条关键规则都有对应样例。",
+          "需要人工负责的环节可识别。",
+          "效果指标不使用未经验证的数字。"
+        ]
+      },
+      "sourceLinks": [
+        {
+          "id": "9",
+          "title": "Google PAIR 产品设计实践",
+          "url": "https://codelabs.developers.google.com/codelabs/pair-guidebook",
+          "publisher": "官方资料",
+          "verified": true
+        },
+        {
+          "id": "10",
+          "title": "Microsoft HAX Toolkit",
+          "url": "https://www.microsoft.com/en-us/research/project/hax-toolkit/",
+          "publisher": "官方资料",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "tutorialResources": [
+    {
+      "id": "anthropic-interactive-tutorial",
+      "title": "Anthropic 官方交互式提示词教程",
+      "type": "interactive-tutorial",
+      "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "publisher": "Anthropic",
+      "language": "English",
+      "description": "通过示例与练习学习提示词结构和改进方法。",
+      "relatedLessonIds": [
+        "prompt-engineering",
+        "context-engineering"
+      ],
+      "verified": true,
+      "videoId": null,
+      "displayAction": "打开官方教程"
+    },
+    {
+      "id": "dify-30-minute-quick-start",
+      "title": "Dify 官方 30 分钟入门",
+      "type": "step-by-step-tutorial",
+      "url": "https://docs.dify.ai/en/quick-start",
+      "publisher": "Dify",
+      "language": "English",
+      "description": "跟随官方分步教程熟悉 Dify 应用构建流程。",
+      "relatedLessonIds": [
+        "dify-workflow-chatflow",
+        "dify-retrieval-routing-tools"
+      ],
+      "verified": true,
+      "videoId": null,
+      "displayAction": "打开官方教程"
+    },
+    {
+      "id": "pmi-genai-overview-course",
+      "title": "PMI：项目经理生成式 AI 概览",
+      "type": "official-elearning-course",
+      "url": "https://www.pmi.org/shop/p-/elearning/generative-ai-overview-for-project-managers/el083",
+      "publisher": "Project Management Institute",
+      "language": "以课程页可选语言为准",
+      "description": "官方课程覆盖项目工作中的生成式 AI 应用与练习；报名和学习条件以课程页为准。",
+      "relatedLessonIds": [
+        "ai-project-management"
+      ],
+      "verified": true,
+      "videoId": null,
+      "displayAction": "查看官方课程"
+    }
+  ]
+}

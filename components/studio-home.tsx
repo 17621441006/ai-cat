@@ -1,0 +1,18 @@
+"use client";
+import {ArrowRight,ArrowUpRight,Play,SlidersHorizontal,Code2,Boxes,BookOpen,MessageSquare,Check} from 'lucide-react';
+import {art} from './studio-shared';
+import {AssistantHome} from './knowledge-assistant';
+import LearningVoyage from './learning-voyage';
+
+export default function StudioHome(){return <div className="onboarding-home">
+<LearningVoyage/>
+<nav className="growth-path" aria-label="成长路径快捷入口">{[['01','学习启航','路线与基础概念','/roadmap'],['02','办公提效','从高频任务开始','/tools'],['03','供应链实战','把业务场景跑通','/agents'],['04','知识与资源','研究、案例与方法','/projects']].map(([number,title,desc,url])=><a key={number} href={url}><span>{number}</span><div><strong>{title}</strong><small>{desc}</small></div><ArrowRight size={15}/></a>)}</nav>
+<AssistantHome/>
+<div className="v3-home-links"><a href="/projects"><div className="home-lab-content"><small>PROJECTS / 产品专栏</small><h3>从项目经验，到产品体验</h3><p>11 个场景，逐项核对材料、能力与模拟结果。</p><span>切换产品场景 <ArrowUpRight size={16}/></span></div></a><a href="/ontology"><img className="home-lab-image" src="/images/factory-preset-3d.png" alt=""/><div className="home-lab-content"><small>ONTOLOGY / 3D 实验</small><h3>走进供应链的关联世界</h3><p>ERP、MES、TMS、WMS：用四个 3D 场景，比较业务决策。</p><span>打开三维实验 <ArrowUpRight size={16}/></span></div></a><a href="/tools"><div className="home-lab-content"><small>AI AT WORK / 工具体验</small><h3>让 AI 进入每天的工作</h3><p>会议、表格、PPT、图像与视频，先体验再选工具。</p><span>选择工作任务 <ArrowUpRight size={16}/></span></div></a></div>
+<div className="section-heading section"><div><span className="eyebrow">EXPLORE BY DOING</span><h2>四个工作台，直接开始试</h2></div><span className="subtle-tag">内置示例数据，无需 API Key</span></div>
+<div className="lab-shortcuts">{[[SlidersHorizontal,'模型实验室','调整温度、Top P 与上下文，观察候选概率和回答变化。','/models','cyan'],[Code2,'AI 编程实训','在 ERP 工程里描述问题、审阅补丁、检查模拟用例。','/coding','violet'],[Boxes,'供应链产品体验','审单、补货与经营问数，让业务规则产生可见结果。','/products','amber'],[MessageSquare,'交流与作品','记录实验发现，发布想法，与有访问权限的成员交流。','/community','mint']].map(([Icon,title,desc,url,color])=>{const I=Icon as typeof Code2;return <a className={`lab-shortcut ${color}`} href={url as string} key={title as string}><I size={25}/><h3>{title as string}</h3><p>{desc as string}</p><ArrowUpRight size={19}/></a>})}</div>
+<div className="section-heading section"><div><span className="eyebrow">LESSONS WITH VISUALS</span><h2>核心知识，在这里学明白</h2></div><a href="/learn">打开互动课堂 <ArrowUpRight size={16}/></a></div>
+<div className="visual-lesson-grid">{[[art.context,'01 / 上下文工程','给 AI 正确的信息，而不只是更多信息','资料选择、版本、权限与上下文预算','context'],[art.project,'02 / AI 项目管理','从任务清单走向证据驱动的交付','基线、阶段准入、评测与价值验收','pm'],[art.agent,'03 / Dify 与工作流','让每个节点都有输入、输出与职责','Workflow、检索、条件分支与人工审批','dify']].map(([img,kicker,title,desc,id])=><a className="visual-lesson" href={`/learn?lesson=${id}`} key={id}><div><img src={img} alt="" loading="lazy"/><span><Play size={13} fill="currentColor"/>图解 + 实验</span></div><section><small>{kicker}</small><h3>{title}</h3><p>{desc}</p><span>开始学习 <ArrowUpRight size={16}/></span></section></a>)}</div>
+<div className="industry-showcase"><img src={art.project} alt="钢铁制造、仓储与港口物流的概念场景" loading="lazy"/><div><span className="eyebrow">BAOSIGHT / SCM FIELDNOTES</span><h2>把 AI 带进<br/>云应用与供应链现场。</h2><p>项目资料、11 个产品场景和 3D 实验。从有证据的问数，到可解释的业务行动。</p><a href="/projects" className="white-button">体验供应链产品 <ArrowRight size={18}/></a><a className="on-dark-link" href="/industry">设计一个业务试点 <ArrowUpRight size={16}/></a></div></div>
+<div className="home-bottom-links"><a href="/guides"><BookOpen size={22}/><span><strong>18 篇完整实战指南</strong><small>深入理解方法、流程与验收</small></span><ArrowUpRight size={20}/></a><a href="/resources"><Check size={22}/><span><strong>60 项官方学习资料</strong><small>站内核心知识讲解 + 原文参考</small></span><ArrowUpRight size={20}/></a></div>
+</div>}

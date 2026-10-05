@@ -1,0 +1,167 @@
+/* Shared visual teaching surfaces: legible labels, explicit relationships. */
+.relationship-toolbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:-5px 0 14px}
+.relationship-toolbar [data-slot=tabs-trigger]{font-size:14px;min-height:38px;padding:8px 16px}
+.relationship-toolbar label{display:flex;align-items:center;gap:9px;font-size:14px;color:#40536b}
+.relationship-toolbar>span{font-size:14px;color:#708096;margin-left:auto}
+.spatial-readable{border-color:#becbdb;box-shadow:0 5px 24px #19335b07}
+.relationship-map{position:relative;height:610px;min-width:0;background:#f5f8fc;color:#283e57}
+.relationship-map .react-flow{position:absolute;inset:0}
+.relationship-lanes{position:absolute;inset:15px 18px auto;display:flex;justify-content:space-around;z-index:2;pointer-events:none;font-size:14px;color:#657a90}
+.relationship-lanes>span{background:#f5f8fced;padding:5px 13px;border-radius:7px}
+.relationship-node{display:block;width:190px;min-height:92px;text-align:left;padding:14px 14px 13px;border:1.5px solid #a9bbcd;border-radius:12px;background:#fff;box-shadow:0 3px 8px #243a5b0a;color:#263d56;transition:opacity .2s,border-color .2s,box-shadow .2s}
+.relationship-node-kind{display:flex;gap:7px;align-items:center;font-size:16px;color:#61788e;margin-bottom:9px}
+.relationship-node-kind>span{font-size:13px;color:#ab541c;margin-left:auto}
+.relationship-node strong{font-size:18px;line-height:1.55;font-weight:650;display:block}
+.relationship-node.is-selected{border:2px solid #7560df;padding:13.5px;background:#f3f0ff;box-shadow:0 0 0 5px #7560df18}
+.relationship-node.is-muted{opacity:.4}
+.relationship-node.is-muted:hover,.relationship-node:focus-visible{opacity:1;outline:3px solid #8a75e2;outline-offset:4px}
+.relationship-node.has-risk .relationship-node-kind>svg{color:#c36723}
+.relationship-node .react-flow__handle{width:6px;height:6px;background:#7e91a9;border:0;pointer-events:none}
+.relationship-edge-label{position:absolute;top:0;left:0;z-index:5;font-size:16px;font-weight:600;line-height:1.5;background:#fffffff5;padding:3px 7px;border:1px solid #e4deef;border-radius:6px;pointer-events:none}
+html.dark .relationship-edge-label{background:#1b2c45;color:#ccb9ff!important;border-color:#62537d}
+.relationship-map .react-flow__controls{bottom:55px;left:13px;box-shadow:0 2px 9px #2b3f621a}
+.relationship-map .react-flow__controls-button{width:33px;height:33px}
+.relationship-mobile-list{display:none}
+.relationship-key{position:absolute;bottom:0;inset-inline:0;padding:13px 18px;display:flex;align-items:center;gap:18px;background:#f5f8cf00;background:#f5f8fcf5;border-top:1px solid #dee5ef;z-index:4;font-size:13px;color:#607187;pointer-events:none}
+.relationship-key>span:first-child{color:#6551c4;display:flex;align-items:center;gap:8px}
+.relationship-key i{display:block;width:25px;height:3px;background:#7761d3}
+.spatial-readable .object-inspector{max-height:610px;padding:22px;border-left:1px solid #d4deea}
+.spatial-readable .object-inspector>label,.spatial-readable .object-inspector dt{font-size:14px;color:#627488}
+.spatial-readable .object-inspector h2{font-size:20px}
+.spatial-readable .object-inspector>.eyebrow{font-size:14px;color:#546785;letter-spacing:.5px}
+.spatial-readable .relation-link{border:1px solid #dce3ef;border-left:3px solid #a997e7;padding:10px 12px;border-radius:7px;margin-top:9px;background:#faf9ff}
+.spatial-readable .relation-link span{font-size:14px;color:#6f5bba}
+.spatial-readable .relation-link strong{font-size:15px;color:#354c66}
+.spatial-readable .spatial-viewport{height:610px}
+.spatial-object-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.spatial-label-leaders{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;fill:none;stroke-width:1.25;opacity:.8}
+.spatial-object-label{position:absolute;top:0;left:0;height:40px;padding:7px 10px;border:1px solid #698b9b;border-radius:7px;background:#153545f0;color:#e5f3fa;font-size:14px;line-height:24px;white-space:nowrap;text-align:center;pointer-events:auto;box-shadow:0 4px 13px #07182350;cursor:pointer}
+.spatial-object-label.is-selected{background:#ffe2b4;border-color:#ffe2b4;color:#3f301d;font-weight:650}
+.spatial-object-label:focus-visible{outline:3px solid #b5a3ff;outline-offset:3px}
+.spatial-object-label[hidden]{display:none}
+.spatial-readable .spatial-hint{font-size:14px}
+html.dark .relationship-toolbar label{color:#c0cde4}
+html.dark .relationship-toolbar>span{color:#a9b8d2}
+html.dark .relationship-map{background:#142238}
+html.dark .relationship-lanes>span,html.dark .relationship-key{background:#142238ed;color:#b4c7df}
+html.dark .relationship-node{background:#1b2c45;border-color:#667b99;color:#e5ecf8}
+html.dark .relationship-node-kind{color:#afc4e1}
+html.dark .relationship-node.is-selected{background:#332c58;border-color:#a391ff}
+html.dark .relationship-node-kind>span{color:#ffc18b}
+html.dark .relationship-map .react-flow__edge-textbg{fill:#1b2c45}
+html.dark .relationship-map .react-flow__edge-text{fill:#ddd5ff}
+html.dark .relationship-map .react-flow__controls-button{background:#22334c;border-color:#3d506e;color:#dae4f8}
+html.dark .relationship-map .react-flow__controls-button svg{fill:currentColor}
+html.dark .spatial-readable .object-inspector{border-color:#42546e}
+html.dark .spatial-readable .object-inspector>label,html.dark .spatial-readable .object-inspector dt,html.dark .spatial-readable .object-inspector>.eyebrow{color:#b0c2dd}
+html.dark .spatial-readable .object-inspector h2{color:#e0e9f8}
+html.dark .spatial-readable .relation-link{background:#201f39;border-color:#625a90}
+html.dark .spatial-readable .relation-link strong,html.dark .spatial-readable .relation-link span{color:#c6b9ff}
+@media(max-width:1100px){.spatial-readable{grid-template-columns:minmax(0,1fr) 235px}.spatial-readable .object-inspector{padding:17px}.relationship-map,.spatial-readable .spatial-viewport{height:560px}.spatial-readable .object-inspector{max-height:560px}.relationship-toolbar>span{margin-left:0}.relationship-key{flex-wrap:wrap;gap:5px}}
+@media(max-width:800px){.spatial-readable{display:block}.spatial-readable .object-inspector{max-height:none;border-left:0;border-top:1px solid #d4deea}.relationship-map{height:490px}.spatial-readable .spatial-viewport{height:460px}.relationship-lanes{display:none}.relationship-toolbar{gap:10px}.relationship-toolbar>span{width:100%}.relationship-key{font-size:12px;flex-direction:column;align-items:flex-start}.spatial-readable .object-inspector .relation-link{display:flex;width:100%;margin-right:0;gap:7px}}
+
+/* Original, interactive lesson figures. */
+.lesson-main{min-width:0}
+.lesson-hero,.lesson-hero>div{min-height:205px}
+.lesson-hero>div{padding:25px 30px}
+.lesson-hero h2{font-size:25px;margin:10px 0}
+.lesson-hero p{font-size:16px;line-height:1.8}
+.lesson-visual-overview{border:1px solid #c9d2e6;border-radius:14px;background:#fff;margin-bottom:24px;overflow:hidden;box-shadow:0 5px 20px #354d7405}
+.lesson-visual-overview>figcaption{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px 8px}
+.lesson-visual-overview>figcaption span{display:block;font-size:13px;font-weight:650;color:#725bcc;letter-spacing:1px;margin-bottom:7px}
+.lesson-visual-overview h3{font-size:19px;font-weight:650;line-height:1.6;color:#253d58}
+.lesson-visual-overview>figcaption button{flex-shrink:0;font-size:14px}
+.lesson-diagram-scroll{overflow:auto;overscroll-behavior-x:contain;padding:2px 14px 0;background:radial-gradient(circle at 1px 1px,#8c9cb328 1px,transparent 0) 0 0/22px 22px}
+.lesson-diagram{width:100%;min-width:740px;display:block;max-height:380px}
+.lesson-diagram-edge{color:#a3b2c6}
+.lesson-diagram-edge.active{color:#806acb}
+.lesson-diagram-edge text{font-size:16px;fill:#6d5db0;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+.lesson-diagram-node{cursor:pointer;outline:none}
+.lesson-diagram-node>rect:first-child{fill:#f5f8fc;stroke:#becce0;stroke-width:1.5}
+.lesson-diagram-node .node-accent{fill:#7399ce}
+.lesson-diagram-node .node-title{font-size:20px;font-weight:650;fill:#294563}
+.lesson-diagram-node .node-subtitle{font-size:16px;fill:#60768c}
+.lesson-diagram-node.tone-purple>rect:first-child{fill:#f2eefe;stroke:#c3b8e9}
+.lesson-diagram-node.tone-purple .node-accent{fill:#8a71d6}
+.lesson-diagram-node.tone-teal>rect:first-child{fill:#edf8f5;stroke:#a3d1c5}
+.lesson-diagram-node.tone-teal .node-accent{fill:#45a28f}
+.lesson-diagram-node.tone-amber>rect:first-child{fill:#fff7e9;stroke:#e5cea4}
+.lesson-diagram-node.tone-amber .node-accent{fill:#c79548}
+.lesson-diagram-node.active>rect:first-child,.lesson-diagram-node:focus-visible>rect:first-child{stroke:#745ad0;stroke-width:3.5}
+.lesson-diagram-node:hover>rect:first-child{stroke:#8b73c9;stroke-width:2.5}
+.lesson-diagram-detail{display:flex;gap:18px;align-items:start;margin:7px 24px 0;padding:15px 18px;background:#f4f3fb;border-left:3px solid #967bdc;border-radius:0 8px 8px 0;min-height:84px}
+.lesson-diagram-detail strong{font-size:15px;white-space:nowrap;color:#604aa2;padding-top:2px}
+.lesson-diagram-detail p{font-size:15px;line-height:1.8;color:#52667f;margin:0}
+.lesson-visual-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 24px;color:#74839a;font-size:13px}
+.lesson-visual-footer>span:first-child{display:flex;align-items:center;gap:6px}
+.lesson-visual-dialog[data-slot=dialog-content]{width:min(1140px,96vw);max-width:min(1140px,96vw);max-height:90dvh;overflow:auto;gap:18px;background:#fff;color:#263e59;border-color:#c9d2e6}
+.lesson-visual-dialog .lesson-diagram-detail{margin:0}
+.lesson-visual-dialog [data-slot=dialog-title]{padding-right:25px;font-size:21px;line-height:1.6}
+.lesson-visual-dialog [data-slot=dialog-description]{font-size:15px;line-height:1.7}
+.concept-card-grid .teaching-card{padding:23px;display:flex;flex-direction:column}
+.concept-card-grid .concept-number{font-size:16px;font-family:inherit;color:#9281bd;line-height:1}
+.concept-card-grid .teaching-card h3{font-size:18px;margin:10px 0 15px}
+.concept-card-grid .teaching-card>p{font-size:16px;line-height:1.8;margin-bottom:13px}
+.prompt-concept-figure{margin:0 0 16px;border:1px solid #dee5ef;border-radius:10px;background:#f8fafc;overflow:hidden}
+.prompt-concept-figure>button{display:block;width:100%;position:relative;cursor:zoom-in;padding:4px}
+.prompt-concept-figure>button>svg:last-child:not(:first-child){position:absolute;right:8px;top:8px;color:#8995aa}
+.prompt-concept-figure>button:focus-visible{outline:3px solid #9278de;outline-offset:-3px}
+.prompt-concept-figure figcaption{font-size:13px;text-align:center;color:#788599;line-height:1.7;padding:3px 10px 9px}
+.prompt-concept-svg{width:100%;display:block;color:#596c83}
+.prompt-concept-svg text{font-size:18px;fill:currentColor}
+.prompt-concept-svg .mini-surface{fill:#fff;stroke:#c9d5e2}
+.prompt-concept-svg .mini-rule{fill:none;stroke:#d6e0eb;stroke-width:1}
+.prompt-concept-svg .mini-value{font-size:17px;fill:#314968;font-weight:600}
+.prompt-concept-svg .mini-success{fill:#248574;font-size:17px}
+.prompt-concept-svg .mini-warn{fill:#b46630;font-size:17px}
+.prompt-concept-svg .mini-block{fill:#f0edfa;stroke:#cec6e5}
+.prompt-concept-svg .block-1{fill:#eaf2fa;stroke:#c2d4e6}
+.prompt-concept-svg .block-2{fill:#ebf7f3;stroke:#bbdcd2}
+.prompt-concept-svg .sample-0{fill:#e8f6ef;stroke:#b7d9c9}
+.prompt-concept-svg .sample-1{fill:#fff1e6;stroke:#e7c9ad}
+.prompt-concept-svg .sample-2{fill:#eef1fb;stroke:#c4cce6}
+.prompt-concept-svg .mini-symbol{font-size:27px;font-weight:650;fill:#597968}
+.prompt-concept-svg .mini-arrow{fill:none;stroke:#9e8abc;stroke-width:2}
+.concept-example{border-top:1px solid #e1e7ef;padding-top:14px;margin-top:auto}
+.concept-example summary{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px;color:#7b5cbc;cursor:pointer;list-style:none}
+.concept-example summary::-webkit-details-marker{display:none}
+.concept-example[open] summary>svg{transform:rotate(90deg)}
+.concept-example p{font-size:15px;line-height:1.85;color:#63788e;margin-top:12px}
+.lesson-art-source{font-size:13px;line-height:1.8;color:#7c8798;margin:15px 2px 20px}
+.lesson-art-source a{display:inline-flex;align-items:center;gap:2px;color:#7257bf;text-decoration:underline;text-underline-offset:3px}
+.prompt-figure-dialog[data-slot=dialog-content]{width:min(800px,95vw);max-width:min(800px,95vw);background:#fff;color:#294461}
+.prompt-figure-dialog [data-slot=dialog-title]{line-height:1.7;padding-right:20px}
+.prompt-figure-dialog .prompt-concept-svg{background:#f5f8fc;border-radius:12px}
+html.dark .lesson-visual-overview,html.dark .lesson-visual-dialog[data-slot=dialog-content],html.dark .prompt-figure-dialog[data-slot=dialog-content]{background:#132035;border-color:#40536f;color:#dce6f7}
+html.dark .lesson-visual-overview h3{color:#e0e8f7}
+html.dark .lesson-visual-overview>figcaption span,html.dark .lesson-art-source a{color:#b6a4f2}
+html.dark .lesson-diagram-node>rect:first-child{fill:#1c304b;stroke:#5a759e}
+html.dark .lesson-diagram-node.tone-purple>rect:first-child{fill:#32294d;stroke:#7963ae}
+html.dark .lesson-diagram-node.tone-teal>rect:first-child{fill:#1a393e;stroke:#4f8c85}
+html.dark .lesson-diagram-node.tone-amber>rect:first-child{fill:#3d342a;stroke:#967f59}
+html.dark .lesson-diagram-node .node-title{fill:#e1e9f6}
+html.dark .lesson-diagram-node .node-subtitle{fill:#b4c4db}
+html.dark .lesson-diagram-node.active>rect:first-child,html.dark .lesson-diagram-node:focus-visible>rect:first-child{stroke:#b29aff}
+html.dark .lesson-diagram-edge.active{color:#b399f1}
+html.dark .lesson-diagram-edge text{fill:#ccb6ff;stroke:#132035}
+html.dark .lesson-diagram-detail{background:#24253f;border-color:#a48be0}
+html.dark .lesson-diagram-detail strong,html.dark .concept-example summary{color:#c2aff5}
+html.dark .lesson-diagram-detail p,html.dark .concept-example p{color:#b6c5dc}
+html.dark .lesson-visual-footer,html.dark .lesson-art-source{color:#9badc8}
+html.dark .prompt-concept-figure,html.dark .prompt-figure-dialog .prompt-concept-svg{background:#1b2b42;border-color:#445774}
+html.dark .prompt-concept-svg{color:#b1c3dc}
+html.dark .prompt-concept-svg .mini-surface{fill:#20324b;stroke:#596d89}
+html.dark .prompt-concept-svg .mini-rule{stroke:#495e7d}
+html.dark .prompt-concept-svg .mini-value{fill:#dce6f6}
+html.dark .prompt-concept-svg .mini-block{fill:#322e4b;stroke:#716383}
+html.dark .prompt-concept-svg .block-1,html.dark .prompt-concept-svg .sample-2{fill:#253951;stroke:#597497}
+html.dark .prompt-concept-svg .block-2,html.dark .prompt-concept-svg .sample-0{fill:#20403f;stroke:#598e7e}
+html.dark .prompt-concept-svg .sample-1{fill:#43392f;stroke:#a38465}
+html.dark .prompt-concept-svg .mini-success,html.dark .prompt-concept-svg .mini-symbol{fill:#94d7bb}
+html.dark .prompt-concept-svg .mini-warn{fill:#f2c39c}
+html.dark .prompt-concept-svg .mini-arrow{stroke:#b1a0d5}
+html.dark .concept-example{border-color:#384c68}
+html.dark .prompt-concept-figure figcaption{color:#a5b7d0}
+@media(max-width:900px){.lesson-visual-overview>figcaption{padding:17px 17px 5px}.lesson-visual-overview h3{font-size:18px}.lesson-diagram-detail{margin-inline:17px;display:block}.lesson-diagram-detail strong{display:block;margin-bottom:5px}.lesson-visual-footer{padding-inline:17px}.lesson-hero,.lesson-hero>div{min-height:190px}.lesson-hero>div{padding:23px}.lesson-hero h2{font-size:23px}.lesson-visual-dialog[data-slot=dialog-content]{padding:17px}.lesson-visual-dialog .lesson-diagram-scroll{padding-inline:0}}
+@media(max-width:600px){.lesson-visual-overview>figcaption{align-items:start}.lesson-visual-overview>figcaption button{font-size:13px;padding-inline:8px}.lesson-visual-overview h3{font-size:17px}.lesson-hero h2{font-size:22px}.lesson-hero p{font-size:15px}.concept-card-grid .teaching-card{padding:18px}.lesson-visual-footer>span:first-child::after{content:' · 可横向滑动'}.lesson-diagram-detail p{font-size:15px}.lesson-diagram-scroll{padding-inline:4px}}
+@media(max-width:600px){.relationship-map{height:auto;min-height:300px}.relationship-map .react-flow,.relationship-key{display:none}.relationship-mobile-list{display:flex;flex-direction:column;gap:10px;padding:20px}.relationship-mobile-list>strong{font-size:14px;color:#697a90;margin-bottom:4px}.relationship-mobile-list button{border:1px solid #c4d0e0;border-radius:9px;background:white;text-align:left;padding:12px 15px;display:flex;align-items:center;gap:15px;justify-content:space-between}.relationship-mobile-list button span{font-size:14px;color:#72839a}.relationship-mobile-list button strong{font-size:15px;color:#30455e}.relationship-mobile-list button.active{border-color:#8c6dde;background:#f1edfc}.relationship-toolbar>span{font-size:13px}html.dark .relationship-mobile-list button{background:#1e2f47;border-color:#60718c}html.dark .relationship-mobile-list button.active{background:#342d50;border-color:#b49df4}html.dark .relationship-mobile-list button strong{color:#d3e2f8}}

@@ -1,0 +1,172 @@
+{
+  "topics": [
+    {
+      "id": "bs-nlq",
+      "title": "从ERP财务到供应链智能问数",
+      "subtitle": "复用ERP财务与智能问数经验，形成可验证的企业AI作品。",
+      "problem": "收入、毛利、库存周转在不同报表中口径不一，问数虽能生成SQL却难以验收。",
+      "solution": "先建指标语义层，再让模型选指标、补筛选条件、解释结果，并显示口径与数据时间。",
+      "data": "对接ERP总账、销售、库存只读视图；统一法人、币种、期间、单位及行级权限。",
+      "evaluation": "用财务确认的标准答案评测数值、口径、权限与拒答；单列跨币种和跨期边界题。",
+      "pilot": "一个法人、10个指标、50道真实问题；交付指标字典、问数原型和验收集。",
+      "sourceIds": [
+        "S01",
+        "S05"
+      ]
+    },
+    {
+      "id": "bs-procurement",
+      "title": "采购审单与三单匹配助手",
+      "subtitle": "将业财流程理解转成AI与确定性规则的合理分工。",
+      "problem": "订单、收货与发票分散，价格、数量、税额差异需要人工逐项核对。",
+      "solution": "文档抽取定位字段，规则引擎核金额与容差，模型解释差异并引用原单据。",
+      "data": "连接采购订单、收货、发票、供应商主数据和审批流；保留版本与操作记录。",
+      "evaluation": "分别测字段准确率、异常召回率、误报率和复核时长；付款和过账保留审批。",
+      "pilot": "一个采购品类、100组脱敏历史单据，只生成差异清单；交付异常分类与人工接管流程。",
+      "sourceIds": [
+        "S01",
+        "S07",
+        "S10"
+      ]
+    },
+    {
+      "id": "bs-inventory",
+      "title": "需求预测与库存补货：模型之外的产品设计",
+      "subtitle": "学习用业务基线评估预测与优化项目，而非只验收模型精度。",
+      "problem": "需求波动、缺货和积压并存，单看预测误差难判断业务收益。",
+      "solution": "时序模型预测需求，优化模型生成补货建议；大模型解释驱动因素与情景差异。",
+      "data": "接入销量、缺货、库存、交期、最小起订量与日历；区分真实零需求和缺货零销量。",
+      "evaluation": "滚动回测WAPE与偏差，并比较缺货率、库存周转和服务水平，防止使用未来数据。",
+      "pilot": "一个仓库、30个SKU，与现有补货规则并行；交付基线、回测报告与人工调整机制。",
+      "sourceIds": [
+        "S06",
+        "S09"
+      ]
+    },
+    {
+      "id": "bs-cross-border",
+      "title": "跨境MIS：多语单证与到岸成本解释",
+      "subtitle": "直接延伸跨境MIS经验，突出多系统数据一致性与解释能力。",
+      "problem": "多语言单证、多币种费用和在途节点分散，业务与财务对账耗时。",
+      "solution": "模型抽取与翻译单证、提示缺项；费用分摊与汇率换算由配置规则计算，再解释差异。",
+      "data": "关联合同、发票、装箱单、运输节点及ERP成本；固定汇率日期、单位和费用分摊口径。",
+      "evaluation": "测关键字段、金额精度、单证引用及成本差异；税务判断转业务专家复核。",
+      "pilot": "一条贸易线路、50票历史业务；只读对账，交付字段映射、证据链和异常处理清单。",
+      "sourceIds": [
+        "S01",
+        "S08"
+      ]
+    },
+    {
+      "id": "bs-fulfillment",
+      "title": "订单履约异常：从预警到协同处置",
+      "subtitle": "把项目协调能力转为AI建议可执行、可追踪的产品流程。",
+      "problem": "延迟交货涉及库存、生产、运输多个环节，预警多但责任与下一步不清晰。",
+      "solution": "规则或预测模型识别风险，模型汇总证据并生成调拨、催交等处置建议，由责任人确认。",
+      "data": "用订单行贯通ERP、MES、WMS、TMS状态；约定事件时间、主数据与回写幂等。",
+      "evaluation": "测风险召回、提前量、误报负担、关闭时长与准时交付率，比较原人工流程。",
+      "pilot": "一个基地的一类订单，只读异常看板；交付责任矩阵、处置手册和闭环事件表。",
+      "sourceIds": [
+        "S01",
+        "S04",
+        "S07"
+      ]
+    },
+    {
+      "id": "bs-cloud-ai",
+      "title": "云应用AI助手：知识、权限与集成交付",
+      "subtitle": "积累企业AI共性能力，形成从需求、评测到上线运维的交付方法。",
+      "problem": "企业云应用培训与故障答疑重复，知识版本混杂，多租户权限易被忽略。",
+      "solution": "用检索增强回答产品操作与业务规则；引用适用版本，证据不足或校验失败时转人工，查询能力以白名单工具提供。",
+      "data": "接入产品手册、知识库和脱敏工单；贯通单点登录、租户隔离及接口审计。",
+      "evaluation": "评测引用支持度、解决率、过期知识和越权泄露；记录延迟与单次有效解决成本。",
+      "pilot": "一个模块、两个隔离测试租户、60道问题；交付权限矩阵、评测集与灰度回滚方案。",
+      "sourceIds": [
+        "S02",
+        "S05"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "title": "日本宝信｜信息化产品",
+      "url": "https://baosight-jp.com/zh/product-informatization.html",
+      "publisher": "日本宝信株式会社（上海宝信软件全资子公司）",
+      "fact": "公开列出DMMS、TMS及金属加工供应链系统等产品。 DMMS连接销售、采购、生产与财务；TMS覆盖运输计划、预约和扫码等物流业务。 金属加工供应链系统覆盖购销、仓储、生产、物流与财务，介绍了云原生、多语言、税组配置及SAP/Oracle EBS对接能力。",
+      "date": "页面未注明发布日期；2026-09-19核验"
+    },
+    {
+      "id": "S02",
+      "title": "日本宝信｜工业互联网平台 xIn³Plat",
+      "url": "https://baosight-jp.com/zh/product-platform.html",
+      "publisher": "日本宝信株式会社",
+      "fact": "宝联登采用云、边、端架构，区分面向产业生态的ePlat和面向工业现场的iPlat。 页面介绍数据接入、工业大数据、微服务、低代码以及平台与AI的结合。",
+      "date": "页面未注明发布日期；2026-09-19核验"
+    },
+    {
+      "id": "S03",
+      "title": "日本宝信｜公司概要",
+      "url": "https://baosight-jp.com/zh/company.html",
+      "publisher": "日本宝信株式会社",
+      "fact": "页面明确日本宝信为上海宝信软件在日本设立的独资子公司，并链接母公司官网。 介绍其钢铁制造业、云计算、企业信息化及海外业务方向。",
+      "date": "页面含2026年业务描述，未注明具体发布日期；2026-09-19核验"
+    },
+    {
+      "id": "S04",
+      "title": "日本宝信｜信息化解决方案",
+      "url": "https://baosight-jp.com/zh/solution-informatization.html",
+      "publisher": "日本宝信株式会社",
+      "fact": "介绍集团、基地、工厂与现场的多层级生产管控。 功能包括产销供协同、异常预警、数据下钻及跨专业数据集成。",
+      "date": "页面未注明发布日期；2026-09-19核验"
+    },
+    {
+      "id": "S05",
+      "title": "dbt Semantic Layer",
+      "url": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl",
+      "publisher": "dbt Labs",
+      "fact": "语义层在已有数据模型上集中定义指标并处理数据连接。 统一指标可由下游工具和应用通过接口调用；文档列出访问权限机制。",
+      "date": "页面更新于 2026-08-18；2026-09-19 核验"
+    },
+    {
+      "id": "S06",
+      "title": "SAP Integrated Business Planning for Supply Chain",
+      "url": "https://www.sap.com/products/scm/integrated-business-planning.html",
+      "publisher": "SAP",
+      "fact": "产品介绍需求感知、统计建模、异常值修正和多层级供应计划。 S&OP功能结合财务与运营计划，支持供需变化的情景模拟。",
+      "date": "产品页未注明发布日期；2026-09-19核验"
+    },
+    {
+      "id": "S07",
+      "title": "Oracle AI for Supply Chain and Manufacturing",
+      "url": "https://www.oracle.com/scm/ai/",
+      "publisher": "Oracle",
+      "fact": "官方目录列举采购订单摘要、采购政策问答、采购支出分类、库存短缺建议和到岸成本估计等AI用例。 目录区分生成式AI、AI智能体及智能体应用。",
+      "date": "持续更新的功能目录，未注明发布日期；2026-09-19核验"
+    },
+    {
+      "id": "S08",
+      "title": "Microsoft Learn｜Landed cost module overview",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/supply-chain/landed-cost/landed-cost-overview",
+      "publisher": "Microsoft",
+      "fact": "到岸成本模块支持航次、集装箱、在途货物、预计费用和实际费用管理。 费用可依据数量、体积、重量或金额等规则分摊，并跟踪运输节点。",
+      "date": "页面更新于 2026-07-01；2026-09-19 核验"
+    },
+    {
+      "id": "S09",
+      "title": "Microsoft Learn｜Demand planning home page",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/supply-chain/demand-planning/demand-planning-home-page",
+      "publisher": "Microsoft",
+      "fact": "需求计划流程包括数据导入、转换、预测、人工审阅调整和结果导出。 文档说明情景分析、版本记录及自定义Azure机器学习模型接入。",
+      "date": "页面更新于 2026-07-01；2026-09-19 核验"
+    },
+    {
+      "id": "S10",
+      "title": "Microsoft Learn｜Procurement and sourcing overview",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/supply-chain/procurement/procurement-sourcing-overview",
+      "publisher": "Microsoft",
+      "fact": "采购流程覆盖需求、采购、收货、发票及付款，并通过采购策略和工作流配置控制。 文档说明采购订单审批、收货与发票匹配，以及供应商绩效分析。",
+      "date": "页面更新于 2025-07-21；2026-09-19 核验"
+    }
+  ]
+}

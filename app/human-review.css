@@ -1,0 +1,13 @@
+.human-review{margin:1.25rem 0;padding:1.1rem;border:1px solid var(--border);border-radius:14px;background:var(--card);color:var(--foreground)}
+.human-review-heading{display:flex;align-items:center;gap:.65rem;width:100%;text-align:left;padding:.8rem .9rem;border-radius:10px;background:#eeebff;color:#6651d5;font-size:1rem;cursor:pointer;border:1px solid transparent;scroll-margin-top:100px}
+.human-review-heading strong{flex:1}.human-review-heading span{font-size:.85rem;white-space:nowrap}.human-review-heading.done{background:#e4f4ee;color:#137562}
+.human-review-item{display:flex;align-items:flex-start;gap:.7rem;position:relative;margin:.45rem 0;padding:.75rem;border:1px solid transparent;border-radius:9px;font-size:.9rem;line-height:1.65;cursor:pointer;scroll-margin-top:120px}
+.human-review-item [role=checkbox]{flex-shrink:0;margin-top:4px}.human-review-item>span{flex:1}.human-review-item>small{white-space:nowrap;color:#ac4e08;font-size:.75rem;font-weight:600}
+.review-required [data-review-missing=true]{background:#fff5e7!important;border:1px solid #e9a444!important;box-shadow:0 0 0 2px #e9a44420;border-radius:9px;padding:.8rem;scroll-margin-top:120px}
+.review-export-warning{display:flex;align-items:flex-start;gap:.55rem;background:#fff5e7;color:#924811;padding:.8rem 1rem;border-radius:9px;line-height:1.6;font-size:.9rem;margin:1rem 0}.review-export-warning svg{flex-shrink:0;margin-top:.2rem}.human-review-help{font-size:.8rem;line-height:1.7;color:var(--muted-foreground);margin:.7rem 0 0}
+[data-review-trigger]:focus-visible,.human-review-item:focus-within{outline:2px solid #7663ef;outline-offset:3px}
+:root[data-theme=dark] .human-review-heading,:root.dark .human-review-heading{background:#282548;color:#c3b9ff}
+:root[data-theme=dark] .human-review-heading.done,:root.dark .human-review-heading.done{background:#123f39;color:#80d9bc}
+:root[data-theme=dark] .review-required [data-review-missing=true],:root.dark .review-required [data-review-missing=true],:root[data-theme=dark] .review-export-warning,:root.dark .review-export-warning{background:#382d20!important;border-color:#bb8539!important;color:#f3cc8d}
+:root[data-theme=dark] .human-review-item>small,:root.dark .human-review-item>small{color:#f3cc8d}
+@media(max-width:640px){.human-review{padding:.8rem}.human-review-heading{flex-wrap:wrap}.human-review-item{padding:.65rem}.human-review-item>small{display:none}}

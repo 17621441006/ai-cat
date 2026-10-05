@@ -1,0 +1,1955 @@
+{
+  "resources": [
+    {
+      "id": 1,
+      "title": "PMI AI资源中心",
+      "url": "https://www.pmi.org/learning/ai-in-project-management",
+      "priority": "先学",
+      "category": "项目管理",
+      "description": "区分AI辅助管理与AI项目交付；建立个人学习清单。",
+      "access": "英文为主；公开入口，具体资源条件不同",
+      "level": "入门"
+    },
+    {
+      "id": 2,
+      "title": "PMI 生成式AI项目管理实践课",
+      "url": "https://www.pmi.org/shop/p-/elearning/practical-application-of-generative-ai-for-project-managers/el173",
+      "priority": "先学",
+      "category": "项目管理",
+      "description": "会议、需求、风险等实践；完成一份真实项目周报。",
+      "access": "官方列免费约5小时；需账号，语言见页面",
+      "level": "入门"
+    },
+    {
+      "id": 3,
+      "title": "PMI Seven AI Project Patterns",
+      "url": "https://www.pmi.org/shop/p-/elearning/pmi-essentials-seven-ai-project-patterns/el343",
+      "priority": "按需",
+      "category": "项目管理",
+      "description": "用AI项目模式分析业务需求；给场景分类。",
+      "access": "英文入口；报名与权益以页面为准",
+      "level": "入门"
+    },
+    {
+      "id": 4,
+      "title": "PMI CPMAI",
+      "url": "https://www.pmi.org/certifications/ai-project-management-cpmai",
+      "priority": "选修",
+      "category": "项目管理",
+      "description": "系统学习AI项目管理；补生命周期和跨职能协作。",
+      "access": "课程与认证收费；页面列简体中文",
+      "level": "入门"
+    },
+    {
+      "id": 5,
+      "title": "PMI AI项目管理标准",
+      "url": "https://www.pmi.org/standards/artificial-intelligence",
+      "priority": "先学",
+      "category": "项目管理",
+      "description": "2026年6月出版；学习治理、监督、裁剪与价值交付。",
+      "access": "英文；会员数字访问或购买，核对权益",
+      "level": "入门"
+    },
+    {
+      "id": 6,
+      "title": "PMI Infinity",
+      "url": "https://www.pmi.org/infinity",
+      "priority": "按需",
+      "category": "项目管理",
+      "description": "观察项目章程、风险等专业助手；审阅一份输出。",
+      "access": "会员与试用条件；非无限免费",
+      "level": "入门"
+    },
+    {
+      "id": 7,
+      "title": "Atlassian Rovo",
+      "url": "https://www.atlassian.com/software/rovo",
+      "priority": "按需",
+      "category": "项目管理",
+      "description": "企业搜索、上下文与Agent；设计知识到行动的流程。",
+      "access": "英文；受云套餐、额度和管理员设置影响",
+      "level": "入门"
+    },
+    {
+      "id": 8,
+      "title": "Agents in Jira 公告",
+      "url": "https://www.atlassian.com/blog/announcements/ai-agents-in-jira",
+      "priority": "进阶",
+      "category": "项目管理",
+      "description": "研究任务分派、评论协作和工作流内Agent。",
+      "access": "2026年2月公告时为公开beta；复核当前状态",
+      "level": "入门"
+    },
+    {
+      "id": 9,
+      "title": "Google PAIR 产品设计实践",
+      "url": "https://codelabs.developers.google.com/codelabs/pair-guidebook",
+      "priority": "先学",
+      "category": "产品设计",
+      "description": "用户任务、AI价值、信任和反馈；完成任务到数据映射。",
+      "access": "英文；公开经典设计资料",
+      "level": "实践"
+    },
+    {
+      "id": 10,
+      "title": "Microsoft HAX Toolkit",
+      "url": "https://www.microsoft.com/en-us/research/project/hax-toolkit/",
+      "priority": "先学",
+      "category": "产品设计",
+      "description": "人机交互指南与设计模式；补齐纠错、控制和失败体验。",
+      "access": "英文；公开工具与资料",
+      "level": "实践"
+    },
+    {
+      "id": 11,
+      "title": "Anthropic Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "priority": "先学",
+      "category": "产品设计",
+      "description": "判断工作流与Agent的适用范围；为5个场景选架构。",
+      "access": "英文；公开文章，初版2024年，工具信息有更新",
+      "level": "实践"
+    },
+    {
+      "id": 12,
+      "title": "Anthropic Agent评测实践",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "priority": "先学",
+      "category": "产品设计",
+      "description": "任务、评分、结果与回归；写业务评测量表。",
+      "access": "英文；2026年1月公开文章",
+      "level": "实践"
+    },
+    {
+      "id": 13,
+      "title": "Anthropic 上下文工程",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "priority": "先学",
+      "category": "产品设计",
+      "description": "资料、工具与状态的取舍；设计知识供给和更新规则。",
+      "access": "英文；2025年9月公开文章",
+      "level": "实践"
+    },
+    {
+      "id": 14,
+      "title": "Anthropic 工具设计",
+      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "priority": "进阶",
+      "category": "产品设计",
+      "description": "工具名称、参数、边界与结果；写一个查询接口契约。",
+      "access": "英文；公开工程实践",
+      "level": "实践"
+    },
+    {
+      "id": 15,
+      "title": "Anthropic 长任务运行环境",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "priority": "进阶",
+      "category": "产品设计",
+      "description": "增量执行、进度记录与交接；设计可恢复研究任务。",
+      "access": "英文；公开工程实践，不等于PM自治证明",
+      "level": "实践"
+    },
+    {
+      "id": 16,
+      "title": "GitHub Spec Kit",
+      "url": "https://github.com/github/spec-kit",
+      "priority": "按需",
+      "category": "产品设计",
+      "description": "规格驱动开发；把需求、计划、任务与验证连起来。",
+      "access": "英文；公开仓库，执行所用模型费用另计",
+      "level": "实践"
+    },
+    {
+      "id": 17,
+      "title": "Azure RAG概览",
+      "url": "https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview",
+      "priority": "先学",
+      "category": "数据与架构",
+      "description": "检索增强与路线取舍；把失败拆成检索和生成问题。",
+      "access": "英文及多语言；文档公开，云服务另计",
+      "level": "进阶"
+    },
+    {
+      "id": 18,
+      "title": "Azure 文档级访问控制",
+      "url": "https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview",
+      "priority": "按需",
+      "category": "数据与架构",
+      "description": "身份、过滤、索引权限；设计跨组织与撤权测试。",
+      "access": "公开文档；部分原生权限能力为preview",
+      "level": "进阶"
+    },
+    {
+      "id": 19,
+      "title": "dbt Semantic Layer",
+      "url": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl",
+      "priority": "先学",
+      "category": "数据与架构",
+      "description": "指标与维度治理；写10个财务或供应链指标定义。",
+      "access": "英文；文档公开，产品有许可条件",
+      "level": "进阶"
+    },
+    {
+      "id": 20,
+      "title": "Palantir Ontology",
+      "url": "https://www.palantir.com/docs/foundry/ontology/overview",
+      "priority": "进阶",
+      "category": "数据与架构",
+      "description": "对象、关系与动作；画订单到库存的业务对象图。",
+      "access": "英文；公开产品文档，商业平台",
+      "level": "进阶"
+    },
+    {
+      "id": 21,
+      "title": "MCP 官方入门",
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "priority": "进阶",
+      "category": "数据与架构",
+      "description": "AI应用连接工具和数据；理解身份与访问边界。",
+      "access": "英文；公开协议文档，集成有运行成本",
+      "level": "进阶"
+    },
+    {
+      "id": 22,
+      "title": "A2A 官方文档",
+      "url": "https://a2a-protocol.org/latest/",
+      "priority": "进阶",
+      "category": "数据与架构",
+      "description": "Agent能力发现、任务与结果；评估跨系统协作需求。",
+      "access": "英文；公开协议文档",
+      "level": "进阶"
+    },
+    {
+      "id": 23,
+      "title": "Agent Skills 开放格式",
+      "url": "https://agentskills.io/home",
+      "priority": "进阶",
+      "category": "数据与架构",
+      "description": "封装指令、脚本和资源；制作项目周报技能包。",
+      "access": "英文；公开格式，各平台兼容性另核对",
+      "level": "进阶"
+    },
+    {
+      "id": 24,
+      "title": "LangGraph 概览",
+      "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "priority": "进阶",
+      "category": "数据与架构",
+      "description": "状态、持久执行和人工介入；理解长工作流的工程要求。",
+      "access": "英文；框架文档公开，托管与模型费用另计",
+      "level": "进阶"
+    },
+    {
+      "id": 25,
+      "title": "Dify 官方文档",
+      "url": "https://docs.dify.ai/en/home",
+      "priority": "先学",
+      "category": "工作流工具",
+      "description": "Workflow、Agent、知识、插件和日志；做有失败分支的助手。",
+      "access": "英文核查；云额度与自托管并存，许可另核对",
+      "level": "实践"
+    },
+    {
+      "id": 26,
+      "title": "Coze Studio 官方仓库",
+      "url": "https://github.com/coze-dev/coze-studio",
+      "priority": "按需",
+      "category": "工作流工具",
+      "description": "工作流、知识、插件和SDK；生成待审核工单。",
+      "access": "中英；Apache 2.0，部署模型有成本；区别商业扣子",
+      "level": "实践"
+    },
+    {
+      "id": 27,
+      "title": "n8n AI与学习路径",
+      "url": "https://docs.n8n.io/learning-paths",
+      "priority": "按需",
+      "category": "工作流工具",
+      "description": "结合[n8n AI介绍](https://n8n.io/ai/)学习事件、人工审核和跨系统流程。",
+      "access": "英文；云端付费或试用，自托管受许可条件约束",
+      "level": "实践"
+    },
+    {
+      "id": 28,
+      "title": "阿里云百炼",
+      "url": "https://help.aliyun.com/zh/model-studio/what-is-model-studio",
+      "priority": "按需",
+      "category": "工作流工具",
+      "description": "模型API、工作流、知识、评测；比较两种模型业务表现。",
+      "access": "中文；开通与调用分开计，额度有条件",
+      "level": "实践"
+    },
+    {
+      "id": 29,
+      "title": "Asana AI Studio",
+      "url": "https://asana.com/product/ai/ai-studio",
+      "priority": "按需",
+      "category": "工作流工具",
+      "description": "请求受理、分类、路由和摘要；研究低代码管理流程。",
+      "access": "英文；套餐、用量与集成需核对",
+      "level": "实践"
+    },
+    {
+      "id": 30,
+      "title": "Microsoft Copilot Studio",
+      "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+      "priority": "按需",
+      "category": "工作流工具",
+      "description": "Agent、工作流、连接器、审核与评测；设计企业集成。",
+      "access": "英文及多语言；产品收费，部分能力为preview",
+      "level": "实践"
+    },
+    {
+      "id": 31,
+      "title": "飞书妙记",
+      "url": "https://www.feishu.cn/product/minutes",
+      "priority": "先学",
+      "category": "工作流工具",
+      "description": "会议语音转写与总结；形成可核对的行动项。",
+      "access": "中文；具体配额与权限按企业版本核对",
+      "level": "实践"
+    },
+    {
+      "id": 32,
+      "title": "飞书多维表格",
+      "url": "https://www.feishu.cn/product/base",
+      "priority": "按需",
+      "category": "工作流工具",
+      "description": "承载结构化任务和业务台账；连接人工确认流程。",
+      "access": "中文；具体AI与自动化额度按版本核对",
+      "level": "实践"
+    },
+    {
+      "id": 33,
+      "title": "DeepLearning AI AI For Everyone",
+      "url": "https://www.coursera.org/learn/ai-for-everyone",
+      "priority": "先学",
+      "category": "基础课程",
+      "description": "非技术AI、机会识别与团队协作；提交业务机会清单。",
+      "access": "英文及多语言；完整学习或证书可能收费",
+      "level": "入门"
+    },
+    {
+      "id": 34,
+      "title": "DeepLearning AI Generative AI for Everyone",
+      "url": "https://www.coursera.org/learn/generative-ai-for-everyone",
+      "priority": "先学",
+      "category": "基础课程",
+      "description": "生成式AI生命周期、RAG、微调与成本直觉；写选型说明。",
+      "access": "英文及多语言；免费注册不等于全课免费",
+      "level": "入门"
+    },
+    {
+      "id": 35,
+      "title": "Google 机器学习问题定义",
+      "url": "https://developers.google.com/machine-learning/problem-framing",
+      "priority": "先学",
+      "category": "基础课程",
+      "description": "判断是否需要ML、定义目标；写一页适用性分析。",
+      "access": "中文可切换；公开课程，官方估时45分钟",
+      "level": "入门"
+    },
+    {
+      "id": 36,
+      "title": "Google 机器学习速成课",
+      "url": "https://developers.google.com/machine-learning/crash-course?hl=zh-cn",
+      "priority": "按需",
+      "category": "基础课程",
+      "description": "分类、精确率召回率、数据与过拟合；解释误报漏报。",
+      "access": "中文；公开学习内容",
+      "level": "入门"
+    },
+    {
+      "id": 37,
+      "title": "Microsoft Learn AI应用与Agent",
+      "url": "https://learn.microsoft.com/zh-cn/training/paths/get-started-ai-apps-agents/",
+      "priority": "按需",
+      "category": "基础课程",
+      "description": "文本、视觉、语音、抽取与检索；扩展技术能力地图。",
+      "access": "中文；内容公开，需基础Python；云实验另计",
+      "level": "入门"
+    },
+    {
+      "id": 38,
+      "title": "Microsoft Generative AI for Beginners",
+      "url": "https://github.com/microsoft/generative-ai-for-beginners",
+      "priority": "按需",
+      "category": "基础课程",
+      "description": "应用开发课程及示例；改造成一个自己的业务应用。",
+      "access": "英文与翻译资源；仓库公开，运行费用另计",
+      "level": "入门"
+    },
+    {
+      "id": 39,
+      "title": "Python 官方中文教程",
+      "url": "https://docs.python.org/zh-cn/3/tutorial/",
+      "priority": "按需",
+      "category": "基础课程",
+      "description": "数据结构、文件、异常与模块；写CSV到JSON处理脚本。",
+      "access": "中文；公开，零编程者需配合更多入门练习",
+      "level": "入门"
+    },
+    {
+      "id": 40,
+      "title": "Hugging Face Agents Course",
+      "url": "https://huggingface.co/learn/agents-course/en/unit0/introduction",
+      "priority": "按需",
+      "category": "基础课程",
+      "description": "Agent与工具、框架和评测；记录一个完整执行轨迹。",
+      "access": "中英；课程免费，模型另计；认证规则以当前英文页为准",
+      "level": "入门"
+    },
+    {
+      "id": 41,
+      "title": "Langfuse 文档",
+      "url": "https://langfuse.com/docs",
+      "priority": "先学",
+      "category": "评测与工程",
+      "description": "Trace、成本、延迟、提示版本与评测；定位真实失败。",
+      "access": "英文；云有免费额度和付费，自托管有运维成本",
+      "level": "实践"
+    },
+    {
+      "id": 42,
+      "title": "LangSmith 观测文档",
+      "url": "https://docs.langchain.com/langsmith/observability",
+      "priority": "按需",
+      "category": "评测与工程",
+      "description": "跟踪、调试、反馈和评测；比较两个版本的任务表现。",
+      "access": "英文；免费用量与付费并存，不限LangChain应用",
+      "level": "实践"
+    },
+    {
+      "id": 43,
+      "title": "promptfoo 入门",
+      "url": "https://www.promptfoo.dev/docs/intro/",
+      "priority": "先学",
+      "category": "评测与工程",
+      "description": "批量比较、断言、回归与红队；做可重复验收测试。",
+      "access": "英文；核心CLI开源，模型与企业服务另计",
+      "level": "实践"
+    },
+    {
+      "id": 44,
+      "title": "Ragas 文档",
+      "url": "https://docs.ragas.io/en/stable/",
+      "priority": "按需",
+      "category": "评测与工程",
+      "description": "RAG、工作流和工具评测；拆分检索与回答质量。",
+      "access": "英文；库与文档公开，评判模型可能收费",
+      "level": "实践"
+    },
+    {
+      "id": 45,
+      "title": "Postman 入门",
+      "url": "https://learning.postman.com/docs/getting-started/overview/",
+      "priority": "先学",
+      "category": "评测与工程",
+      "description": "请求、鉴权、参数和测试；交付可复用API请求集合。",
+      "access": "英文；文档公开，产品套餐不同",
+      "level": "实践"
+    },
+    {
+      "id": 46,
+      "title": "PostgreSQL SQL教程",
+      "url": "https://www.postgresql.org/docs/current/tutorial.html",
+      "priority": "先学",
+      "category": "评测与工程",
+      "description": "查询、连接、聚合与事务；编写问数核验SQL。",
+      "access": "英文；文档公开，数据库可自部署",
+      "level": "实践"
+    },
+    {
+      "id": 47,
+      "title": "Streamlit 入门",
+      "url": "https://docs.streamlit.io/get-started",
+      "priority": "按需",
+      "category": "评测与工程",
+      "description": "Python交互界面；做输入、结果、证据与反馈原型。",
+      "access": "英文；开源框架，实际部署另计",
+      "level": "实践"
+    },
+    {
+      "id": 48,
+      "title": "ModelScope 官方仓库",
+      "url": "https://github.com/modelscope/modelscope",
+      "priority": "进阶",
+      "category": "评测与工程",
+      "description": "模型探索、推理、微调与评估；阅读模型与许可说明。",
+      "access": "英文仓库及中文站；各模型许可和算力另核对",
+      "level": "实践"
+    },
+    {
+      "id": 49,
+      "title": "Hugging Face MCP Course",
+      "url": "https://huggingface.co/learn/mcp-course/en/unit0/introduction",
+      "priority": "进阶",
+      "category": "治理与进阶",
+      "description": "协议、SDK与端到端集成；实现只读项目查询工具。",
+      "access": "英文；课程免费，需要API与编程基础",
+      "level": "进阶"
+    },
+    {
+      "id": 50,
+      "title": "Hugging Face LLM Course",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+      "priority": "选修",
+      "category": "治理与进阶",
+      "description": "Transformers、数据和微调；建立模型技术判断。",
+      "access": "英文及中文入口；课程免费，需较好Python基础",
+      "level": "进阶"
+    },
+    {
+      "id": 51,
+      "title": "Microsoft AI Agents for Beginners",
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "priority": "进阶",
+      "category": "治理与进阶",
+      "description": "Agent设计模式及示例；比较固定流程与动态规划。",
+      "access": "英文与翻译；仓库公开，模型资源另计",
+      "level": "进阶"
+    },
+    {
+      "id": 52,
+      "title": "FinOps for AI",
+      "url": "https://www.finops.org/wg/finops-for-ai-overview/",
+      "priority": "按需",
+      "category": "治理与进阶",
+      "description": "AI资源费用、业务价值与成本治理；建任务成本表。",
+      "access": "英文；公开框架资料，旧产品名称不可照搬",
+      "level": "进阶"
+    },
+    {
+      "id": 53,
+      "title": "OWASP GenAI Security Project",
+      "url": "https://genai.owasp.org/",
+      "priority": "按需",
+      "category": "治理与进阶",
+      "description": "提示注入、数据泄露与过度授权等风险；建异常测试。",
+      "access": "英文；公开资料与项目",
+      "level": "进阶"
+    },
+    {
+      "id": 54,
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "priority": "按需",
+      "category": "治理与进阶",
+      "description": "组织AI风险管理及GenAI Profile；定义治理责任。",
+      "access": "英文；公开自愿框架，非中国法律结论",
+      "level": "进阶"
+    },
+    {
+      "id": 55,
+      "title": "Continuous Delivery for ML",
+      "url": "https://martinfowler.com/articles/cd4ml.html",
+      "priority": "进阶",
+      "category": "治理与进阶",
+      "description": "代码、数据与模型共同版本化；理解持续交付基础。",
+      "access": "英文；2019年经典工程文章，非最新产品指南",
+      "level": "进阶"
+    },
+    {
+      "id": 56,
+      "title": "ChatGPT Projects",
+      "url": "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
+      "priority": "按需",
+      "category": "原型与趋势",
+      "description": "组织项目文件、指令和对话；搭建个人项目资料工作区。",
+      "access": "多语言；产品能力受套餐和设置影响",
+      "level": "实践"
+    },
+    {
+      "id": 57,
+      "title": "Figma AI与Make",
+      "url": "https://www.figma.com/ai/",
+      "priority": "按需",
+      "category": "原型与趋势",
+      "description": "由需求生成和迭代原型；验证完整交互流程。",
+      "access": "英文；额度与方案不同，部分功能为beta",
+      "level": "实践"
+    },
+    {
+      "id": 58,
+      "title": "Cursor 文档",
+      "url": "https://cursor.com/docs",
+      "priority": "按需",
+      "category": "原型与趋势",
+      "description": "理解代码、规划、实现、调试和评审；制作业务原型。",
+      "access": "中英入口；工具收费与用量需核对",
+      "level": "实践"
+    },
+    {
+      "id": 59,
+      "title": "Codex 官方使用说明",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "priority": "按需",
+      "category": "原型与趋势",
+      "description": "利用编码Agent实现和检查代码；练需求到可验证产物。",
+      "access": "多语言；套餐、用量和环境影响能力",
+      "level": "实践"
+    },
+    {
+      "id": 60,
+      "title": "Microsoft 2025 Work Trend Index",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born",
+      "priority": "选读",
+      "category": "原型与趋势",
+      "description": "人与Agent混合组织及委派能力；思考团队职责设计。",
+      "access": "英文；厂商研究与趋势观点，不能当统一标准",
+      "level": "实践"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "三种转型方向与岗位职责",
+      "category": "管理基础",
+      "summary": "岗位名称在公司间差异很大。判断一个岗位是否适合，应看它是否要求你承担产品定义、工程实现、交付验收或客户经营，而不是只看名称里有没有AI。FDE通常比产品或项目岗位更要求独立编码和系统排障。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "方向",
+            "主要职责",
+            "能证明能力的成果"
+          ],
+          "rows": [
+            [
+              "用AI管理项目",
+              "需求归纳、会议行动项、计划草案、风险扫描、状态沟通",
+              "可追溯的项目周报；实际节省时间的记录"
+            ],
+            [
+              "AI项目经理",
+              "协调业务、数据、模型、软件、评测和运营；对交付承担责任",
+              "范围与验收协议；评测报告；上线与回退方案"
+            ],
+            [
+              "AI产品经理",
+              "定义用户任务、AI介入方式、交互与信任、业务收益和迭代方向",
+              "AI PRD；行为样例；可用原型；用户与业务指标"
+            ],
+            [
+              "偏FDE的交付角色",
+              "深入客户现场，将需求转为集成、代码与可运行系统",
+              "API集成；可部署实现；现场问题定位和修复"
+            ]
+          ],
+          "widths": [
+            1.2,
+            2.6,
+            2.8
+          ]
+        },
+        {
+          "type": "p",
+          "text": "岗位名称在公司间差异很大。判断一个岗位是否适合，应看它是否要求你承担产品定义、工程实现、交付验收或客户经营，而不是只看名称里有没有AI。FDE通常比产品或项目岗位更要求独立编码和系统排障。"
+        },
+        {
+          "type": "h2",
+          "text": "需要继续保留的传统能力"
+        },
+        {
+          "type": "p",
+          "text": "范围管理、利益相关方沟通、资源协调、预算、风险、采购和变更管理仍然重要。AI让产出草稿更快，也会带来更多版本、依赖和错误传播，因此需要更明确的责任人和决策记录。"
+        },
+        {
+          "type": "h2",
+          "text": "AI项目不只包含大模型"
+        },
+        {
+          "type": "p",
+          "text": "需求预测、质量检测、异常识别、排产优化等场景，可能更适合预测模型、计算机视觉、运筹优化或规则系统。大模型适合语言理解、内容生成及工具协同。产品经理先判断问题类型，再决定技术路线。可先学[Google机器学习问题定义](https://developers.google.com/machine-learning/problem-framing)。"
+        },
+        {
+          "type": "p",
+          "text": "完成转型的最低证据：能够独立解释一个场景的价值、数据来源、失败边界、评测办法和成本；能演示端到端流程，并回答出错之后如何定位、接管与恢复。"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "能力地图与掌握深度",
+      "category": "管理基础",
+      "summary": "建议用四级自评：0是只听过，1是能解释，2是可借助工具完成，3是可独立设计并带团队交付。AI项目经理重交付与协调，AI产品经理重任务定义与体验；技术基础和评测是共同要求。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "p",
+          "text": "建议用四级自评：0是只听过，1是能解释，2是可借助工具完成，3是可独立设计并带团队交付。AI项目经理重交付与协调，AI产品经理重任务定义与体验；技术基础和评测是共同要求。"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "能力",
+            "项目经理侧重",
+            "产品经理侧重",
+            "练习成果"
+          ],
+          "rows": [
+            [
+              "业务与价值",
+              "范围、收益责任人",
+              "用户任务、采用动机",
+              "一页机会评估"
+            ],
+            [
+              "问题与需求",
+              "依赖、边界、变更",
+              "访谈、任务拆解、反例",
+              "任务流程和样例集"
+            ],
+            [
+              "AI基础",
+              "技术依赖与可行性",
+              "能力边界、路线比较",
+              "选型说明"
+            ],
+            [
+              "数据与知识",
+              "可获得性、质量、责任",
+              "口径、检索、时效",
+              "数据与语义字典"
+            ],
+            [
+              "提示与上下文",
+              "团队规范、版本",
+              "规则、示例、动态上下文",
+              "可复用上下文包"
+            ],
+            [
+              "工作流与Agent",
+              "集成、异常、恢复",
+              "工具调用、授权、体验",
+              "可运行工作流"
+            ],
+            [
+              "评测与实验",
+              "准入、回归、发布",
+              "成功定义、评分量表",
+              "评测集与报告"
+            ],
+            [
+              "交互与信任",
+              "培训、接管、升级",
+              "澄清、证据、撤销",
+              "含失败状态的原型"
+            ],
+            [
+              "技术协作",
+              "接口、日志、部署",
+              "可行性、约束、取舍",
+              "API调用与排错"
+            ],
+            [
+              "商业与成本",
+              "预算、采购、总成本",
+              "单任务收益、定价假设",
+              "业务收益模型"
+            ],
+            [
+              "治理与运营",
+              "权限、审计、事故",
+              "反馈、版本、留存",
+              "上线运营看板"
+            ]
+          ],
+          "widths": [
+            1.05,
+            1.7,
+            1.7,
+            2.15
+          ]
+        },
+        {
+          "type": "p",
+          "text": "建议深度：前四项与评测、价值判断做到3；工具操作做到2；编码先达到能读SQL、调API、理解JSON、看日志、修改简单Python的程度。希望转FDE，再提高数据库、后端、部署和故障诊断深度。"
+        },
+        {
+          "type": "p",
+          "text": "不要把“会搭一个聊天机器人”当成全面胜任；也不需要先成为训练基础模型的算法工程师，才能承担企业AI产品工作。"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "用AI管理项目的八个高频场景",
+      "category": "项目提效",
+      "summary": "以下是建议的管理工作流。工具负责处理材料和给出候选结论，负责人对事实、承诺、预算与对外表达负责。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "p",
+          "text": "以下是建议的管理工作流。工具负责处理材料和给出候选结论，负责人对事实、承诺、预算与对外表达负责。"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "管理环节",
+            "输入与AI动作",
+            "交付物和人工检查"
+          ],
+          "rows": [
+            [
+              "立项",
+              "访谈、现状数据、目标；归纳痛点和备选方案",
+              "机会说明；核对需求真实存在与收益归属"
+            ],
+            [
+              "需求澄清",
+              "会议、流程、历史工单；找冲突、缺漏和重复",
+              "需求清单与待确认项；保留证据出处"
+            ],
+            [
+              "范围与WBS",
+              "交付清单、依赖、约束；拆任务并建议顺序",
+              "任务树；团队确认工时、资源与关键路径"
+            ],
+            [
+              "会议管理",
+              "录音或纪要；提取决定、行动项、阻塞",
+              "责任人和期限；未明确内容标为待确认"
+            ],
+            [
+              "项目知识",
+              "方案、决策、变更、经验；带权限检索",
+              "可追溯问答；优先使用最新批准版本"
+            ],
+            [
+              "进度汇报",
+              "工单、里程碑、缺陷；生成差异和预警",
+              "周报草稿；不凭聊天语气猜完成率"
+            ],
+            [
+              "风险与依赖",
+              "问题记录、接口状态；发现重复阻塞",
+              "风险台账；核查信号和影响路径"
+            ],
+            [
+              "沟通与培训",
+              "受众、变更内容、案例；生成不同解释",
+              "客户汇报、培训材料；负责人审核口径"
+            ]
+          ],
+          "widths": [
+            1.05,
+            2.65,
+            2.9
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "可以本周启动的最小闭环"
+        },
+        {
+          "type": "p",
+          "text": "选择一个在管项目，将批准的计划、最近两周会议纪要、任务表和问题清单放入受控工作区。让AI生成带来源的周报草稿；你逐条修订后发出，并记录生成、核查、返工的总时间。连续做两周，才判断是否提高效率。"
+        },
+        {
+          "type": "p",
+          "text": "工具入口：[ChatGPT Projects](https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt)用于组织项目材料与对话；[飞书妙记](https://www.feishu.cn/product/minutes)提供会议转写与总结；[飞书多维表格](https://www.feishu.cn/product/base)可承载结构化任务台账。具体连接和自动更新需另行配置。"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "进一步扩展的八个管理场景",
+      "category": "项目提效",
+      "summary": "例如，某接口本周有3次联调失败、测试环境不可用2天、关键缺陷未关闭。AI可以汇总这些事实并提示里程碑风险；项目经理需核实是否位于关键路径，再决定调整资源或承诺。红黄绿状态应有规则和责任人，不依赖模型语气。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "管理环节",
+            "推荐做法",
+            "避免的误用"
+          ],
+          "rows": [
+            [
+              "排期预测",
+              "AI解释任务依赖；用历史周期和模拟计算交付区间",
+              "让大模型凭描述编一个精确日期"
+            ],
+            [
+              "资源与容量",
+              "整理技能、请假与任务负荷，提出冲突解决方案",
+              "用AI文本评价个人绩效或自动排人"
+            ],
+            [
+              "成本管理",
+              "从工时、采购、调用记录识别偏差并追溯",
+              "只统计模型调用费，遗漏复核与运维"
+            ],
+            [
+              "变更控制",
+              "对比新旧需求，定位受影响接口、测试与培训",
+              "自动接受客户变更或修改基线"
+            ],
+            [
+              "供应商协作",
+              "统一问题表、方案差异、验收证据",
+              "让模型替代商务判断或合同审查"
+            ],
+            [
+              "质量与测试",
+              "从需求生成候选用例，补边界和异常条件",
+              "把模型生成的用例直接视作完整覆盖"
+            ],
+            [
+              "上线与运维",
+              "整理依赖、演练记录、回退步骤、事故时间线",
+              "缺乏观测和授权时自主修改生产环境"
+            ],
+            [
+              "复盘与组合管理",
+              "跨项目归因、识别复用资产与重复投入",
+              "把相关性解释成因果或编造改进比例"
+            ]
+          ],
+          "widths": [
+            1.05,
+            2.85,
+            2.7
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "让项目状态由事实更新"
+        },
+        {
+          "type": "p",
+          "text": "例如，某接口本周有3次联调失败、测试环境不可用2天、关键缺陷未关闭。AI可以汇总这些事实并提示里程碑风险；项目经理需核实是否位于关键路径，再决定调整资源或承诺。红黄绿状态应有规则和责任人，不依赖模型语气。"
+        },
+        {
+          "type": "h2",
+          "text": "工具选型要沿用现有协作环境"
+        },
+        {
+          "type": "p",
+          "text": "团队已用Jira，可以研究Rovo；已在微软体系内，可研究Copilot Studio与现有审批流程；跨系统事件编排可研究n8n。不要为获得一个AI摘要功能就迁移整个项目系统。现成产品的授权范围、连接器和版本决定实际可做的事。"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "前沿理念一 从任务和证据组织交付",
+      "category": "前沿理念",
+      "summary": "本章至第7章的十二项是本文对公开实践的整合，其中“证据里程碑”“自治预算”等是管理表达，不能当作已经统一的认证标准。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "p",
+          "text": "本章至第7章的十二项是本文对公开实践的整合，其中“证据里程碑”“自治预算”等是管理表达，不能当作已经统一的认证标准。"
+        },
+        {
+          "type": "h2",
+          "text": "1 以完整业务任务作为交付单元"
+        },
+        {
+          "type": "p",
+          "text": "将“上线问数页面”改写为“财务人员能在授权范围内完成某类分析并获得可核验结果”。需求、评测和运营围绕同一个任务统计，才能看清AI究竟改善了哪一步。先测现有流程的耗时、差错与等待，再选择可独立闭环的子任务。"
+        },
+        {
+          "type": "h2",
+          "text": "2 在功能开发前写出可判定的成功样例"
+        },
+        {
+          "type": "p",
+          "text": "先收集真实问题及正确答案、拒答和澄清条件，形成初始评测集。开发中持续加入失败案例，并保留独立测试集，避免只对已知题目优化。关键任务要多次运行，记录波动。[Anthropic的Agent评测实践](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)可帮助理解评测结构与评分方法。"
+        },
+        {
+          "type": "h2",
+          "text": "3 用证据安排里程碑"
+        },
+        {
+          "type": "p",
+          "text": "将“原型完成”细化成数据可用、关键任务可完成、集成可用、用户愿意用、运营可承接。每个里程碑写清证据、判定人、允许的失败及退出条件。无法拿到有代表性的数据时，应先缩小范围或结束试验，避免继续堆功能。"
+        },
+        {
+          "type": "h2",
+          "text": "4 用限时实验消除最大不确定性"
+        },
+        {
+          "type": "p",
+          "text": "保留正常的软件迭代，同时为不确定问题安排小实验：比较两种检索方式、验证扫描件识别、检查跨组织授权。每次只改变少数因素，先定预算与结论标准。实验结论可以是“不值得继续”，这也是对项目有价值的产出。"
+        },
+        {
+          "type": "p",
+          "text": "示例：先用20份脱敏采购单验证“行项目抽取能否满足业务要求”，再决定是否建设完整审单系统；这20份适合探索，不能支撑全面上线的可靠性结论。样本量应随场景差异和风险扩大。"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "前沿理念二 管理上下文和智能体行动",
+      "category": "前沿理念",
+      "summary": "上下文包含业务目标、批准的规则、角色权限、指标定义、工具说明、当前任务状态与历史证据。为每类资料指定所有者、版本、有效期和访问范围。需要时检索最相关内容，避免把所有项目文档一直塞进提示词。Anthropic上下文工程提供了相关实践。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "5 把上下文作为产品资产"
+        },
+        {
+          "type": "p",
+          "text": "上下文包含业务目标、批准的规则、角色权限、指标定义、工具说明、当前任务状态与历史证据。为每类资料指定所有者、版本、有效期和访问范围。需要时检索最相关内容，避免把所有项目文档一直塞进提示词。[Anthropic上下文工程](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)提供了相关实践。"
+        },
+        {
+          "type": "h2",
+          "text": "6 按风险逐级开放自主行动"
+        },
+        {
+          "type": "p",
+          "text": "本文建议四档：只读建议、生成待审草稿、批准后执行、在白名单内自动执行。每档写明可用工具、金额或数量限制、最长运行时间、失败重试、停止与回退条件。自治程度应由任务风险、可逆性和证据决定。"
+        },
+        {
+          "type": "h2",
+          "text": "7 同时管理人的责任与Agent的任务"
+        },
+        {
+          "type": "p",
+          "text": "可以让Agent担任资料整理、需求检查、测试分析等执行角色，但项目决策与验收应有明确的人类负责人。为每个Agent写任务说明：目标、输入、工具、输出格式、验收条件与升级路径。多个Agent只能在分工明确且结果可合并时带来价值。"
+        },
+        {
+          "type": "h2",
+          "text": "8 规格可以直接进入执行流程"
+        },
+        {
+          "type": "p",
+          "text": "把需求中的规则、示例、接口约束、验收条件维护成可版本化文档，让原型、代码和测试引用同一套规格。[GitHub Spec Kit](https://github.com/github/spec-kit)展示了规格驱动开发的工具路线。项目经理需要读懂改动与验证结果，不能把自动生成等同于完成验收。"
+        },
+        {
+          "type": "p",
+          "text": "企业例子：周报Agent先收集只读工单、对照里程碑、生成证据列表和草稿。负责人批准后才进入发布步骤；重复触发只更新同一份草稿。它不应因为某条外部评论就改变预算或发送客户承诺。"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "前沿理念三 让上线后的价值可持续",
+      "category": "前沿理念",
+      "summary": "同样的模型调用价格，在不同成功率、复核时间和返工量下会形成完全不同的业务成本。将模型、工具、检索、重试、人工和平台费用归入任务，关注每个被业务接受的结果花了多少钱。可参考FinOps for AI，但应建立自己的业务成本口径。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "9 按成功完成任务计算经济性"
+        },
+        {
+          "type": "p",
+          "text": "同样的模型调用价格，在不同成功率、复核时间和返工量下会形成完全不同的业务成本。将模型、工具、检索、重试、人工和平台费用归入任务，关注每个被业务接受的结果花了多少钱。可参考[FinOps for AI](https://www.finops.org/wg/finops-for-ai-overview/)，但应建立自己的业务成本口径。"
+        },
+        {
+          "type": "h2",
+          "text": "10 将可观测性放进产品设计"
+        },
+        {
+          "type": "p",
+          "text": "每次任务记录输入版本、检索来源、调用工具、执行状态、耗时、费用、审批与结果。用户看到简洁状态，运维人员能定位问题，审计人员能追溯责任。不要为了可追溯而不加选择地保存敏感原文；日志也需要权限和保留期限。"
+        },
+        {
+          "type": "h2",
+          "text": "11 让真实失败进入改进循环"
+        },
+        {
+          "type": "p",
+          "text": "把用户反馈分成口径错误、检索错误、工具失败、权限问题、交互误解等类别；业务专家确认后补入评测或修订知识。新版先回归，再小范围试用，保留回退。不能把用户每次点赞或模型自评自动变成训练事实。"
+        },
+        {
+          "type": "h2",
+          "text": "12 项目办公室维护可复用资产"
+        },
+        {
+          "type": "p",
+          "text": "除模板和流程外，PMO可以维护标准指标、数据接入方式、评测集、工具契约、Agent任务说明、失败案例和成本记录。不同项目重复出现的能力优先平台化；每个资产有维护人和使用边界，防止过期知识在多个项目中传播。"
+        },
+        {
+          "type": "h2",
+          "text": "怎样区分真正进步与概念包装"
+        },
+        {
+          "type": "p",
+          "text": "落地优先：有来源的检索、有限工作流、评测与人工接管。条件具备后探索：长期运行Agent、多Agent协作、跨系统自主执行。仅需跟踪：把“全自动项目经理”“AI替你负责”作为营销结论。判断标准是是否提高已定义任务的成功率、降低总成本并可追责。"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "AI项目生命周期与阶段验收",
+      "category": "管理基础",
+      "summary": "这六阶段是本指南的企业落地归纳，可结合组织既有流程。希望系统学习AI项目方法，可读PMI-CPMAI；不要将本表误认为CPMAI原文。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "阶段",
+            "关键工作",
+            "进入下一阶段的证据"
+          ],
+          "rows": [
+            [
+              "机会定义",
+              "真实任务、现有基线、收益责任人、非AI替代",
+              "问题值得解决且指标可测"
+            ],
+            [
+              "数据准备",
+              "数据获取、脱敏、口径、授权、代表性样本",
+              "有足够可用数据与业务专家"
+            ],
+            [
+              "概念验证",
+              "规则与模型基线、有限样例、主要失败归因",
+              "核心能力可行；知道尚未覆盖什么"
+            ],
+            [
+              "产品试点",
+              "真实用户、端到端工作流、权限、评测、接管",
+              "目标任务达到试点约定门槛"
+            ],
+            [
+              "生产发布",
+              "监控、预算、审计、灰度、应急与回退演练",
+              "业务、技术和运营负责人接受"
+            ],
+            [
+              "持续运营",
+              "分场景监测、版本回归、用户反馈、成本改进",
+              "收益持续成立；问题及时处理"
+            ]
+          ],
+          "widths": [
+            1.05,
+            2.85,
+            2.7
+          ]
+        },
+        {
+          "type": "p",
+          "text": "这六阶段是本指南的企业落地归纳，可结合组织既有流程。希望系统学习AI项目方法，可读[PMI-CPMAI](https://www.pmi.org/certifications/ai-project-management-cpmai)；不要将本表误认为CPMAI原文。"
+        },
+        {
+          "type": "h2",
+          "text": "每周例会应新增的六个问题"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "本周验证或推翻了什么业务与技术假设？",
+            "最常见的失败是哪一类，影响了多少真实任务？",
+            "哪些数据、知识、模型或提示版本发生了改变？",
+            "人工接管与复核花了多少时间？",
+            "单个成功任务成本是否改变，原因是什么？",
+            "下一次发布具备什么证据，出了问题谁负责回退？"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "完成定义建议同时覆盖：功能可用、评测通过、权限验证、故障恢复、文档培训和业务确认。根据任务风险制定门槛；不要把统一“准确率95%”直接套到所有项目。"
+        },
+        {
+          "type": "p",
+          "text": "新的体系化资料：[PMI AI项目管理标准](https://www.pmi.org/standards/artificial-intelligence)于2026年6月出版，覆盖AI在项目工作中的使用和AI项目管理，包含人类监督、治理与生命周期裁剪。可作为建立部门方法的参考。"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "团队协作与AI交付物",
+      "category": "管理基础",
+      "summary": "小团队可以一人兼任多个角色，但要避免由同一人自定目标、自测、自批上线而没有外部复核。供应商提供模型不代表其承担业务结果责任，采购时需要写清服务边界。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "责任角色",
+            "承担的工作",
+            "交付证据"
+          ],
+          "rows": [
+            [
+              "业务负责人",
+              "业务目标、规则、收益确认、最终采纳",
+              "基线、口径、验收意见"
+            ],
+            [
+              "产品经理",
+              "任务与体验、行为边界、评测定义",
+              "AI PRD、样例、原型"
+            ],
+            [
+              "项目经理",
+              "计划、依赖、预算、风险、跨部门协作",
+              "里程碑、风险与决策台账"
+            ],
+            [
+              "数据负责人",
+              "数据质量、权限、更新、语义",
+              "数据字典、知识版本"
+            ],
+            [
+              "AI与软件工程",
+              "模型集成、检索、工具、部署",
+              "可运行系统、代码与日志"
+            ],
+            [
+              "测试与评测",
+              "样例覆盖、回归、对抗与验收",
+              "分场景评测报告"
+            ],
+            [
+              "运营与安全",
+              "监控、事件响应、账号、审计",
+              "运行手册、应急记录"
+            ]
+          ],
+          "widths": [
+            1.15,
+            2.7,
+            2.75
+          ]
+        },
+        {
+          "type": "p",
+          "text": "小团队可以一人兼任多个角色，但要避免由同一人自定目标、自测、自批上线而没有外部复核。供应商提供模型不代表其承担业务结果责任，采购时需要写清服务边界。"
+        },
+        {
+          "type": "h2",
+          "text": "九份值得沉淀的交付物"
+        },
+        {
+          "type": "p",
+          "text": "机会说明、AI PRD、数据与知识清单、行为样例与评测集、工具和权限契约、版本清单、上线及回退方案、运营指标看板、业务收益复盘。项目经理不必亲手编写全部内容，但需要知道责任人、版本和批准状态。"
+        },
+        {
+          "type": "p",
+          "text": "采购或自建比较维度：数据处理与部署边界、权限映射、集成难度、评测能力、日志可导出性、版本变化通知、迁移成本、服务可用性，以及包含人工和运维的总成本。还要确认输入是否用于服务商训练、数据和日志如何保存删除、模型退役通知及替代版本回归机制。合规要求应由组织相关负责人确认。"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "AI产品设计从用户任务出发",
+      "category": "产品设计",
+      "summary": "用具体任务描述产品：谁，在什么触发下，利用什么输入，做什么决定，拿到什么结果。画出现状流程，标出等待、重复输入、信息分散与高成本判断，再决定AI介入位置。访谈和真实观察决定需求；AI模拟用户适合生成假设，不能替代用户研究。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "先确定用户什么时候需要AI"
+        },
+        {
+          "type": "p",
+          "text": "用具体任务描述产品：谁，在什么触发下，利用什么输入，做什么决定，拿到什么结果。画出现状流程，标出等待、重复输入、信息分散与高成本判断，再决定AI介入位置。访谈和真实观察决定需求；AI模拟用户适合生成假设，不能替代用户研究。"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "任务特征",
+            "适合优先尝试",
+            "产品设计重点"
+          ],
+          "rows": [
+            [
+              "固定规则与流程",
+              "规则、SQL、普通自动化",
+              "正确性、幂等、异常"
+            ],
+            [
+              "从资料寻找答案",
+              "搜索或RAG",
+              "来源、权限、时效"
+            ],
+            [
+              "生成草稿或结构化信息",
+              "大模型与结构化输出",
+              "字段校验、修改与确认"
+            ],
+            [
+              "步骤固定但需AI判断",
+              "受控工作流",
+              "节点验收、状态与重试"
+            ],
+            [
+              "路径变化且需调用工具",
+              "有限权限Agent",
+              "规划、预算、接管、结果验证"
+            ],
+            [
+              "预测数值或做最优决策",
+              "预测模型或优化算法",
+              "数据质量、误差、约束"
+            ]
+          ],
+          "widths": [
+            1.7,
+            2.2,
+            2.7
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "交互需要覆盖八类状态"
+        },
+        {
+          "type": "p",
+          "text": "能力说明、输入不足时的澄清、执行中的可见进度、带证据的结果、可修改的草稿、无法完成时的解释、必要时人工接管、执行后的撤销或补偿。比如问“今年利润”时，先澄清组织、期间与币种，优于直接生成一幅图。"
+        },
+        {
+          "type": "p",
+          "text": "推荐设计资料：[Google PAIR指南](https://codelabs.developers.google.com/codelabs/pair-guidebook)和[Microsoft HAX Toolkit](https://www.microsoft.com/en-us/research/project/hax-toolkit/)。它们帮助设计预期、反馈和纠错；具体流程仍应通过自己的用户测试确认。"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "AI PRD应该增加哪些内容",
+      "category": "产品设计",
+      "summary": "传统PRD中的用户、流程、页面和业务规则仍然保留。新增以下内容，才能让技术、测试、业务对“AI应该怎样表现”形成一致理解。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "p",
+          "text": "传统PRD中的用户、流程、页面和业务规则仍然保留。新增以下内容，才能让技术、测试、业务对“AI应该怎样表现”形成一致理解。"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "PRD部分",
+            "至少写清楚的内容"
+          ],
+          "rows": [
+            [
+              "任务与边界",
+              "目标用户、触发、输入输出、明确不覆盖的任务"
+            ],
+            [
+              "基线与目标",
+              "现状耗时、差错、业务结果；目标口径与负责人"
+            ],
+            [
+              "行为样例",
+              "正常、歧义、资料缺失、错误输入、越权、工具失败"
+            ],
+            [
+              "知识与上下文",
+              "来源、更新、版本、权限；记忆范围、期限、更正删除与租户隔离"
+            ],
+            [
+              "能力路线",
+              "规则、检索、模型、工作流与Agent的职责"
+            ],
+            [
+              "工具与动作",
+              "接口参数、前置条件、权限、审批、结果验证"
+            ],
+            [
+              "用户体验",
+              "澄清、证据、编辑、接管、超时、撤销或补偿"
+            ],
+            [
+              "评测与准入",
+              "分场景指标、评分规则、测试集与上线门槛"
+            ],
+            [
+              "非功能要求",
+              "延迟、并发、可用性、预算、日志和保留期限"
+            ],
+            [
+              "运营与迭代",
+              "反馈归因、灰度、回归、版本管理、回退条件"
+            ]
+          ],
+          "widths": [
+            1.25,
+            5.35
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "一个可执行的行为例子"
+        },
+        {
+          "type": "p",
+          "text": "用户问“本月沙特公司应付多少钱”。系统确认组织、会计期间、到期口径和币种后，只查询其授权范围；结果展示统计时间、指标口径和可追溯明细。权限不足时不能泄露是否存在某条供应商记录；查询失败时给出重试或转人工入口，不生成猜测金额。"
+        },
+        {
+          "type": "h2",
+          "text": "需求应连接到评测"
+        },
+        {
+          "type": "p",
+          "text": "每条关键规则都关联一个或多个用例。评测用例记录用户角色、输入、环境版本、预期行为、可接受证据及评分方式。对于数据库结果，检查业务语义和数值，而不是要求模型生成与参考完全相同的SQL字符串。"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "评测指标与业务收益计算",
+      "category": "产品设计",
+      "summary": "质量判断组合使用确定性检查、业务专家评分和经过人工校准的模型评分。检索相似度、模型自报“90%把握”、加权评分都不能直接当成正确概率；需要利用标注样本校准，并验证其适用范围。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "层次",
+            "应观察的指标",
+            "解释与注意事项"
+          ],
+          "rows": [
+            [
+              "业务结果",
+              "完成周期、被接受成果、返工、复用",
+              "包含人工核查与接管时间"
+            ],
+            [
+              "任务质量",
+              "完成率、关键字段正确率、引用支持率",
+              "按角色、难度、任务类型拆分"
+            ],
+            [
+              "交互体验",
+              "澄清有效性、修改次数、放弃、再使用",
+              "拒答率低不一定更好"
+            ],
+            [
+              "系统运行",
+              "端到端延迟、工具失败、重试、可用性",
+              "p95可揭示慢请求；观察峰值"
+            ],
+            [
+              "控制有效性",
+              "越权阻断、违规动作、审批与回退",
+              "高风险失败单独列出，不被均分掩盖"
+            ],
+            [
+              "经济性",
+              "总运行成本、单个成功任务成本",
+              "同时跟踪模型与人工成本"
+            ]
+          ],
+          "widths": [
+            1.1,
+            2.45,
+            3.05
+          ]
+        },
+        {
+          "type": "p",
+          "text": "质量判断组合使用确定性检查、业务专家评分和经过人工校准的模型评分。检索相似度、模型自报“90%把握”、加权评分都不能直接当成正确概率；需要利用标注样本校准，并验证其适用范围。"
+        },
+        {
+          "type": "h2",
+          "text": "一个计算示例"
+        },
+        {
+          "type": "p",
+          "text": "假设每月处理1000项任务，原流程每项20分钟，新流程平均人工复核和接管共8分钟，则理论节省200小时。若内部核算每小时100元，容量价值为2万元。若新增运行费用6000元，账面净容量价值为1.4万元。以上数字仅作演示，不能当作你项目的实际收益。"
+        },
+        {
+          "type": "p",
+          "text": "如果员工工资并未减少，这2万元属于释放的工作容量，不能直接宣称现金节省。还要纳入实施摊销、知识维护、返工、培训与风险成本，避免对同一时间同时计算效率收益和成本节省。"
+        },
+        {
+          "type": "p",
+          "text": "单个成功任务成本：把一个周期的模型、工具、基础设施、重试、人工复核与约定分摊成本相加，除以该周期被业务接受的任务数。成功任务为零时，该指标无意义，应直接报告失败。"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "产品经理需要读懂的技术概念",
+      "category": "前沿理念",
+      "summary": "语义层常用于统一指标和查询逻辑；Ontology可表达对象、关系与动作。二者有关联但不相同，也不意味着必须先建设大型知识图谱。对于问数，先把组织、期间、币种、单位和指标定义做好。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "概念",
+            "解决什么问题",
+            "需要做的判断"
+          ],
+          "rows": [
+            [
+              "提示工程",
+              "指定任务、格式与规则",
+              "是否具体；有无示例和边界"
+            ],
+            [
+              "上下文工程",
+              "选择当前任务所需资料和状态",
+              "来源、时效、权限、长度、冲突"
+            ],
+            [
+              "RAG",
+              "生成前检索外部知识",
+              "能否检索到正确证据；引用是否支持结论"
+            ],
+            [
+              "Embedding与重排",
+              "语义召回与候选排序",
+              "相关不等于正确；分别评测检索与生成"
+            ],
+            [
+              "语义层与Ontology",
+              "统一指标或业务对象关系",
+              "口径和对象可追溯；避免过度建模"
+            ],
+            [
+              "微调",
+              "调整稳定行为、风格或特定任务",
+              "是否有高质量样本和明确增益"
+            ],
+            [
+              "工作流与Agent",
+              "固定流程与动态行动路径",
+              "动态性是否值得额外成本和风险"
+            ],
+            [
+              "MCP",
+              "连接模型应用与工具及数据",
+              "接口标准化不替代鉴权和审批"
+            ],
+            [
+              "A2A",
+              "Agent之间交换任务与结果",
+              "跨团队协作是否真的需要互操作"
+            ],
+            [
+              "Agent Skills",
+              "封装指令、脚本与任务资源",
+              "适用范围、依赖、版本和验证"
+            ],
+            [
+              "LLMOps与AgentOps",
+              "运行、追踪、评测与版本管理",
+              "谁处理事故，怎样识别退化"
+            ]
+          ],
+          "widths": [
+            1.2,
+            2.45,
+            2.95
+          ]
+        },
+        {
+          "type": "p",
+          "text": "语义层常用于统一指标和查询逻辑；Ontology可表达对象、关系与动作。二者有关联但不相同，也不意味着必须先建设大型知识图谱。对于问数，先把组织、期间、币种、单位和指标定义做好。"
+        },
+        {
+          "type": "p",
+          "text": "接口与格式入口：[MCP](https://modelcontextprotocol.io/)、[A2A](https://a2a-protocol.org/latest/)、[Agent Skills](https://agentskills.io/)。产品选型应查看各平台实际实现与兼容情况。"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "工具组合与选型顺序",
+      "category": "落地实践",
+      "summary": "沿用已有Dify和飞书经验：一个获准使用的模型服务、Dify、飞书任务台账、Langfuse，以及一种AI编程工具。跨系统事件较多时再加n8n；涉及长流程状态与恢复时，再评估代码框架。每一层先选一个主工具，避免同时维护多套相似平台。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "能力层",
+            "候选工具",
+            "先做的练习"
+          ],
+          "rows": [
+            [
+              "个人分析与资料",
+              "ChatGPT Projects；现有企业AI助手",
+              "用批准材料生成有出处的周报"
+            ],
+            [
+              "会议与任务",
+              "飞书妙记、多维表格；Jira与Rovo；Asana",
+              "行动项进入台账并人工确认"
+            ],
+            [
+              "可运行原型",
+              "Figma Make；Cursor；Codex",
+              "做出含失败状态的业务原型"
+            ],
+            [
+              "AI应用搭建",
+              "Dify；Coze Studio；Copilot Studio",
+              "连接知识、模型与一个业务工具"
+            ],
+            [
+              "跨系统编排",
+              "n8n；现有企业流程平台",
+              "事件触发、审批、失败补偿"
+            ],
+            [
+              "复杂Agent",
+              "LangGraph等编排框架",
+              "有明确需求后再做状态与接管"
+            ],
+            [
+              "观测与评测",
+              "Langfuse或LangSmith；promptfoo或Ragas",
+              "记录调用过程；跑一个回归集"
+            ],
+            [
+              "模型与部署",
+              "百炼；现有批准模型服务；本地推理方案",
+              "比较质量、延迟、费用与部署约束"
+            ]
+          ],
+          "widths": [
+            1.2,
+            2.65,
+            2.75
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "给你的起步组合"
+        },
+        {
+          "type": "p",
+          "text": "沿用已有Dify和飞书经验：一个获准使用的模型服务、Dify、飞书任务台账、Langfuse，以及一种AI编程工具。跨系统事件较多时再加n8n；涉及长流程状态与恢复时，再评估代码框架。每一层先选一个主工具，避免同时维护多套相似平台。"
+        },
+        {
+          "type": "p",
+          "text": "工具清单中的组合是建议架构，并非厂商承诺开箱即用。需要验证账号权限、连接器、网络、调用费用、日志出口、部署与许可证。自托管通常仍需支付算力、运维和升级成本。"
+        },
+        {
+          "type": "p",
+          "text": "官方功能入口：[Figma AI](https://www.figma.com/ai/)、[Cursor文档](https://cursor.com/docs)、[Codex说明](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan)。原型通过业务测试之后，生产发布仍需工程验证。"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "三个适合你的作品集项目",
+      "category": "落地实践",
+      "summary": "目标：从计划、工单和纪要生成可追溯的周报、阻塞清单和风险提醒。范围先限定一个项目、只读数据、人工批准发布。技术练习是资料检索、结构化抽取、台账更新与来源引用。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "作品一 项目交付助理"
+        },
+        {
+          "type": "p",
+          "text": "目标：从计划、工单和纪要生成可追溯的周报、阻塞清单和风险提醒。范围先限定一个项目、只读数据、人工批准发布。技术练习是资料检索、结构化抽取、台账更新与来源引用。"
+        },
+        {
+          "type": "p",
+          "text": "验收看遗漏与误报、事实可追溯性、人工修订时间；准备过期计划、冲突信息、缺责任人和重复触发等样例。交付一页PRD、工作流、测试集、演示和两周效率记录。"
+        },
+        {
+          "type": "h2",
+          "text": "作品二 可信财务与供应链问数"
+        },
+        {
+          "type": "p",
+          "text": "目标：围绕应付、库存或采购的一类高频问题完成查询、解释和证据展示。先选择单一主题，统一组织、期间、币种和指标口径，设置只读视图、查询限制与权限。"
+        },
+        {
+          "type": "p",
+          "text": "验收拆成语义识别、查询结果、口径解释、引用、越权阻断、延迟和成本。第一阶段可从50个探索样例起步，覆盖正常、歧义、无数据和越权；后续用独立且更广的测试集验证。交付语义字典、原型、分层评测和失败归因。"
+        },
+        {
+          "type": "h2",
+          "text": "作品三 采购或费用审单助手"
+        },
+        {
+          "type": "p",
+          "text": "目标：从单据提取字段，结合规则和主数据生成差异清单及待审意见。先做到辅助审核，再考虑与ERP写入流程连接；是否过账由正式控制流程决定。"
+        },
+        {
+          "type": "p",
+          "text": "验收重点是关键字段、漏检与误报、重复单据、低清图片、主数据不匹配和复核耗时。交付样例库、字段与规则清单、审核交互、异常流程和收益测量方案。"
+        },
+        {
+          "type": "p",
+          "text": "每个作品讲清：业务问题是什么、为什么用AI、你做了哪些取舍、怎样证明有效、哪里失败过。真实生产成果与学习演示要明确区分；不要把模拟提升比例写进简历当实际业绩。"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "十二周学习与实践路线",
+      "category": "落地实践",
+      "summary": "建议每周6至8小时：约四分之一学习，二分之一制作，四分之一测试与复盘。总投入72至96小时可形成一个可展示试点，不等于自动获得生产系统交付能力。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "p",
+          "text": "建议每周6至8小时：约四分之一学习，二分之一制作，四分之一测试与复盘。总投入72至96小时可形成一个可展示试点，不等于自动获得生产系统交付能力。"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "周次",
+            "学习与实践",
+            "必须产出的成果"
+          ],
+          "rows": [
+            [
+              "第1周",
+              "AI适用性、岗位差异；盘点高频任务",
+              "一个机会说明与现状基线"
+            ],
+            [
+              "第2周",
+              "提示、上下文、资料整理；用AI做项目周报",
+              "可追溯周报与人工修订记录"
+            ],
+            [
+              "第3周",
+              "用户访谈、任务分解、交互边界",
+              "任务流程与AI PRD初稿"
+            ],
+            [
+              "第4周",
+              "Figma或AI编程工具；含失败状态的原型",
+              "可交互原型与用户反馈"
+            ],
+            [
+              "第5周",
+              "Dify或Coze Studio；知识与结构化输出",
+              "能完成单一任务的工作流"
+            ],
+            [
+              "第6周",
+              "API、JSON、SQL基础；权限与工具契约",
+              "一个真实或模拟接口集成"
+            ],
+            [
+              "第7周",
+              "评测集、人工量表、回归与错误分类",
+              "分场景评测报告"
+            ],
+            [
+              "第8周",
+              "观测、延迟、成本、人工接管",
+              "一次任务的完整运行记录"
+            ],
+            [
+              "第9周",
+              "异常恢复、审批、重复触发与安全",
+              "异常场景演练与改进"
+            ],
+            [
+              "第10周",
+              "小范围用户试用；观测业务基线差异",
+              "用户试点与采用问题清单"
+            ],
+            [
+              "第11周",
+              "版本回归、收益测算、文档培训",
+              "可复现版本与运营说明"
+            ],
+            [
+              "第12周",
+              "作品整理、演示与面试叙事",
+              "案例文档、5分钟演示、下一步计划"
+            ]
+          ],
+          "widths": [
+            0.85,
+            3.35,
+            2.4
+          ]
+        },
+        {
+          "type": "p",
+          "text": "项目经理路线：增加数据依赖、预算、验收与组织协作练习。产品经理路线：增加访谈、交互、评测定义和运营实验。FDE路线：另外持续练习代码、部署与故障排查。认证可以补知识体系，但应在完成作品后再判断是否值得投入。"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "将学习变成团队能力",
+      "category": "落地实践",
+      "summary": "三个小组共用同一场景池与评测方法。工具组提供实际问题，编程组实现关键集成，智能体组组织端到端验证，业务负责人确认价值。避免每组各做一个类似问答Demo。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "针对现有三个AI推进方向的建议"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "小组",
+            "建议承担的任务",
+            "衡量方式"
+          ],
+          "rows": [
+            [
+              "AI工具使用组",
+              "收集高频任务，形成材料规范、模板和真实反馈",
+              "使用后的总耗时与返工；有效采用"
+            ],
+            [
+              "AI辅助编程组",
+              "原型、接口、测试、部署和代码验证",
+              "需求到可验证成果的周期与缺陷"
+            ],
+            [
+              "AI业务智能体组",
+              "选择场景，设计工作流、评测和运营",
+              "任务成功率、接管、业务收益"
+            ]
+          ],
+          "widths": [
+            1.3,
+            3.05,
+            2.25
+          ]
+        },
+        {
+          "type": "p",
+          "text": "三个小组共用同一场景池与评测方法。工具组提供实际问题，编程组实现关键集成，智能体组组织端到端验证，业务负责人确认价值。避免每组各做一个类似问答Demo。"
+        },
+        {
+          "type": "h2",
+          "text": "建议形成的团队节奏"
+        },
+        {
+          "type": "p",
+          "text": "每周评审一个失败案例；每两周演示一个端到端任务；每月决定继续、调整或停止哪些试点。评审材料包含实际输入、系统输出、正确处理方式、原因和修复后的回归结果。"
+        },
+        {
+          "type": "h2",
+          "text": "个人定位与下一步"
+        },
+        {
+          "type": "p",
+          "text": "你可以将定位表述为“熟悉ERP与财务供应链流程，能够将业务规则转为可评测AI工作流并推动上线的企业AI产品与交付负责人”。支撑这一定位的证据，是你在需求、口径、团队、系统集成和验收上的具体贡献。"
+        },
+        {
+          "type": "p",
+          "text": "优先补齐四项：把已有问数能力整理成评测体系；为审单和写作助手补上失败与接管设计；亲手完成一个接口集成；建立真实的任务成本和收益记录。暂时不必同时追逐微调、大型多Agent平台和全新底层模型。"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "可直接使用的工作清单",
+      "category": "落地实践",
+      "summary": "填写：用户与任务、任务频次、现状成本、错误损失、可用数据、结果能否验证、权限与动作风险、集成难度、非AI替代、最小试验、成功条件、停止条件、责任人。可以用高／中／低辅助排序，但不要让总分掩盖数据不可得或无法验证等硬障碍。",
+      "minutes": 3,
+      "blocks": [
+        {
+          "type": "h2",
+          "text": "AI机会评估表"
+        },
+        {
+          "type": "p",
+          "text": "填写：用户与任务、任务频次、现状成本、错误损失、可用数据、结果能否验证、权限与动作风险、集成难度、非AI替代、最小试验、成功条件、停止条件、责任人。可以用高／中／低辅助排序，但不要让总分掩盖数据不可得或无法验证等硬障碍。"
+        },
+        {
+          "type": "h2",
+          "text": "一条Agent任务说明"
+        },
+        {
+          "type": "p",
+          "text": "填写：目标、触发、输入与来源、可用工具、禁止动作、输出格式、完成判定、调用预算、超时与重试、人工升级、审批、审计字段、失败补偿。对写入动作增加幂等标识和执行后状态检查。"
+        },
+        {
+          "type": "h2",
+          "text": "上线前检查"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "目标任务在独立评测集和关键异常场景中达到约定要求。",
+            "权限由服务端或数据层执行；外部内容不能覆盖系统授权。",
+            "关键行动有审批、限额、结果验证和必要的补偿方式。",
+            "日志能定位版本、工具和失败原因；敏感数据受控。",
+            "费用和延迟可观测；值班、回退、培训与负责人已落实。"
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "给AI生成项目周报的任务指令"
+        },
+        {
+          "type": "p",
+          "text": "请仅根据我提供的已批准计划、任务记录和会议纪要，输出本周交付、计划偏差、风险、待决策事项和下周行动。每项事实标注材料名称及日期；明确区分事实、推断和待确认。不要编造完成率、责任人或期限。发现来源冲突时同时列出，并说明需要谁确认。先生成草稿，供项目负责人审核。"
+        },
+        {
+          "type": "p",
+          "text": "安全与风险资料：[OWASP GenAI项目](https://genai.owasp.org/)和[NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework)。前者帮助认识常见攻击与失控路径，后者提供组织风险管理框架；都不能替代项目自己的技术验证。"
+        }
+      ]
+    }
+  ],
+  "weeks": [
+    [
+      "第1周",
+      "AI适用性、岗位差异；盘点高频任务",
+      "一个机会说明与现状基线"
+    ],
+    [
+      "第2周",
+      "提示、上下文、资料整理；用AI做项目周报",
+      "可追溯周报与人工修订记录"
+    ],
+    [
+      "第3周",
+      "用户访谈、任务分解、交互边界",
+      "任务流程与AI PRD初稿"
+    ],
+    [
+      "第4周",
+      "Figma或AI编程工具；含失败状态的原型",
+      "可交互原型与用户反馈"
+    ],
+    [
+      "第5周",
+      "Dify或Coze Studio；知识与结构化输出",
+      "能完成单一任务的工作流"
+    ],
+    [
+      "第6周",
+      "API、JSON、SQL基础；权限与工具契约",
+      "一个真实或模拟接口集成"
+    ],
+    [
+      "第7周",
+      "评测集、人工量表、回归与错误分类",
+      "分场景评测报告"
+    ],
+    [
+      "第8周",
+      "观测、延迟、成本、人工接管",
+      "一次任务的完整运行记录"
+    ],
+    [
+      "第9周",
+      "异常恢复、审批、重复触发与安全",
+      "异常场景演练与改进"
+    ],
+    [
+      "第10周",
+      "小范围用户试用；观测业务基线差异",
+      "用户试点与采用问题清单"
+    ],
+    [
+      "第11周",
+      "版本回归、收益测算、文档培训",
+      "可复现版本与运营说明"
+    ],
+    [
+      "第12周",
+      "作品整理、演示与面试叙事",
+      "案例文档、5分钟演示、下一步计划"
+    ]
+  ]
+}

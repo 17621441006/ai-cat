@@ -1,0 +1,20 @@
+"use client";
+import {useLearningLocation,replaceLearningUrl} from '@/lib/learning-location';
+import {useEffect,useState} from 'react';
+import {ArrowRight,BookOpen,Search,Sparkles,Network,Lightbulb,ArrowUpRight} from 'lucide-react';
+import {Input} from '@/components/ui/input';
+import {Tabs,TabsList,TabsTrigger} from '@/components/ui/tabs';
+import {glossaryTerms} from '@/lib/glossary';
+const categories=['全部','入门概念','知识与数据','构建与交付','验证与运营'];
+export default function Glossary(){
+ const[query,setQuery]=useState('');const[category,setCategory]=useState('全部');const[selected,setSelected]=useState('prompt');
+ useLearningLocation('/glossary',params=>{const id=params.get('term');if(glossaryTerms.some(x=>x.id===id)){setSelected(id!);setQuery('');setCategory('全部')}});
+ const visible=glossaryTerms.filter(term=>(category==='全部'||term.category===category)&&`${term.name} ${term.en} ${term.definition}`.toLowerCase().includes(query.toLowerCase().trim()));
+ const item=visible.find(term=>term.id===selected)||visible[0];
+ function choose(id:string){setSelected(id);replaceLearningUrl(`/glossary?term=${id}`)}
+ return <div className="concept-page"><header className="journey-page-hero concept-new-hero"><div><span className="voyage-eyebrow"><BookOpen size={17}/>SMALL CONCEPTS. BIG POSSIBILITIES.</span><h1>先读懂概念，<br/>再看懂<span>可能性。</span></h1><p>把术语翻译成工作里的事。一句解释、一个供应链例子，再亲手试一次。</p></div><div className="concept-network"><div className="concept-network-label"><Network size={16}/>知识从关联开始</div><button className="concept-network-center" onClick={()=>document.querySelector('.concept-layout')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'})}><span>{item?.en||'Learning starts here'}</span><strong>{item?.name||'找到你的关键词'}</strong><small>展开理解 <ArrowRight size={14}/></small></button><div className="concept-network-links">{(item?.related||['prompt','context','agent']).map(id=><button key={id} onClick={()=>{setCategory('全部');setQuery('');choose(id)}}>{glossaryTerms.find(x=>x.id===id)?.name}<ArrowUpRight size={13}/></button>)}</div><p>点击关联概念，顺着问题继续探索。</p></div></header><section className="concept-discover"><div className="concept-search"><Search size={19}/><Input aria-label="搜索 AI 概念" placeholder="搜中文或英文，例如：上下文、RAG、Agent…" value={query} onChange={e=>setQuery(e.target.value)}/><span>{glossaryTerms.length} 个概念</span></div><Tabs value={category} onValueChange={setCategory} className="concept-filter"><TabsList>{categories.map(c=><TabsTrigger key={c} value={c}>{c}</TabsTrigger>)}</TabsList></Tabs></section>
+  <div className="concept-layout"><aside className="concept-rail" aria-label="AI 术语列表"><small>{visible.length} 个概念</small>{visible.map(term=><button key={term.id} onClick={()=>choose(term.id)} aria-pressed={item?.id===term.id} className={item?.id===term.id?'active':''}><strong>{term.name}</strong><span>{term.en}</span><ArrowRight size={15}/></button>)}{!visible.length&&<div className="concept-empty"><p>没有匹配的术语。</p><button onClick={()=>{setQuery('');setCategory('全部')}}>清除筛选</button></div>}</aside>
+   {item?<article className="concept-detail" key={item.id}><span className="concept-category">{item.category}</span><h2>{item.name}</h2><span className="concept-english">{item.en}</span><p className="concept-definition">{item.definition}</p><div className="concept-example"><span><Sparkles size={17}/>01 / 放进你的工作里</span><p>{item.example}</p></div><div className="concept-pitfall"><strong><Lightbulb size={17}/>02 / 避开一个常见误区</strong><p>{item.pitfall}</p></div><a href={item.href} className="voyage-primary">{item.action}<ArrowRight size={16}/></a><div className="concept-related"><span>一起理解</span>{item.related.map(id=><button key={id} onClick={()=>{setCategory('全部');setQuery('');choose(id)}}>{glossaryTerms.find(x=>x.id===id)?.name}<ArrowRight size={13}/></button>)}</div><p className="concept-source">简明教学释义 · 详细图解与参考资料见对应课堂</p></article>:<div className="concept-detail concept-no-results"><Search size={30}/><h2>换一个关键词试试</h2><p>可以搜索“提示词”“RAG”“Agent”或清除分类筛选。</p></div>}
+  </div>
+ </div>
+}

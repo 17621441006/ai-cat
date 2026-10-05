@@ -1,0 +1,1803 @@
+{
+  "purpose": "供网站内容与教学交互设计使用的中间研究资料；没有编辑网站或改动源附件。",
+  "created_at": "2026-09-19",
+  "language": "zh-CN",
+  "sources": {
+    "chain_solution": {
+      "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+      "type": "pptx",
+      "pages": 21,
+      "source_nature": "全链路方案与价值测算材料，缺少支撑效果数字的可验证来源"
+    },
+    "july": {
+      "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+      "type": "pptx",
+      "pages": 30,
+      "source_nature": "2025年7月项目迭代汇报，含六月已完成内容与后续计划"
+    },
+    "september": {
+      "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+      "type": "pptx",
+      "pages": 29,
+      "source_nature": "2025年9月需求与实施规划草稿，若干页含待修改批注"
+    },
+    "overseas": {
+      "filename": "沙特S项目财务系统建设：运用工具和技术赋能用户、业务与产品.pptx",
+      "type": "pptx",
+      "pages": 11,
+      "source_nature": "封面写沙特S项目，正文主要是2024工作总结和2025—2027发展规划"
+    },
+    "products": {
+      "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+      "type": "pdf",
+      "pages": 33,
+      "source_nature": "产品方案、参考案例和MVP清单混合材料；文件名含20260204，封面可提取日期为2025年7月，不能用文件名认定状态时间"
+    }
+  },
+  "citation_convention": "PPT采用1起始幻灯片号；PDF采用1起始物理页码。图片页原有页脚数字可能不同，以物理页码为准。",
+  "evidence_policy": [
+    "历史计划日期已过去，并不证明已经上线或验收。",
+    "source_reported表示附件自述，source_reported_mvp表示附件MVP清单，并非独立验收。",
+    "case_description与reference_case表示案例展示，不证明用户本人负责或拥有该交付成果。",
+    "所有demo均为新提议的教学交互，使用明确标记的合成数据；不得描述为真实系统在线效果。",
+    "不发布真实客户、人员、电话号码、内部域名、账户、组织编码、合同或交易细节。",
+    "省略来源中无支撑的收益、准确率、成本节省和ROI承诺；保留可证实的功能范围与状态。",
+    "前端示例只显示检索片段、参数、计算步骤和执行状态，不展示或编造模型隐藏思维链。"
+  ],
+  "critical_source_issues": [
+    {
+      "issue": "沙特附件标题与正文内容不匹配，无法支持海外财务实施实绩。",
+      "citation": {
+        "source_id": "overseas",
+        "filename": "沙特S项目财务系统建设：运用工具和技术赋能用户、业务与产品.pptx",
+        "locator_type": "slide",
+        "page": 1,
+        "note": ""
+      }
+    },
+    {
+      "issue": "九月材料多页含“还需要改”，且进展表部分疑似复用模板，需保留草稿限定。",
+      "citations": [
+        {
+          "source_id": "september",
+          "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+          "locator_type": "slide",
+          "page": 12,
+          "note": ""
+        },
+        {
+          "source_id": "september",
+          "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+          "locator_type": "slide",
+          "page": 16,
+          "note": ""
+        },
+        {
+          "source_id": "september",
+          "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+          "locator_type": "slide",
+          "page": 26,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "issue": "2026文件名PDF封面日期为2025年7月，状态时间不明确。",
+      "citation": {
+        "source_id": "products",
+        "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+        "locator_type": "physical_page",
+        "page": 1,
+        "note": ""
+      }
+    },
+    {
+      "issue": "PDF共33页，第28、30—33页无可提取文本，已渲染人工检查并另存摘要。",
+      "pages": [
+        28,
+        30,
+        31,
+        32,
+        33
+      ]
+    },
+    {
+      "issue": "全链路方案含高幅度效益数字与匿名标杆，但没有引用或测量依据，不作为已交付成果。",
+      "citations": [
+        {
+          "source_id": "chain_solution",
+          "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+          "locator_type": "slide",
+          "page": 4,
+          "note": ""
+        },
+        {
+          "source_id": "chain_solution",
+          "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+          "locator_type": "slide",
+          "page": 17,
+          "note": ""
+        },
+        {
+          "source_id": "chain_solution",
+          "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+          "locator_type": "slide",
+          "page": 19,
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "financial-query",
+      "title": "经营与财务智能问数",
+      "subtitle": "自然语言查询、指标口径与结果核对",
+      "maturity": "材料报告基础问数已有迭代，深度分析与预测属于后续规划",
+      "public_summary": "围绕财务指标完成自然语言查询，并把计算口径、筛选范围和数据来源一起展示。",
+      "facts": [
+        {
+          "text": "六月已补齐成本对标季度与年度数据，并整合总账和明细账宽表，经数据服务同步到问数中间数据库。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 3,
+            "note": ""
+          }
+        },
+        {
+          "text": "材料报告模型整合后回答存在不稳定情况，并计划在七月底前进行稳定性训练。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 3,
+            "note": ""
+          }
+        },
+        {
+          "text": "九月草稿称核心数据需求和基础分析模型方案已确认；成本对标API联调、总账模型开发及根因分析技术选型仍待推进。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 12,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "财务深度分析、指标解读、趋势预测、多轮会话、缓存和前后端分离分阶段建设。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 10,
+            "note": ""
+          }
+        },
+        {
+          "text": "性能与验收指标属于计划目标，不能当作已经实现的成果。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 12,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "自然语言转指标",
+          "description": "把公司、时间、指标与比较口径解析成查询条件。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 5,
+            "note": ""
+          }
+        },
+        {
+          "title": "多维对比",
+          "description": "展示对比、构成、趋势与指标关联。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 9,
+            "note": ""
+          }
+        },
+        {
+          "title": "多轮追问",
+          "description": "保留上下文并调整筛选条件。",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 3,
+            "note": ""
+          }
+        },
+        {
+          "title": "数据口径与来源",
+          "description": "基于受控指标和宽表返回结果，支持结果核对。",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 3,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "query-budget",
+        "title": "问一句，核对一张表",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "question": "华东事业部二季度收入完成预算多少？",
+          "unit": "万元",
+          "table": [
+            {
+              "month": "2025-04",
+              "division": "华东",
+              "revenue": 120,
+              "budget": 130
+            },
+            {
+              "month": "2025-05",
+              "division": "华东",
+              "revenue": 150,
+              "budget": 150
+            },
+            {
+              "month": "2025-06",
+              "division": "华东",
+              "revenue": 165,
+              "budget": 170
+            },
+            {
+              "month": "2025-04",
+              "division": "西南",
+              "revenue": 90,
+              "budget": 100
+            },
+            {
+              "month": "2025-05",
+              "division": "西南",
+              "revenue": 100,
+              "budget": 110
+            },
+            {
+              "month": "2025-06",
+              "division": "西南",
+              "revenue": 120,
+              "budget": 120
+            }
+          ]
+        },
+        "expected_output": {
+          "parsed_query": {
+            "division": "华东",
+            "period": "2025-Q2",
+            "metric": "收入",
+            "comparison": "预算"
+          },
+          "answer": "华东二季度收入435万元，预算450万元，完成率96.67%，较预算少15万元。",
+          "calculation": "(120 + 150 + 165) / (130 + 150 + 170) × 100%",
+          "follow_up": {
+            "question": "西南呢？",
+            "answer": "西南二季度收入310万元，预算330万元，完成率93.94%，较预算少20万元。"
+          }
+        },
+        "interaction": [
+          "切换事业部",
+          "编辑一行收入或预算",
+          "显示查询范围与计算公式",
+          "点击追问“西南呢”"
+        ],
+        "teaching_point": "区分语言理解、数据查询与数值计算，不能靠模型编造指标。",
+        "edge_cases": [
+          "预算为0时显示“完成率不可计算”",
+          "不支持的指标提示选择可用字段",
+          "缺少月份时明确数据不完整"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "policy-rag",
+      "title": "制度问答与可信知识库",
+      "subtitle": "带出处、版本和权限边界的回答",
+      "maturity": "需求与架构已形成，产品材料列示相关RAG与制度评审MVP",
+      "public_summary": "将制度整理成可检索片段，回答时标注原文位置，并识别权限和版本边界。",
+      "facts": [
+        {
+          "text": "七月计划覆盖制度上传、自然语言多轮问答、跨文档整合和原文溯源；该页同时注明需求待签字确认。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 7,
+            "note": ""
+          }
+        },
+        {
+          "text": "九月材料报告技术选型和RAG方案评审完成，知识库开发和问答引擎测试待推进。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 21,
+            "note": ""
+          }
+        },
+        {
+          "text": "供应链产品材料将RAG自研知识库和制度评审列入MVP完成清单。",
+          "classification": "source_reported_mvp",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 29,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "OCR、语义分块、向量化、重排序、目录与文档权限、运维日志构成拟建设路径。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 18,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "文档解析",
+          "description": "处理扫描件、文档版面与语义片段。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 18,
+            "note": ""
+          }
+        },
+        {
+          "title": "检索与重排序",
+          "description": "检索相关片段，再按相关性排序。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 18,
+            "note": ""
+          }
+        },
+        {
+          "title": "引用原文",
+          "description": "显示文档名和段落，支持原文核对。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 17,
+            "note": ""
+          }
+        },
+        {
+          "title": "权限与版本",
+          "description": "按角色、目录、文档限制访问，管理更新。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 19,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "policy-citation",
+        "title": "差旅制度引用实验",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "question": "上海出差住两晚，每晚700元，没有超标审批，可以报多少？",
+          "documents": [
+            {
+              "name": "示例差旅制度2026",
+              "version": "1.0",
+              "effective": "2026-01-01",
+              "paragraph": "第3条",
+              "text": "示例标准：上海住宿上限为650元/晚，其他城市450元/晚。超标部分须事先获得批准。",
+              "visibility": "全员"
+            },
+            {
+              "name": "示例差旅报销细则",
+              "version": "1.0",
+              "paragraph": "第5条",
+              "text": "缺少超标审批时，按住宿标准与实际支出的较低金额计算可报销部分。",
+              "visibility": "全员"
+            }
+          ]
+        },
+        "expected_output": {
+          "answer": "按本演示制度，可报住宿费1300元；超出标准的100元需补充审批依据后再复核。",
+          "citations": [
+            "示例差旅制度2026 · 第3条",
+            "示例差旅报销细则 · 第5条"
+          ],
+          "calculation": "2 × min(700, 650) = 1300",
+          "disclosure": "这是自定义示例规则，不代表任何企业实际制度。"
+        },
+        "interaction": [
+          "切换城市与晚数",
+          "查看引用片段",
+          "切换制度版本",
+          "切换用户角色"
+        ],
+        "teaching_point": "回答必须能够回到授权范围内的现行原文。",
+        "edge_cases": [
+          "角色无权查看时不返回受限条文",
+          "制度版本冲突时并列说明，要求确认有效版本",
+          "找不到依据时显示“当前资料不足”"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "document-writing",
+      "title": "会议纪要与公文写作助手",
+      "subtitle": "从记录抽取决策，按模板生成草稿",
+      "maturity": "材料列示数据收集、模板规范及测试工作，后续功能仍有规划项",
+      "public_summary": "从会议记录抽取决策、责任岗位和截止日期，按模板形成可编辑草稿。",
+      "facts": [
+        {
+          "text": "七月材料展示会议初稿上传、基本信息补充、知识库和模板引用、二次编辑与导出的流程。",
+          "classification": "workflow_description",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 12,
+            "note": ""
+          }
+        },
+        {
+          "text": "九月草稿把会议数据收集、大模型训练、模板规范、内部与用户测试列为已完成，但仍有待修改批注，不能据此认定全部功能验收。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 26,
+            "note": ""
+          }
+        },
+        {
+          "text": "产品材料以文档写作助手案例说明会议纪要、工作报告、呈批文、讲话稿、请示等类型及知识库结构。",
+          "classification": "case_description",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 20,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "多风格纪要、双栏原文对照、逻辑冲突检查、Word/PDF导出和OA归档属于设计与建设内容。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 23,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "结构化抽取",
+          "description": "提取会议要素、决策点与行动项。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 23,
+            "note": ""
+          }
+        },
+        {
+          "title": "模板与知识复用",
+          "description": "用范文、术语和模板约束结构。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 24,
+            "note": ""
+          }
+        },
+        {
+          "title": "缺失与冲突提示",
+          "description": "识别行动项缺少截止日期等问题。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 23,
+            "note": ""
+          }
+        },
+        {
+          "title": "编辑与导出",
+          "description": "支持原文对照、编辑与文档导出。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 21,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "meeting-draft",
+        "title": "会议记录变成行动清单",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "meeting_title": "示例供应保障例会",
+          "date": "2026-09-21",
+          "style": "概要版",
+          "notes": "采购岗：A材料下周需求120吨，现有库存80吨，建议补货40吨。会议决定按40吨编制采购草案，由采购岗9月23日前完成。物流岗核实9月25日是否可以到货。质量岗复核供应商样品，但会议未确定截止日期。"
+        },
+        "expected_output": {
+          "title": "示例供应保障例会纪要（草稿）",
+          "decisions": [
+            "按40吨编制A材料采购草案。"
+          ],
+          "actions": [
+            {
+              "owner": "采购岗",
+              "task": "完成40吨采购草案",
+              "due": "2026-09-23",
+              "source": "记录第2句"
+            },
+            {
+              "owner": "物流岗",
+              "task": "核实9月25日到货可行性",
+              "due": null,
+              "source": "记录第3句",
+              "warning": "到货日期不是核实任务截止日期，待确认"
+            },
+            {
+              "owner": "质量岗",
+              "task": "复核供应商样品",
+              "due": null,
+              "source": "记录第4句",
+              "warning": "缺少截止日期"
+            }
+          ],
+          "missing_information": [
+            "会议地点",
+            "主持岗位",
+            "参会范围",
+            "物流核实截止日期",
+            "样品复核截止日期"
+          ]
+        },
+        "interaction": [
+          "切换概要版/部署版",
+          "编辑初始记录",
+          "点击行动项定位原句",
+          "补全缺失信息后重新生成"
+        ],
+        "teaching_point": "生成内容应忠于原始记录，不能把意向变成已批准决定或补造截止日期。",
+        "edge_cases": [
+          "空记录不生成事实",
+          "数量冲突并列提示",
+          "责任人缺失保留“待确认”"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "invoice-ocr",
+      "title": "发票识别、校验与回填预览",
+      "subtitle": "识别字段后进行金额和系统数据核对",
+      "maturity": "产品材料描述案例并列示MVP完成，未提供客户生产验收证据",
+      "public_summary": "读取票据信息，与已录入数据逐项比对，在回填前标出差异。",
+      "facts": [
+        {
+          "text": "产品材料描述基于Dify与DeepSeek搭建发票识别与校验，包含导入分类、识别、校对和系统接口回填。",
+          "classification": "case_description",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 15,
+            "note": ""
+          }
+        },
+        {
+          "text": "同一材料将财务发票识别校正智能体列入MVP完成清单。",
+          "classification": "source_reported_mvp",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 29,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "该案例提及定制化扩展，但没有证明所有企业、票种、格式都已覆盖。",
+          "classification": "scope_limit",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 15,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "票据分类",
+          "description": "选择公司及采购、销售等票据类型。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 15,
+            "note": ""
+          }
+        },
+        {
+          "title": "多模态识别",
+          "description": "支持PDF、PNG、JPG等输入格式。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 15,
+            "note": ""
+          }
+        },
+        {
+          "title": "差异核验",
+          "description": "比对识别内容与系统录入数据。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 15,
+            "note": ""
+          }
+        },
+        {
+          "title": "回填预览",
+          "description": "通过接口映射字段，人工确认后回填。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 15,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "invoice-check",
+        "title": "金额差异如何被发现",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "synthetic_invoice": {
+            "number": "DEMO-INV-001",
+            "seller": "示例供应商A",
+            "currency": "CNY",
+            "net_amount": 1000,
+            "tax_rate": 0.13,
+            "tax_amount": 130,
+            "gross_amount": 1130
+          },
+          "system_record": {
+            "number": "DEMO-INV-001",
+            "gross_amount": 1120
+          },
+          "uncertain_field": "发票编号最后一位"
+        },
+        "expected_output": {
+          "checks": [
+            {
+              "field": "价税合计",
+              "rule": "不含税金额 + 税额",
+              "expected": 1130,
+              "observed": 1130,
+              "status": "通过"
+            },
+            {
+              "field": "系统价税合计",
+              "expected": 1130,
+              "observed": 1120,
+              "difference": 10,
+              "status": "需复核"
+            },
+            {
+              "field": "发票编号",
+              "status": "识别不确定，请核对原图"
+            }
+          ],
+          "writeback_preview": {
+            "gross_amount": 1130,
+            "status": "草案，待人工确认"
+          },
+          "disclosure": "13%仅用于本演示算术，不是税务建议。"
+        },
+        "interaction": [
+          "更改系统金额",
+          "展开字段映射",
+          "标记不确定字段已复核",
+          "生成回填预览"
+        ],
+        "teaching_point": "OCR负责读字，业务规则负责校验，回填前还要处理不确定字段。",
+        "edge_cases": [
+          "小计不等于合计时阻止确认",
+          "缺少票号时不匹配记录",
+          "重复票号提示重复风险"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "supply-documents",
+      "title": "供应链单据与多语种文档",
+      "subtitle": "地磅数据提取与信用证信息复核",
+      "maturity": "MVP清单有相应条目，细节覆盖范围待验证",
+      "public_summary": "将地磅单和多语种贸易单据转成结构化字段，保留原文与复核提示。",
+      "facts": [
+        {
+          "text": "应用场景页明确地磅单、废钢票据可提取进出厂时间、车号、毛重、皮重、实收数。",
+          "classification": "capability_description",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 10,
+            "note": ""
+          }
+        },
+        {
+          "text": "MVP清单列出地磅单/废钢票据、通用文字识别、信用证多语种识别翻译。",
+          "classification": "source_reported_mvp",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 29,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [],
+      "capabilities": [
+        {
+          "title": "业务字段抽取",
+          "description": "定位车号、时间、重量等关键字段。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 10,
+            "note": ""
+          }
+        },
+        {
+          "title": "单位与数值核对",
+          "description": "对提取字段添加可验证的业务规则；具体规则为教学建议。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 10,
+            "note": ""
+          }
+        },
+        {
+          "title": "多语种原文对照",
+          "description": "保留信用证关键字段的原文与译文。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 29,
+            "note": ""
+          }
+        },
+        {
+          "title": "异常交人工复核",
+          "description": "通过差异标识支持业务人员校对。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 10,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "weighbridge-compare",
+        "title": "从地磅单到验收差异",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "raw_text": "示例地磅单 DEMO-WB-008\n车号：DEMO-TRUCK-01\n毛重：38.6 t\n皮重：12.4 t\n实收净重：25.8 t\n入厂：2026-09-21 09:10\n出厂：2026-09-21 09:42",
+          "mode": "地磅单",
+          "optional_lc": "Amount: USD 50,000. Latest shipment date: 30 Sep 2026. Expiry date: 15 Oct 2026."
+        },
+        "expected_output": {
+          "fields": {
+            "gross_t": 38.6,
+            "tare_t": 12.4,
+            "calculated_net_t": 26.2,
+            "declared_net_t": 25.8,
+            "difference_t": 0.4
+          },
+          "status": "实收净重比毛重减皮重少0.4吨，需核实扣杂或扣水依据。",
+          "lc_translation": {
+            "金额": "50,000美元",
+            "最迟装运日": "2026-09-30",
+            "有效期至": "2026-10-15"
+          },
+          "disclosure": "示例识别结果回放；译文仅用于核对，不判定真实单证法律效力。"
+        },
+        "interaction": [
+          "编辑原始单据文字",
+          "切换吨/千克",
+          "显示字段来源",
+          "切换到信用证原文对照示例"
+        ],
+        "teaching_point": "语言抽取之后仍须做单位转换、勾稽关系和业务原因核对。",
+        "edge_cases": [
+          "皮重大于毛重时提示异常",
+          "缺少单位时要求确认",
+          "信用证日期不确定时保留原文"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "agent-workbench",
+      "title": "智能体工作台与客商画像",
+      "subtitle": "统一入口、任务分发与企业信息汇聚",
+      "maturity": "多份材料描述平台与设计路线，不能把全部路由能力视为已交付",
+      "public_summary": "把问数、问规、写作和客商信息集中到统一工作台，明确每个请求的处理范围。",
+      "facts": [
+        {
+          "text": "七月计划中的PC端拟集成问数、问规、文档写作和客商画像，并接入统一认证。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 6,
+            "note": ""
+          }
+        },
+        {
+          "text": "客商画像方案汇集客商档案、业务往来和评价信息。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 13,
+            "note": ""
+          }
+        },
+        {
+          "text": "九月草稿报告原型与技术方案完成，智能体接入及会话管理开发仍待推进。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 16,
+            "note": ""
+          }
+        },
+        {
+          "text": "产品材料描述平台具有智能体管理、服务、开发、集成能力，发布需管理员审批。",
+          "classification": "capability_description",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 23,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "超级入口分跳转、转发、联动与调度四阶段演进；操作类智能体暂不参与统一调度。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 20,
+            "note": ""
+          }
+        },
+        {
+          "text": "原材料专门讨论会话状态、权限、延迟和前端改造风险。",
+          "classification": "risk_assessment",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 22,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "统一认证与会话",
+          "description": "统一入口保留历史与上下文。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 13,
+            "note": ""
+          }
+        },
+        {
+          "title": "意图分类与任务规划",
+          "description": "识别请求并给出所需智能体。",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 24,
+            "note": ""
+          }
+        },
+        {
+          "title": "画像聚合",
+          "description": "汇集档案、业务往来与评价。",
+          "citation": {
+            "source_id": "july",
+            "filename": "问数七月迭代计划汇报  20250708 2200(2).pptx",
+            "locator_type": "slide",
+            "page": 13,
+            "note": ""
+          }
+        },
+        {
+          "title": "细粒度治理",
+          "description": "租户、资产、授权和审计管理。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 25,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "agent-router",
+        "title": "让工作台解释路由选择",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "request": "查示例供应商A上季度采购额，再按供应商评价模板写一段摘要。",
+          "profile": {
+            "name": "示例供应商A",
+            "purchase_last_quarter_wan": 260,
+            "on_time_deliveries": 18,
+            "total_deliveries": 20,
+            "evaluation": "待年度复评"
+          },
+          "role": "采购分析员"
+        },
+        "expected_output": {
+          "plan": [
+            {
+              "step": 1,
+              "agent": "问数",
+              "action": "读取授权采购汇总",
+              "result": "上季度采购额260万元。"
+            },
+            {
+              "step": 2,
+              "agent": "客商画像",
+              "action": "读取合成档案与履约记录",
+              "result": "20次交付中18次按期，按期率90%。"
+            },
+            {
+              "step": 3,
+              "agent": "写作助手",
+              "action": "根据前两步结果生成摘要草稿",
+              "result": "示例供应商A上季度采购额260万元，共20次交付，18次按期。年度评价仍待复评，建议补充异常交付原因后形成评价结论。"
+            }
+          ],
+          "status": "教学路由方案，未调用真实企业系统"
+        },
+        "interaction": [
+          "选择单步或组合请求",
+          "点击步骤查看输入输出",
+          "切换角色观察访问范围",
+          "修改合成客商数据"
+        ],
+        "teaching_point": "路由需要传递上下文和权限，业务摘要不能把“待复评”写成已通过。",
+        "edge_cases": [
+          "无采购权限时仅显示公开档案",
+          "缺失履约总次数时不计算比率",
+          "外部写入动作只生成待确认草稿"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "erp-overseas",
+      "title": "ERP助手与海外业务探索",
+      "subtitle": "设备点检查询与多币种台账",
+      "maturity": "ERP设备点检查询属于材料列示MVP；海外财务仅有标题和出海规划，不构成落地证明",
+      "public_summary": "用教学数据体验ERP设备查询，并练习多币种业务字段的结构化处理。",
+      "facts": [
+        {
+          "text": "产品材料MVP清单列有ERP语音查询设备点检智能体。",
+          "classification": "source_reported_mvp",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 29,
+            "note": ""
+          }
+        },
+        {
+          "text": "沙特附件封面含“沙特S项目财务系统建设”，正文没有财务模块、实施范围、上线日期或运行结果。",
+          "classification": "evidence_gap",
+          "citation": {
+            "source_id": "overseas",
+            "filename": "沙特S项目财务系统建设：运用工具和技术赋能用户、业务与产品.pptx",
+            "locator_type": "slide",
+            "page": 1,
+            "note": ""
+          }
+        },
+        {
+          "text": "正文提出建立轻量CRM、SCM产品，并寻求与加工产品一起出海的机会。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "overseas",
+            "filename": "沙特S项目财务系统建设：运用工具和技术赋能用户、业务与产品.pptx",
+            "locator_type": "slide",
+            "page": 8,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "扩大智慧制造、AI和外部市场应用出现在三年发展规划。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "overseas",
+            "filename": "沙特S项目财务系统建设：运用工具和技术赋能用户、业务与产品.pptx",
+            "locator_type": "slide",
+            "page": 10,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "ERP自然语言入口",
+          "description": "从语音或文字请求识别业务意图。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 10,
+            "note": ""
+          }
+        },
+        {
+          "title": "设备点检查询",
+          "description": "ERP设备点检查询是明确列示的MVP场景。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 29,
+            "note": ""
+          }
+        },
+        {
+          "title": "业务系统接口",
+          "description": "模型通过业务接口与工具访问业务系统。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 28,
+            "note": ""
+          }
+        },
+        {
+          "title": "海外业务适配探索",
+          "description": "多语言、多币种仅作为网站教学建议，不标为附件证明的沙特项目功能。",
+          "citation": {
+            "source_id": "overseas",
+            "filename": "沙特S项目财务系统建设：运用工具和技术赋能用户、业务与产品.pptx",
+            "locator_type": "slide",
+            "page": 8,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "erp-equipment-and-currency",
+        "title": "ERP查询与海外台账练习",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "query": "查询示例设备P-101最近一次点检结果。",
+          "equipment_records": [
+            {
+              "id": "P-101",
+              "checked_at": "2026-09-20 08:30",
+              "temperature_c": 68,
+              "status": "正常",
+              "next_check": "2026-09-21 08:30"
+            }
+          ],
+          "optional_currency_scenario": {
+            "invoice_id": "DEMO-OVERSEAS-001",
+            "currency": "SAR",
+            "amount": 1000,
+            "reporting_currency": "CNY",
+            "teaching_exchange_rate": 1.9
+          }
+        },
+        "expected_output": {
+          "equipment_answer": "示例设备P-101最近于2026-09-20 08:30点检，记录温度68°C，状态为正常，下次计划点检为2026-09-21 08:30。",
+          "currency_result": {
+            "amount_cny": 1900,
+            "formula": "1000 × 1.90",
+            "disclosure": "1.90是用户设定的教学汇率，不是实时汇率、会计结论或沙特项目实际配置。"
+          }
+        },
+        "interaction": [
+          "选择设备",
+          "切换查询字段",
+          "显示ERP接口参数预览",
+          "切换到教学多币种台账并手工调整汇率"
+        ],
+        "teaching_point": "把语言解析与真实系统访问区分开；海外ERP功能与项目交付要有独立证据。",
+        "edge_cases": [
+          "设备不存在时返回未找到",
+          "没有点检记录时不生成状态",
+          "汇率为空或非正数时不换算"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "master-data",
+      "title": "组织主数据与数据服务",
+      "subtitle": "让同一个组织在不同系统中有可追溯身份",
+      "maturity": "需求与规划参考材料，未见生产验收证据",
+      "public_summary": "合并多个来源的组织信息，显示匹配依据、冲突字段与版本变化，为问数提供一致口径。",
+      "facts": [
+        {
+          "text": "材料指出组织信息分散在不同系统，海外公司覆盖不完整，多套架构变更依赖人工。",
+          "classification": "problem_statement",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 27,
+            "note": ""
+          }
+        },
+        {
+          "text": "组织主数据方案包含汇聚、治理、主数据管理、统计组织架构和对外数据服务，数据库方案仍待定。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 28,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "数据标准、汇聚治理、建模和数据服务开发排在实施计划中。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 29,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "多源组织汇聚",
+          "description": "汇聚组织、法人、账套和架构信息。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 28,
+            "note": ""
+          }
+        },
+        {
+          "title": "多套统计架构",
+          "description": "资产、管理、报表合并等口径分别管理。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 27,
+            "note": ""
+          }
+        },
+        {
+          "title": "版本与变更追溯",
+          "description": "记录组织变更和历史差异。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 27,
+            "note": ""
+          }
+        },
+        {
+          "title": "统一数据服务",
+          "description": "对业务系统提供一致的组织数据。",
+          "citation": {
+            "source_id": "september",
+            "filename": "数据资产应用场景建设-问数PC问规写作助手-202509241800.pptx",
+            "locator_type": "slide",
+            "page": 28,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "master-data-merge",
+        "title": "同名组织可以直接合并吗",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "records": [
+            {
+              "source": "系统A",
+              "local_id": "A-101",
+              "name": "示例加工公司",
+              "unified_id": "DEMO-001",
+              "parent": "示例集团",
+              "effective": "2026-01-01"
+            },
+            {
+              "source": "系统B",
+              "local_id": "B-208",
+              "name": "示例加工有限公司",
+              "unified_id": "DEMO-001",
+              "parent": "示例制造事业部",
+              "effective": "2026-07-01"
+            },
+            {
+              "source": "系统C",
+              "local_id": "C-009",
+              "name": "示例加工公司",
+              "unified_id": "DEMO-009",
+              "parent": "示例贸易事业部",
+              "effective": "2026-01-01"
+            }
+          ]
+        },
+        "expected_output": {
+          "matched_group": [
+            "A-101",
+            "B-208"
+          ],
+          "match_reason": "统一身份标识相同，仅名称不同。",
+          "conflict": "上级组织不同，需确认两条记录采用资产架构还是管理架构。",
+          "excluded": [
+            "C-009"
+          ],
+          "exclude_reason": "名称相同但身份标识不同，不自动合并。",
+          "service_preview": {
+            "unified_id": "DEMO-001",
+            "canonical_name": "待确认",
+            "asset_parent": "待确认",
+            "management_parent": "待确认"
+          }
+        },
+        "interaction": [
+          "选择匹配字段",
+          "查看冲突对照",
+          "指定架构口径",
+          "比较两个生效日期的版本"
+        ],
+        "teaching_point": "身份匹配、管理口径和历史版本是不同问题，不能只用名称去重。",
+        "edge_cases": [
+          "缺少身份标识时仅给候选匹配",
+          "相同身份但生效时间冲突需复核",
+          "海外记录允许手工补录来源"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "supplychain-planning",
+      "title": "供应链预测与决策仿真",
+      "subtitle": "库存、补货、调拨与排程的可解释练习",
+      "maturity": "全链路方案设计，材料中的收益数字没有可验证依据",
+      "public_summary": "用小型库存数据模拟需求变化，解释补货和调拨建议的计算过程。",
+      "facts": [
+        {
+          "text": "方案列出采购、需求预测、库存调拨、排程、仓储、物流、履约、风控、退货和全局协同十类场景。",
+          "classification": "solution_proposal",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 8,
+            "note": "场景分别位于第8—17页"
+          }
+        },
+        {
+          "text": "架构提出感知、决策、协同、复盘分工以及ERP/WMS/TMS对接。",
+          "classification": "solution_proposal",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 6,
+            "note": ""
+          }
+        },
+        {
+          "text": "方案提出先人工与AI双轨运行、数据互校，再评估上线效果。",
+          "classification": "solution_proposal",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 18,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "供应链方案的缩短周期、降本比例、ROI与客户标杆数字均属于来源中的宣称或测算，未给出可核验依据，网站不应写为个人实绩。",
+          "classification": "unverified_claim",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 19,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "需求与补货",
+          "description": "利用需求、库存和到货周期形成补货建议。",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 9,
+            "note": ""
+          }
+        },
+        {
+          "title": "跨仓调拨",
+          "description": "在多仓约束下比较调拨和采购。",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 10,
+            "note": ""
+          }
+        },
+        {
+          "title": "约束排程",
+          "description": "考虑产能、物料齐套与紧急插单。",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 11,
+            "note": ""
+          }
+        },
+        {
+          "title": "人工复核与仿真",
+          "description": "比较方案、保留决策解释并由人员确认。",
+          "citation": {
+            "source_id": "chain_solution",
+            "filename": "AI智能体供应链行业落地全链路解决方案.pptx",
+            "locator_type": "slide",
+            "page": 20,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "inventory-what-if",
+        "title": "调拨还是补货",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "daily_demand_t": 10,
+          "lead_time_days": 5,
+          "safety_stock_t": 20,
+          "stock_a_t": 40,
+          "incoming_a_t": 10,
+          "stock_b_t": 50,
+          "minimum_b_t": 35
+        },
+        "expected_output": {
+          "target_stock_t": 70,
+          "inventory_position_a_t": 50,
+          "shortage_t": 20,
+          "transfer_available_b_t": 15,
+          "suggested_transfer_t": 15,
+          "suggested_purchase_t": 5,
+          "formulae": [
+            "目标库存 = 日需求 × 到货天数 + 安全库存 = 70吨",
+            "A仓缺口 = max(0, 70 - 40 - 10) = 20吨",
+            "B仓可调拨 = max(0, 50 - 35) = 15吨",
+            "剩余采购建议 = max(0, 20 - 15) = 5吨"
+          ],
+          "disclosure": "简单规则仿真，未运行真实预测模型或全局优化求解器。"
+        },
+        "interaction": [
+          "拖动日需求和到货天数",
+          "调整B仓最低保留量",
+          "对比基准与扰动情景",
+          "查看每一步算式"
+        ],
+        "teaching_point": "把预测假设、约束条件与行动建议分开，让建议可复算。",
+        "edge_cases": [
+          "在途库存不能重复计入",
+          "B仓低于保留量时不建议调拨",
+          "负数输入无效",
+          "界面不能把模拟建议显示成已创建订单"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "industrial-vision",
+      "title": "工业视觉与人工复核",
+      "subtitle": "安全行为、废钢判级与表面缺陷",
+      "maturity": "附录展示参考案例，不能认定为用户本人负责或部署",
+      "public_summary": "理解视觉模型如何把图像结果转换为待复核事件，并学习阈值对漏检与误报的影响。",
+      "facts": [
+        {
+          "text": "纯图片附录展示安全帽与工服识别，采用样本采集、标注、训练、边缘部署和告警联动流程。",
+          "classification": "reference_case",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 30,
+            "note": "基于渲染图片人工阅读"
+          }
+        },
+        {
+          "text": "废钢判级案例包含图像采集、AI定级、拒收件检测和SaaS平台。",
+          "classification": "reference_case",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 31,
+            "note": "基于渲染图片人工阅读"
+          }
+        },
+        {
+          "text": "表面缺陷案例包含光路成像、特征提取、多模型判定与缺陷分类。",
+          "classification": "reference_case",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 32,
+            "note": "基于渲染图片人工阅读"
+          }
+        }
+      ],
+      "planned": [],
+      "capabilities": [
+        {
+          "title": "图像采集与标注",
+          "description": "明确现场角度、样本和正常/异常标签。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 30,
+            "note": ""
+          }
+        },
+        {
+          "title": "视觉分类与检测",
+          "description": "从图像识别物料、缺陷或行为。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 31,
+            "note": ""
+          }
+        },
+        {
+          "title": "现场系统联动",
+          "description": "把识别结果转成待处理事件。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 30,
+            "note": ""
+          }
+        },
+        {
+          "title": "人工复核与评估",
+          "description": "观察误报、漏报与阈值取舍；网站规则为教学设计。",
+          "citation": {
+            "source_id": "products",
+            "filename": "20260204供应链AI企业级应用产品与规划.pdf",
+            "locator_type": "physical_page",
+            "page": 32,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "id": "vision-threshold",
+        "title": "阈值变化带来什么",
+        "status": "proposed_synthetic_demo",
+        "visible_label": "教学演示 · 合成数据",
+        "inputs": {
+          "mode": "预置模型得分的教学数据",
+          "threshold": 0.7,
+          "items": [
+            {
+              "id": "样本A",
+              "score": 0.92,
+              "label": "异常"
+            },
+            {
+              "id": "样本B",
+              "score": 0.76,
+              "label": "正常"
+            },
+            {
+              "id": "样本C",
+              "score": 0.61,
+              "label": "异常"
+            },
+            {
+              "id": "样本D",
+              "score": 0.18,
+              "label": "正常"
+            }
+          ]
+        },
+        "expected_output": {
+          "at_threshold_0_7": {
+            "flagged": [
+              "样本A",
+              "样本B"
+            ],
+            "true_positive": 1,
+            "false_positive": 1,
+            "false_negative": 1,
+            "true_negative": 1
+          },
+          "at_threshold_0_6": {
+            "flagged": [
+              "样本A",
+              "样本B",
+              "样本C"
+            ],
+            "true_positive": 2,
+            "false_positive": 1,
+            "false_negative": 0,
+            "true_negative": 1
+          },
+          "disclosure": "仅用4个合成样本解释阈值，不代表模型准确率或任何生产环境效果。"
+        },
+        "interaction": [
+          "拖动告警阈值",
+          "展开每个样本的标签与得分",
+          "切换人工复核结果",
+          "显示漏报和误报数量"
+        ],
+        "teaching_point": "模型分数不是事实结论，阈值和复核策略必须结合业务风险评估。",
+        "edge_cases": [
+          "没有真实推理服务时不提供虚假“上传检测”",
+          "小样本不外推准确率",
+          "不把安全事件自动判定为对人员的处分依据"
+        ],
+        "execution_note": "若网站只有前端，应明确展示本地规则计算或预置示例回放；不要声称已连接真实模型、OCR、ERP或客户数据库。"
+      }
+    },
+    {
+      "id": "price-rebate",
+      "title": "价格联动与返利预测",
+      "subtitle": "协议条款、试算版本与审批",
+      "maturity": "业务需求已形成；具体合同公式未随附件提供",
+      "public_summary": "将原料价格、物料映射、协议条款与采购达成情况组织成可复核的试算过程。",
+      "facts": [
+        {
+          "text": "需求覆盖价格采集、物料同步、原材料与零件多对多映射，以及试算历史。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 3,
+            "note": ""
+          }
+        },
+        {
+          "text": "AI 提取公式和触发条件后需要业务确认；新价格经过分类审批。",
+          "classification": "source_reported",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 4,
+            "note": ""
+          }
+        }
+      ],
+      "planned": [
+        {
+          "text": "接入 SAP、内网协议和审批引擎，统一返利计入口径与有效期。",
+          "classification": "planned",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 4,
+            "note": ""
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "协议抽取",
+          "description": "提取公式、触发条件与适用零件，经人工确认。",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 3,
+            "note": ""
+          }
+        },
+        {
+          "title": "价格联动",
+          "description": "按有效协议试算并记录输入快照。",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 3,
+            "note": ""
+          }
+        },
+        {
+          "title": "返利预测",
+          "description": "识别合同门槛与达标差额，区分采购订单和合格收货。",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 4,
+            "note": ""
+          }
+        },
+        {
+          "title": "分类审批",
+          "description": "按采购类别执行审批，异常转人工。",
+          "citation": {
+            "source_id": "rebate",
+            "filename": "价格联动管理与返利预测业务需求(1).pdf",
+            "locator_type": "page",
+            "page": 4,
+            "note": ""
+          }
+        }
+      ],
+      "demo": {
+        "title": "同样的销量，为何返利不同？",
+        "teaching_point": "全量返利与超额分段规则不能混用。具体公式必须回到有效合同。",
+        "edge_cases": [
+          "缺少真实合同：仅做教学试算",
+          "币种、含税口径与计入期间必须一致"
+        ]
+      }
+    }
+  ],
+  "implementation_suggestions": {
+    "preferred_badges": [
+      "材料报告的既有功能",
+      "材料列示MVP",
+      "规划设计",
+      "教学演示",
+      "待补证据"
+    ],
+    "demo_completion": [
+      "输入可编辑",
+      "动作后结果会变化",
+      "展示依据或算式",
+      "至少一项异常处理",
+      "始终显示合成数据标识"
+    ],
+    "private_source_drawer": "在来源说明中显示附件名及页码，不直接公开上传附件原件或其内部截图。",
+    "avoid_labels": [
+      "正式投产（缺验收证据时）",
+      "已为客户节省X万元（缺验证时）",
+      "真实OCR（仅示例回放时）",
+      "AI实时查询（无模型和数据连接时）",
+      "沙特项目已交付（当前附件未证明）"
+    ]
+  }
+}

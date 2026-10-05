@@ -1,0 +1,100 @@
+"use client";
+import {NavigationSpaceProvider,NavigationToggle} from './navigation-space';
+import {LearningTabBar,useLearningWorkspace} from './learning-workspace';
+import SectionOverview from './section-overview';
+import {Breadcrumb,BreadcrumbList,BreadcrumbItem,BreadcrumbLink,BreadcrumbPage,BreadcrumbSeparator} from '@/components/ui/breadcrumb';
+import {learningLocationEvent} from '@/lib/learning-location';
+import {useState,useEffect,useMemo,lazy,Suspense,type ReactNode} from 'react';
+import {ArrowUpRight,ArrowRight,Search,Compass,BookOpen,Library,Route,Factory,Layers,ChevronRight,Clock,ExternalLink,Download,SlidersHorizontal,X,Workflow,Database,ShieldCheck,Code2,Target,Check,Copy,FileText,Lightbulb,Command as CommandIcon,Sparkles} from 'lucide-react';
+import {SidebarProvider,Sidebar,SidebarContent,SidebarHeader,SidebarFooter,SidebarInset,SidebarTrigger,SidebarMenu,SidebarMenuItem,SidebarMenuButton,SidebarGroup,SidebarGroupLabel,SidebarGroupContent} from '@/components/ui/sidebar';
+import {Tabs,TabsList,TabsTrigger,TabsContent} from '@/components/ui/tabs';
+import {Sheet,SheetContent,SheetHeader,SheetTitle,SheetDescription} from '@/components/ui/sheet';
+import {CommandDialog,CommandInput,CommandList,CommandEmpty,CommandGroup,CommandItem} from '@/components/ui/command';
+import {Select,SelectTrigger,SelectValue,SelectContent,SelectItem} from '@/components/ui/select';
+import {Accordion,AccordionItem,AccordionTrigger,AccordionContent} from '@/components/ui/accordion';
+import {Table,TableHeader,TableBody,TableRow,TableHead,TableCell} from '@/components/ui/table';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+import StudioHome from '@/components/studio-home';
+import JourneySidebar from './journey-sidebar';
+import Glossary from './glossary';
+import LearningRoadmap from './learning-roadmap';
+import {navigationGroups,navigationItems,groupForView,type View} from '@/lib/navigation';
+import ThemeToggle from './theme-toggle';
+import KnowledgeAssistant from './knowledge-assistant';
+import LearningStudio, {ResourceLesson, ArticleVisual} from '@/components/learning-studio';
+import AgentLab from '@/components/agent-lab';
+import ModelLab from '@/components/model-lab';
+import CodeLab from '@/components/code-lab';
+import ProductLab from '@/components/product-lab';
+import Community from '@/components/community';
+import {art} from '@/components/studio-shared';
+import knowledge from '@/lib/knowledge.json';
+import industryData from '@/lib/industry.json';
+
+const OntologyLab=lazy(()=>import('./ontology-lab'));
+const ProjectGallery=lazy(()=>import('./research-hub'));
+const ToolsLab=lazy(()=>import('./tools-lab'));
+type Resource=typeof knowledge.resources[number];
+type Article=typeof knowledge.articles[number];
+type Topic={id:string,title:string,subtitle?:string,problem:string,solution:string,data:string,evaluation:string,pilot:string,sourceIds:string[]};
+type Source={id:string,title:string,url:string,publisher:string,fact:string,date?:string};
+const industry=industryData as {topics:Topic[],sources:Source[]};
+const categories=['全部','项目管理','产品设计','数据与架构','工作流工具','基础课程','评测与工程','治理与进阶','原型与趋势'];
+const guideCategories=['全部','管理基础','项目提效','前沿理念','产品设计','落地实践'];
+const accents=['orange','purple','blue','green','orange','purple','blue','green'];
+const catIcon=[Target,Lightbulb,Database,Workflow,BookOpen,Code2,ShieldCheck,Layers];
+
+const principles=[['01','评测先行','先定义怎样算做对，再开发功能。',5,Target],['02','上下文工程','管理规则、知识、工具与任务状态。',6,Layers],['03','有限自主权','按任务风险开放行动与审批权限。',6,ShieldCheck],['04','成功任务成本','把复核、重试和返工一起算进去。',7,Workflow]] as const;
+
+
+function RichText({text}:{text:string}){const rx=/\[([^\]]+)\]\((https?:\/\/[^\s]+?)\)/g;const output:ReactNode[]=[];let last=0,m;while((m=rx.exec(text))){output.push(text.slice(last,m.index));output.push(<a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer">{m[1]}<ArrowUpRight aria-hidden="true" size={13}/></a>);last=rx.lastIndex;}output.push(text.slice(last));return <>{output}</>}
+function Blocks({article}:{article:Article}){return <div className="article-body">{article.blocks.map((block,i)=>{if(block.type==='p')return <p key={i}><RichText text={block.text||''}/></p>;if(block.type==='h2')return <h3 key={i}>{block.text}</h3>;if(block.type==='bullets')return <ul key={i}>{block.items?.map((x,j)=><li key={j}>{x}</li>)}</ul>;if(block.type==='table')return <div className="article-table" key={i}><Table><TableHeader><TableRow>{block.headers?.map((v,j)=><TableHead key={j}>{v}</TableHead>)}</TableRow></TableHeader><TableBody>{block.rows?.map((row,j)=><TableRow key={j}>{row.map((v,k)=><TableCell key={k}><RichText text={v}/></TableCell>)}</TableRow>)}</TableBody></Table></div>;return null})}</div>}
+
+export default function Hub({view:initialView}:{view:View}){
+ const {view,opened,navigate,select,close}=useLearningWorkspace(initialView);
+ const activeView=view,currentGroup=groupForView(view);
+ const isGroupPage=currentGroup.view===view;
+ const [queries,setQueries]=useState<Partial<Record<View,string>>>({});const query=queries[view]||'';const setQuery=(value:string)=>setQueries(old=>({...old,[view]:value}));const [category,setCategory]=useState('全部');const [priority,setPriority]=useState('全部');const [sort,setSort]=useState('recommended');
+ const [guideCategory,setGuideCategory]=useState('全部');const [commandOpen,setCommandOpen]=useState(false);const [article,setArticle]=useState<Article|null>(null);const [resource,setResource]=useState<Resource|null>(null);const [topic,setTopic]=useState<Topic|null>(null);const [copied,setCopied]=useState(false);
+ useEffect(()=>{const handle=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();setCommandOpen(x=>!x);}};window.addEventListener('keydown',handle);return()=>window.removeEventListener('keydown',handle)},[]);
+ useEffect(()=>{const read=()=>{const p=new URLSearchParams(window.location.search);const a=Number(p.get('article'));const r=Number(p.get('resource'));if(a)setArticle(knowledge.articles.find(x=>x.id===a)||null);if(r)setResource(knowledge.resources.find(x=>x.id===r)||null)};read();window.addEventListener(learningLocationEvent,read);return()=>window.removeEventListener(learningLocationEvent,read)},[]);
+ const openArticle=(id:number)=>{setResource(null);setTopic(null);setArticle(knowledge.articles.find(a=>a.id===id)||null);setCommandOpen(false)};
+ const openResource=(r:Resource)=>{setArticle(null);setTopic(null);setResource(r);setCommandOpen(false)};
+ const resources=useMemo(()=>knowledge.resources.filter(r=>(category==='全部'||r.category===category)&&(priority==='全部'||r.priority===priority)&&`${r.title} ${r.description} ${r.access} ${r.category}`.toLowerCase().includes((queries.resources||'').toLowerCase())).sort((a,b)=>sort==='recommended'?Number(b.priority==='先学')-Number(a.priority==='先学')||a.id-b.id:a.id-b.id),[category,priority,queries.resources,sort]);
+ const articles=knowledge.articles.filter(a=>(guideCategory==='全部'||a.category===guideCategory)&&`${a.title} ${a.summary}`.toLowerCase().includes((queries.guides||'').toLowerCase()));
+ const reset=()=>{setQuery('');setCategory('全部');setPriority('全部')};
+ const copyPrompt=async()=>{const a=knowledge.articles.find(a=>a.id===18)!;const texts=a.blocks.filter(x=>x.type==='p');const text=texts[texts.length-2]?.text||'';try{await navigator.clipboard.writeText(text);setCopied(true);setTimeout(()=>setCopied(false),1800)}catch{setCopied(false);openArticle(18)}};
+ const card=(r:Resource)=>{const ci=categories.indexOf(r.category)-1;const Icon=catIcon[ci]||FileText;return <article className="resource-card" key={r.id}><button className="resource-cover" onClick={()=>openResource(r)} aria-label={`学习${r.title}`}><img src={r.category==='项目管理'?art.project:['产品设计','数据与架构','基础课程'].includes(r.category)?art.context:art.agent} alt="" loading="lazy"/><span>{r.category}</span></button><div className="resource-top"><span className={`resource-icon ${accents[ci]}`}><Icon size={20}/></span><span className={`priority ${r.priority==='先学'?'first':''}`}>{r.priority==='先学'?'优先学习':r.priority}</span></div><button className="resource-main" onClick={()=>openResource(r)}><span className="resource-publisher">{r.category} · {r.level}</span><h3>{r.title}</h3><p><RichText text={r.description.replace(/\[([^\]]+)\]\([^)]+\)/g,'$1')}/></p></button><div className="resource-bottom"><span>{r.access.includes('中文')||r.access.includes('中英')?'含中文资料':'英文资料'}</span><button onClick={()=>openResource(r)} aria-label={`查看${r.title}详情`}>阅读详情 <ArrowUpRight size={15}/></button></div></article>};
+ const empty=(label:string)=><div className="empty-state"><Search size={30}/><h3>没有找到匹配的{label}</h3><p>试试“评测”“工作流”或“供应链”，也可以清除筛选。</p><Button variant="outline" onClick={()=>{reset();setGuideCategory('全部')}}>清除筛选</Button></div>;
+
+ return <NavigationSpaceProvider style={{'--sidebar-width':'264px'} as React.CSSProperties}>
+  <a className="skip-link" href="#main-content">跳到主要内容</a><JourneySidebar view={view}/>
+  <SidebarInset className="site-main"><Tabs className="learning-workspace" value={view} onValueChange={select}><header className="workspace-chrome"><div className="topbar"><div className="breadcrumb"><NavigationToggle/><Breadcrumb className="workspace-breadcrumb" aria-label="当前位置"><BreadcrumbList>{view!=='home'&&<><BreadcrumbItem><BreadcrumbLink href={isGroupPage?'/':currentGroup.href} className="workspace-breadcrumb-parent">{isGroupPage?'学习总览':currentGroup.label}</BreadcrumbLink></BreadcrumbItem><BreadcrumbSeparator/></>}<BreadcrumbItem><BreadcrumbPage>{navigationItems.find(n=>n.id===view)?.label}</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb></div><button className="search-launch" onClick={()=>setCommandOpen(true)}><Search size={17}/><span>搜索指南、工具与资料</span><kbd>⌘ K</kbd></button><ThemeToggle/><span className="edition">INTERACTIVE EDITION</span></div><LearningTabBar opened={opened} view={view} onSelect={select} onClose={close}/></header>
+  {opened.map(page=>{const view=page,query=queries[page]||'';return <TabsContent key={view} value={view} forceMount hidden={view!==activeView} className="workspace-page"><div className={`content ${['agents','models','coding'].includes(view)?'workspace-content':''}`} id={view===activeView?"main-content":undefined}>
+   {view==='home'&&<StudioHome/>}
+{['work','business','library'].includes(view)&&<SectionOverview view={view}/>}
+{view==='glossary'&&<Glossary/>}
+{view==='learn'&&<LearningStudio/>}
+{view==='agents'&&<AgentLab/>}
+{view==='models'&&<ModelLab/>}
+{view==='coding'&&<CodeLab/>}
+{view==='products'&&<><a className="v3-neutral-note" style={{display:'block',marginBottom:20}} href="/projects">新增：供应链 AI 产品专栏 · 11 个项目场景，点击切换体验 →</a><ProductLab/></>}
+{view==='community'&&<Community/>}
+<Suspense fallback={<div className="v3-loading">正在打开实验工作台…</div>}>{view==='ontology'&&<OntologyLab/>}{view==='projects'&&<ProjectGallery/>}{view==='tools'&&<ToolsLab/>}</Suspense>
+   {view==='resources'&&<><PageIntro eyebrow="THE RESOURCE LIBRARY" title="精选资料库" desc="60 项官方课程、工程实践与工具文档。按问题找资料，带着产出开始学习。" count="60"/><div className="filter-box"><div className="search-input-wrap"><Search size={20}/><Input aria-label="搜索资料" placeholder="搜索关键词，例如：评测、Dify、项目管理…" value={query} onChange={e=>setQuery(e.target.value)}/>{query&&<button aria-label="清除搜索" onClick={()=>setQuery('')}><X size={17}/></button>}</div><Tabs value={category} onValueChange={setCategory} className="category-tabs"><TabsList variant="line">{categories.map(c=><TabsTrigger value={c} key={c}>{c}</TabsTrigger>)}</TabsList></Tabs></div><div className="results-bar"><p>找到 <strong>{resources.length}</strong> 项资料{query&&<span> · “{query}”</span>}</p><div className="filter-controls"><SlidersHorizontal size={16}/><Select value={priority} onValueChange={setPriority}><SelectTrigger aria-label="按学习优先级筛选"><SelectValue/></SelectTrigger><SelectContent>{['全部','先学','按需','进阶','选修','选读'].map(p=><SelectItem value={p} key={p}>{p==='全部'?'全部优先级':p}</SelectItem>)}</SelectContent></Select><Select value={sort} onValueChange={setSort}><SelectTrigger aria-label="资料排序"><SelectValue/></SelectTrigger><SelectContent><SelectItem value="recommended">推荐优先</SelectItem><SelectItem value="index">按资料编号</SelectItem></SelectContent></Select></div></div>{resources.length?<div className="resource-grid">{resources.map(card)}</div>:empty('资料')}<p className="fine-print">资料来自官方页面。公开文档不等于产品免费；套餐、地域和预览功能以对应产品当前说明为准。</p></>}
+   {view==='guides'&&<><PageIntro eyebrow="THE PRACTICAL PLAYBOOK" title="从理念到交付的实战指南" desc="18 篇完整指南，覆盖能力、管理、产品设计与业务落地。" count="18"/><div className="filter-box"><div className="search-input-wrap"><Search size={20}/><Input aria-label="搜索指南" placeholder="搜索指南，例如：验收、产品、成本…" value={query} onChange={e=>setQuery(e.target.value)}/>{query&&<button aria-label="清除搜索" onClick={()=>setQuery('')}><X size={17}/></button>}</div><Tabs value={guideCategory} onValueChange={setGuideCategory} className="category-tabs"><TabsList variant="line">{guideCategories.map(c=><TabsTrigger key={c} value={c}>{c}</TabsTrigger>)}</TabsList></Tabs></div><div className="guide-list">{articles.map(a=><button className="guide-row" key={a.id} onClick={()=>openArticle(a.id)}><span className="guide-number">{String(a.id).padStart(2,'0')}</span><div><span className="guide-meta">{a.category} <span>·</span> {a.minutes} 分钟阅读</span><h2>{a.title}</h2><p>{a.summary}</p></div><span className="guide-arrow"><ArrowUpRight size={22}/></span></button>)}</div>{!articles.length&&empty('指南')}<div className="download-panel"><BookOpen size={27}/><div><h3>也可以离线阅读</h3><p>27 页完整指南，保留全部资料链接与练习清单。</p></div><a className="solid-button" download href="/downloads/AI项目经理与AI产品经理转型指南.docx">下载 DOCX <Download size={16}/></a></div></>}
+   {view==='roadmap'&&<LearningRoadmap onResource={id=>{const r=knowledge.resources.find(r=>r.id===id);if(r)openResource(r)}} onArticle={openArticle}/>}
+   {view==='industry'&&<><div className="v3-bottom-pair"><a href="/projects"><Layers size={22}/><div><h3>你的项目与产品资料</h3><p>11 个案例，材料依据与互动演示。</p></div><ArrowUpRight size={20}/></a><a href="/ontology"><Database size={22}/><div><h3>Ontology 与 3D 研究</h3><p>业务对象、关系、证据与受控行动。</p></div><ArrowUpRight size={20}/></a></div><PageIntro eyebrow="INDUSTRY FIELDNOTES · BAOSIGHT CONTEXT" title="云应用 × 供应链" desc="从业务问题到试点方案：明确数据、规则、集成与验收，再进入供应链实战。"/><div className="industry-intro"><div><span className="feature-kicker">业务场景先行</span><h2>以业务规则为基础，<br/>以可验证结果为交付。</h2><p>选一个窄场景，明确数据与系统边界，再用评测决定是否扩展。</p></div><div className="flow-map"><div><Database size={22}/><span>业务数据</span></div><ChevronRight size={16}/><div><Workflow size={22}/><span>受控工作流</span></div><ChevronRight size={16}/><div><ShieldCheck size={22}/><span>业务验收</span></div></div></div><div className="section-heading"><div><span className="eyebrow">SIX OPPORTUNITIES TO EXPLORE</span><h2>六个值得验证的实践切口</h2></div><span className="subtle-tag">建议试点 · 非既有业绩</span></div><div className="topic-grid">{industry.topics.map((t,i)=>{const Icon=[Database,FileText,Factory,Workflow,Code2,ShieldCheck][i]||Factory;return <button className="topic-card" key={t.id} onClick={()=>{setArticle(null);setResource(null);setTopic(t)}}><div className="topic-top"><span className="topic-no">0{i+1}</span><Icon size={23}/></div><h3>{t.title}</h3><p>{t.problem}</p><span className="topic-tags">{t.subtitle||'场景定义 / 数据集成 / 试点验证'}</span><span className="topic-bottom">查看试点设计 <ArrowUpRight size={18}/></span></button>})}</div><section className="research-intro section"><div><span className="eyebrow">EVIDENCE & FURTHER READING</span><h2>继续查阅行业依据</h2><p>公开产品资料与研究摘要已汇入“行业研究与产品专栏”，和 11 个产品案例一起查阅。</p></div><a href="/projects?tab=research">打开行业研究 <ArrowRight size={17}/></a></section></>}
+   <footer className="page-footer"><a href="/">AI 进阶研习所</a><span>公开资料 · 实践方法 · 行业观察</span><span>2026.09</span></footer>
+  </div></TabsContent>})}</Tabs></SidebarInset>
+  <KnowledgeAssistant onNavigate={navigate}/>
+  <CommandDialog open={commandOpen} onOpenChange={setCommandOpen} title="搜索学习资料" description="输入关键词查找指南和官方资料，使用方向键选择，回车打开。"><CommandInput placeholder="搜索：评测、AI 产品、Dify、供应链…"/><CommandList className="global-results"><CommandEmpty>没有匹配结果，试试“项目”或“数据”。</CommandEmpty><>{navigationGroups.map(group=><CommandGroup heading={group.label} key={group.id}>{group.items.map(n=><CommandItem key={n.id} value={`${n.label} ${group.label}`} onSelect={()=>{navigate(n.href);setCommandOpen(false)}}><n.icon size={17}/><span>{n.label}</span></CommandItem>)}</CommandGroup>)}</><CommandGroup heading="实战指南">{knowledge.articles.map(a=><CommandItem key={`a${a.id}`} value={`${a.title} ${a.category}`} onSelect={()=>openArticle(a.id)}><BookOpen size={17}/><span>{a.title}</span><small>指南</small></CommandItem>)}</CommandGroup><CommandGroup heading="官方资料">{knowledge.resources.map(r=><CommandItem key={`r${r.id}`} value={`${r.title} ${r.description} ${r.category}`} onSelect={()=>openResource(r)}><Library size={17}/><span>{r.title}</span><small>{r.category}</small></CommandItem>)}</CommandGroup><CommandGroup heading="宝信行业专栏">{industry.topics.map(t=><CommandItem key={t.id} value={`${t.title} ${t.problem} 供应链 宝信`} onSelect={()=>{setArticle(null);setResource(null);setTopic(t);setCommandOpen(false)}}><Factory size={17}/><span>{t.title}</span><small>行业</small></CommandItem>)}</CommandGroup></CommandList></CommandDialog>
+  <Sheet open={!!article||!!resource||!!topic} onOpenChange={o=>{if(!o){setArticle(null);setResource(null);setTopic(null)}}}><SheetContent className="reading-sheet" side="right"><SheetHeader className="reading-header"><span className="eyebrow">{article?`PLAYBOOK ${String(article.id).padStart(2,'0')} / ${article.category}`:resource?`${resource.category} / RESOURCE ${resource.id}`:'INDUSTRY FIELDNOTES / 试点设计'}</span><SheetTitle>{article?.title||resource?.title||topic?.title}</SheetTitle><SheetDescription>{article?`${article.minutes} 分钟阅读 · 方法与实践建议`:resource?`${resource.level} · ${resource.priority==='先学'?'优先学习':resource.priority}`:'建议场景，需结合实际数据与客户流程验证。'}</SheetDescription></SheetHeader><div className="reading-content" key={article?.id||resource?.title||topic?.id}>
+   {article&&<><ArticleVisual articleId={article.id}/><Blocks article={article}/>{article.id===18&&<Button className="copy-button" onClick={copyPrompt}>{copied?<Check size={17}/>:<Copy size={17}/>} {copied?'已复制周报指令':'复制周报指令'}</Button>}<div className="article-pagination">{article.id>1&&<button onClick={()=>openArticle(article.id-1)}>上一篇</button>}{article.id<18&&<button onClick={()=>openArticle(article.id+1)}>下一篇 <ArrowRight size={16}/></button>}</div></>}
+   {resource&&<div className="resource-detail"><ResourceLesson resource={resource}/><div className="detail-section"><h3>为什么值得学</h3><p><RichText text={resource.description}/></p></div><div className="detail-section"><h3>语言与使用条件</h3><p>{resource.access}</p></div><div className="detail-section"><h3>带着一个业务问题阅读</h3><p>选择当前项目中的一项任务，记录资料能解决什么问题、采用什么方法，以及你准备如何验证结果。用一份可审阅的产出结束这次学习。</p></div><a className="solid-button" href={resource.url} target="_blank" rel="noopener noreferrer">打开官方资料 <ExternalLink size={17}/></a><p className="fine-print">资料核查于 2026.09.19。外部网站将在新标签页打开。</p></div>}
+   {topic&&<div className="topic-detail">{[['业务问题',topic.problem],['AI 方案与边界',topic.solution],['数据与系统集成',topic.data],['怎样评测',topic.evaluation],['最小试点',topic.pilot]].map(([h,p])=><section className="detail-section" key={h}><h3>{h}</h3><p>{p}</p></section>)}<section className="detail-section"><h3>参考依据</h3>{topic.sourceIds.map(id=>industry.sources.find(s=>s.id===id)).filter(Boolean).map(s=><a className="detail-source" key={s!.id} href={s!.url} target="_blank" rel="noopener noreferrer">{s!.title}<ArrowUpRight size={16}/></a>)}</section><p className="fine-print">试点规模为起步建议，不能代替上线所需的完整验证；需按真实任务分布和风险补充评测样本。</p></div>}
+  </div></SheetContent></Sheet>
+ </NavigationSpaceProvider>
+}
+function PageIntro({eyebrow,title,desc,count}:{eyebrow:string,title:string,desc:string,count?:string}){return <section className="page-intro"><div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p className="intro-copy">{desc}</p></div>{count&&<span className="big-index">{count}<small>精选内容</small></span>}</section>}
