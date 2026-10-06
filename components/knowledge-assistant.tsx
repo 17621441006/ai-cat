@@ -1,5 +1,6 @@
 "use client";
-import {desktopAnswer,desktopHits,desktopIntro,desktopNavigation} from '@/lib/desktop-knowledge';
+import {desktopAnswer,desktopHits,desktopIntro} from '@/lib/desktop-knowledge';
+import {fallbackDesktopEntries,desktopDestination,resolveDesktopNavigation,type SearchEntry} from '@/lib/desktop-navigation';
 import CatAssistantLauncher from './cat-assistant-launcher';
 import {warmCatPortraits} from '@/lib/cat-assets';
 import {CatChatIcon,CatChatBubble,CatChatPerch,type CatBubbleStyle} from './cat-chat-decoration';
@@ -20,14 +21,15 @@ import type {WebWorkerMLCEngine} from '@mlc-ai/web-llm';
 import {assistantDestination,resolveAssistantNavigation,type AssistantDestination} from '@/lib/assistant-navigation';
 
 type Mode='search'|'local'|'cloud';
-type NavigationChoice={status:'choose'|'opened'|'cancelled';ids:string[]};
+type NavigationChoice={status:'choose'|'opened'|'cancelled';ids:string[];scores?:Record<string,number>};
 type Message={id:string;role:'user'|'assistant';text:string;hits?:KnowledgeHit[];engine?:string;trace?:AssistantTrace;truncated?:boolean;navigation?:NavigationChoice};
 const starters=['RAG 是什么？','MCP 是什么？','我想从零开始学习 AI','AI 工具有哪些？用表格对比'];
 const bubbleOptions:{value:CatBubbleStyle;label:string}[]=[{value:'sideeye',label:'脏脏包 · 犀利侧目'},{value:'reference',label:'参考同款猫'},{value:'persian',label:'脏脏包 · 原版'},{value:'cheeky',label:'旧版贱萌'},{value:'classic',label:'经典长猫'}];
 const validHref=(href:string)=>/^\/(?:$|(?:learn|ontology|projects|products|tools|coding|agents|models|resources|guides|roadmap|community|glossary|industry|work|business|library)(?:[?#]|$))/.test(href);
 export function AssistantHome(){const[q,setQ]=useState('');const launch=(question:string)=>window.dispatchEvent(new CustomEvent('open-knowledge-assistant',{detail:question}));return <section className="assistant-home"><div className="assistant-home-title"><CatChatIcon/><div><h2>问问AI小脏</h2><p>说出你想学什么，我来找资料、找案例、找入口。</p></div><span className="assistant-home-tag">站内知识问答</span></div><form onSubmit={e=>{e.preventDefault();launch(q);setQ('')}}><Input aria-label="向研习助手提问" value={q} maxLength={600} onChange={e=>setQ(e.target.value)} placeholder="例如：我想体验会议视频转写，应该去哪里？"/><Button type="submit"><Sparkles size={17}/>开始对话</Button></form><div className="assistant-quick-prompts">{starters.slice(0,3).map(s=><button onClick={()=>launch(s)} key={s}>{s}<ArrowUpRight size={13}/></button>)}</div></section>}
 
-export default function KnowledgeAssistant({onNavigate,desktop=false,initialOpen=false,hideLauncher=false,apiEndpoint='/api/assistant',onClose}:{onNavigate:(href:string)=>boolean;desktop?:boolean;initialOpen?:boolean;hideLauncher?:boolean;apiEndpoint?:string;onClose?:()=>void}){
+export default function KnowledgeAssistant({onNavigate,desktop=false,initialOpen=false,hideLauncher=false,apiEndpoint='/api/assistant',onClose,desktopEntries=fallbackDesktopEntries}:{onNavigate:(href:string)=>boolean;desktop?:boolean;initialOpen?:boolean;hideLauncher?:boolean;apiEndpoint?:string;onClose?:()=>void;desktopEntries?:SearchEntry[]}){
+ function findDestination(id:string){return desktop?desktopDestination(id,desktopEntries)||assistantDestination(id):assistantDestination(id)}
  useEffect(warmCatPortraits,[]);
  const[open,setOpen]=useState(initialOpen),[q,setQ]=useState(''),[messages,setMessages]=useState<Message[]>([]);
  const[mode,setMode]=useState<Mode>(desktop?'cloud':'local'),[settings,setSettings]=useState(false),[busy,setBusy]=useState(false);
@@ -56,9 +58,9 @@ export default function KnowledgeAssistant({onNavigate,desktop=false,initialOpen
   try{
    const saved=JSON.parse(sessionStorage.getItem((desktop?'dirtybag-desktop-chat':'ai-practice-chat'))||'[]');
    if(Array.isArray(saved)){
-    const safe:Message[]=saved.slice(-12).filter(m=>['user','assistant'].includes(m.role)&&typeof m.text==='string'&&m.text.trim()).map((m,i)=>({id:'restored-'+i,role:m.role,text:m.role==='assistant'?m.text.replaceAll('放到供应链工作里：','在供应链场景中：'):m.text,engine:typeof m.engine==='string'?m.engine:undefined,truncated:m.truncated===true,hits:Array.isArray(m.hits)?m.hits.filter((h:KnowledgeHit)=>typeof h.href==='string'&&(validHref(h.href)||(desktop&&/^desktop:[a-z]+$/.test(h.href)))):undefined,trace:m.trace&&Array.isArray(m.trace.steps)?(m.trace.status==='running'?finishTrace(m.trace,'stopped'):m.trace):undefined}));
+    const safe:Message[]=saved.slice(-12).filter(m=>['user','assistant'].includes(m.role)&&typeof m.text==='string'&&m.text.trim()).map((m,i)=>({id:'restored-'+i,role:m.role,text:m.role==='assistant'?m.text.replaceAll('放到供应链工作里：','在供应链场景中：'):m.text,engine:typeof m.engine==='string'?m.engine:undefined,truncated:m.truncated===true,hits:Array.isArray(m.hits)?m.hits.filter((h:KnowledgeHit)=>typeof h.href==='string'&&(validHref(h.href)||(desktop&&h.href.startsWith('desktop:')&&!!desktopDestination('desktop-'+h.href.slice(8),desktopEntries)))):undefined,trace:m.trace&&Array.isArray(m.trace.steps)?(m.trace.status==='running'?finishTrace(m.trace,'stopped'):m.trace):undefined}));
     // Restore choices by registry ID, never by an untrusted saved URL; restoration does not navigate.
-    safe.forEach((message,i)=>{const original=saved.slice(-12).filter(m=>['user','assistant'].includes(m.role)&&typeof m.text==='string'&&m.text.trim())[i]?.navigation;if(original&&['choose','opened','cancelled'].includes(original.status)&&Array.isArray(original.ids)){const ids=original.ids.filter((id:unknown)=>typeof id==='string'&&assistantDestination(id)).slice(0,8);if(ids.length)message.navigation={status:original.status,ids}}});
+    safe.forEach((message,i)=>{const original=saved.slice(-12).filter(m=>['user','assistant'].includes(m.role)&&typeof m.text==='string'&&m.text.trim())[i]?.navigation;if(original&&['choose','opened','cancelled'].includes(original.status)&&Array.isArray(original.ids)){const ids=original.ids.filter((id:unknown)=>typeof id==='string'&&findDestination(id)).slice(0,8);if(ids.length)message.navigation={status:original.status,ids}}});
     setMessages(safe);previous.current=safe.filter(m=>m.role==='user').at(-1)?.text||'';
    }
   }catch{}
@@ -80,7 +82,7 @@ export default function KnowledgeAssistant({onNavigate,desktop=false,initialOpen
 
  function openDestination(destination:AssistantDestination,answerId:string){
   // All callers supply entries from our local registry, never model-generated actions.
-  const known=assistantDestination(destination.id);if(!known)return;
+  const known=findDestination(destination.id);if(!known)return;
   if(!onNavigate(known.href)){setError('这个页面暂时未能打开，请重试。');return}
   setMessages(items=>items.map(m=>m.id===answerId?{...m,text:`已打开 **${known.title}**。`,navigation:{status:'opened',ids:[known.id]}}:m));
   if(!desktop)setOpen(false);setNavigationNotice(`已打开 ${known.title}`);
@@ -88,14 +90,15 @@ export default function KnowledgeAssistant({onNavigate,desktop=false,initialOpen
 
  async function ask(value=q){
   const question=value.trim();if(!question||busy||activeAnswer.current)return;
-  const target=desktop?desktopNavigation(question):null;
-  if(target){setQ('');setMessages(items=>[...items,{id:'desktop-q-'+Date.now(),role:'user',text:question},{id:'desktop-a-'+Date.now(),role:'assistant',text:`正在打开 **${target.title}**。`,engine:'桌面导航'}]);onNavigate(target.href);return}
   const last=messages.at(-1),pending=last?.navigation?.status==='choose'?last.navigation.ids:[];
-  const navigation=resolveAssistantNavigation(question,pending);
+  const desktopResult=desktop?resolveDesktopNavigation(question,desktopEntries,pending.filter(id=>id.startsWith('desktop-'))):null;
+  const learningResult=resolveAssistantNavigation(question,pending.filter(id=>!id.startsWith('desktop-')));
+  const weakDesktop=desktopResult?.kind==='choose'&&Math.max(...Object.values(desktopResult.scores))<90;
+  const navigation=weakDesktop&&learningResult?.kind==='open'?learningResult:desktopResult&&desktopResult.kind!=='missing'?desktopResult:learningResult&&learningResult.kind!=='missing'?learningResult:desktopResult||learningResult;
   if(navigation){
    const answerId='navigate-'+Date.now();
-   const text=navigation.kind==='open'?`正在打开 **${navigation.destination.title}**…`:navigation.kind==='choose'?'找到几个相关入口，你想打开哪一个？点击确认，或回复“第一个”“第二个”。':navigation.kind==='cancel'?'已取消，继续聊就好。':'暂时没有匹配到这个站内页面。可以说“打开智能体工坊”“打开提示词工程”或“打开视频剪辑”。';
-   const choice:NavigationChoice|undefined=navigation.kind==='choose'?{status:'choose',ids:navigation.options.map(item=>item.id)}:undefined;
+   const text=navigation.kind==='open'?`正在打开 **${navigation.destination.title}**…`:navigation.kind==='choose'?'找到几个相关入口，你想打开哪一个？点击确认，或回复“第一个”“第二个”。':navigation.kind==='cancel'?'已取消，继续聊就好。':desktop?'还没找到相近的应用。可以说“打开相册”“打开雪夜漫步”，也可以用桌面搜索找找看。':'暂时没有匹配到这个站内页面。可以说“打开智能体工坊”或“打开视频剪辑”。';
+   const choice:NavigationChoice|undefined=navigation.kind==='choose'?{status:'choose',ids:navigation.options.map(item=>item.id),scores:desktopResult?.kind==='choose'?desktopResult.scores:undefined}:undefined;
    setQ('');setError('');setSettings(false);previous.current=question;
    setMessages(items=>[...items.map(m=>m.navigation?.status==='choose'?{...m,navigation:{...m.navigation,status:'cancelled' as const}}:m),{id:answerId+'-question',role:'user',text:question},{id:answerId,role:'assistant',text,engine:'站内页面导航',navigation:choice}]);
    if(navigation.kind==='open')openDestination(navigation.destination,answerId);
@@ -195,13 +198,13 @@ export default function KnowledgeAssistant({onNavigate,desktop=false,initialOpen
     <div className="assistant-bubble-settings"><span>气泡样式</span><Tabs value={bubbleStyle} onValueChange={chooseBubble}><TabsList aria-label="气泡样式">{bubbleOptions.map(option=><TabsTrigger key={option.value} value={option.value}>{option.label}</TabsTrigger>)}</TabsList></Tabs></div>
    </div>}
    <div className="knowledge-chat" ref={bindChat}>
-    {!messages.length&&<div className="knowledge-welcome"><h3>{desktop?'喵，这台电脑我很熟。':'想解决哪一个工作问题？'}</h3><p>{desktop?'问 AI，也问桌面。可以让我打开作品，或者聊聊你想学的知识。':'输入 RAG、MCP、Agent 等术语，我会直接解释。也可以说“打开智能体工坊”，直接前往学习页面。'}</p>{(desktop?['这个桌面有哪些作品？','打开 Minecraft','怎么用右键整理桌面？','RAG 是什么？']:starters).map(s=><button onClick={()=>ask(s)} key={s}>{s}<ArrowUpRight size={16}/></button>)}</div>}
+    {!messages.length&&<div className="knowledge-welcome"><h3>{desktop?'喵，这台电脑我很熟。':'想解决哪一个工作问题？'}</h3><p>{desktop?'问 AI，也问桌面。可以让我打开作品，或者聊聊你想学的知识。':'输入 RAG、MCP、Agent 等术语，我会直接解释。也可以说“打开智能体工坊”，直接前往学习页面。'}</p>{(desktop?['打开相册','打开音乐','怎么长按整理桌面？','RAG 是什么？']:starters).map(s=><button onClick={()=>ask(s)} key={s}>{s}<ArrowUpRight size={16}/></button>)}</div>}
     {groups.map(turn=><section className="knowledge-turn" key={turn[0].id}>{turn.map(m=><article className={`knowledge-message ${m.role}`} key={m.id} ref={m.id===lastQuestionId?bindQuestion:undefined}>
      {m.role==='user'?<><span className="cat-question-author">你</span><CatChatBubble variant={bubbleStyle}><p>{m.text}</p></CatChatBubble></>:<>
       {m.trace&&<AssistantProgress trace={m.trace} onStop={m.trace.status==='running'?stop:undefined}/>}
       <div className="assistant-reply-author"><div><strong>AI小脏</strong><small>{m.engine||'研习助手'}</small></div></div>
       {m.text&&<AssistantMarkdown text={m.text} question={turn[0].role==='user'?turn[0].text:''} streaming={busy&&m.id===activeAnswer.current}/>}
-      {m.navigation&&m.navigation.status!=='cancelled'&&<div className="assistant-navigation-options" aria-label="页面导航选项">{m.navigation.ids.map((id,index)=>{const destination=assistantDestination(id);if(!destination)return null;return <button key={id} disabled={busy} onClick={()=>openDestination(destination,m.id)}><span className="assistant-navigation-number">{m.navigation?.status==='opened'?<Check size={16}/>:index+1}</span><span><strong>{destination.title}</strong><small>{destination.description}</small></span><span className="assistant-navigation-confirm">{m.navigation?.status==='opened'?'再次打开':'确认打开'}<ArrowUpRight size={15}/></span></button>})}{m.navigation.status==='choose'&&<button className="assistant-navigation-cancel" disabled={busy} onClick={()=>setMessages(items=>items.map(item=>item.id===m.id?{...item,text:'已取消本次页面选择。',navigation:undefined}:item))}>暂不跳转</button>}</div>}
+      {m.navigation&&m.navigation.status!=='cancelled'&&<div className="assistant-navigation-options" aria-label="页面导航选项">{m.navigation.ids.map((id,index)=>{const destination=findDestination(id);if(!destination)return null;return <button key={id} disabled={busy} onClick={()=>openDestination(destination,m.id)}><span className="assistant-navigation-number">{m.navigation?.status==='opened'?<Check size={16}/>:index+1}</span><span><strong>{destination.title}</strong><small>{m.navigation?.scores?.[id]?`匹配度 ${m.navigation.scores[id]}% · `:''}{destination.description}</small></span><span className="assistant-navigation-confirm">{m.navigation?.status==='opened'?'再次打开':'确认打开'}<ArrowUpRight size={15}/></span></button>})}{m.navigation.status==='choose'&&<button className="assistant-navigation-cancel" disabled={busy} onClick={()=>setMessages(items=>items.map(item=>item.id===m.id?{...item,text:'已取消本次页面选择。',navigation:undefined}:item))}>暂不跳转</button>}</div>}
       {m.truncated&&<p className="assistant-answer-note">本次回答已到长度上限，可以发送“继续”接着看。</p>}
      </>}
      {m.hits?.length?<div className="knowledge-citations"><span><BookOpen size={15}/>站内依据与入口<small>{m.hits.length} 条相关资料</small></span>{m.hits.map(h=><a href={h.href} key={h.id} onClick={event=>{if(desktop){event.preventDefault();onNavigate(h.href)}else setOpen(false)}}><span><small>{h.kind}</small><strong>{h.title}</strong></span><ArrowUpRight size={17}/></a>)}</div>:null}

@@ -7,8 +7,8 @@ export type VisualMask={x:number;y:number;width:number;height:number};
 export const ratios:VisualRatio[]=['16:9','4:3','1:1','3:4'];
 export const styleInfo={
  photo:{label:'供应链摄影合成',detail:'用户提供的集装箱港口与物流网络素材',src:'/images/supply-chain-management.jpg'},
- '3d':{label:'工业 3D',detail:'体块、材质与空间关系',src:'/images/factory-preset-3d.png'},
- watercolor:{label:'建筑水彩',detail:'柔和笔触与培训氛围',src:'/images/factory-preset-watercolor.png'}
+ '3d':{label:'工业 3D',detail:'体块、材质与空间关系',src:'/images/factory-preset-3d.webp'},
+ watercolor:{label:'建筑水彩',detail:'柔和笔触与培训氛围',src:'/images/factory-preset-watercolor.webp'}
 };
 export const visualCases=[
  {id:'cover',label:'项目汇报封面',purpose:'供应链 AI 项目汇报封面',title:'让供应链，\n看见新的可能。',subtitle:'云应用 × 供应链 · AI 应用探索',audience:'事业部管理层与业务负责人',ratio:'16:9' as VisualRatio,layout:'split' as VisualLayout,style:'photo' as VisualStyle},
@@ -35,7 +35,7 @@ export const visualLessons=[
 ];
 export function dimensions(ratio:VisualRatio){const[a,b]=ratio.split(':').map(Number);return{width:1600,height:Math.round(1600*b/a)};}
 const imageCache=new Map<string,Promise<HTMLImageElement>>();
-export function loadVisualImage(src:string){let p=imageCache.get(src);if(!p){p=new Promise<HTMLImageElement>((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>{imageCache.delete(src);reject(new Error('图片未能载入，请重新选择样张或上传图片。'))};img.src=src;});imageCache.set(src,p);if(imageCache.size>8)imageCache.delete(imageCache.keys().next().value!)}return p;}
+export function loadVisualImage(src:string){src=src.replace(/^\/images\/(factory-preset-(?:3d|watercolor))\.png$/,'/images/$1.webp');let p=imageCache.get(src);if(!p){p=new Promise<HTMLImageElement>((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>{imageCache.delete(src);reject(new Error('图片未能载入，请重新选择样张或上传图片。'))};img.src=src;});imageCache.set(src,p);if(imageCache.size>8)imageCache.delete(imageCache.keys().next().value!)}return p;}
 export function wrappedLines(ctx:CanvasRenderingContext2D,text:string,maxWidth:number){const lines:string[]=[];for(const paragraph of text.split('\n')){let line='';for(const ch of Array.from(paragraph)){if(line&&ctx.measureText(line+ch).width>maxWidth){lines.push(line);line=ch}else line+=ch}lines.push(line)}return lines;}
 export function drawVisual(canvas:HTMLCanvasElement,img:HTMLImageElement,d:VisualDesign){
  const{width:w,height:h}=dimensions(d.ratio);canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');if(!ctx)throw new Error('当前浏览器无法使用图片画布。');

@@ -53,6 +53,7 @@ export type AssistantNavigationResult={kind:'open';destination:AssistantDestinat
 export function resolveAssistantNavigation(question:string,pendingIds:string[]=[]):AssistantNavigationResult|null{
  const pending=pendingIds.map(assistantDestination).filter((item):item is AssistantDestination=>!!item);
  const text=question.trim();
+ if(/不要|不用|先别|不想|如何|怎么|怎样|为什么|是否|如果|假如|假设|之前|之后|会不会|解释|是什么意思/.test(text))return null;
  if(pending.length){
   if(/^(?:取消|算了|先不(?:用|去|打开)?|不用了|不跳转|cancel)[吧了。！!]?$/i.test(text))return {kind:'cancel'};
   const ordinal=text.match(/^(?:打开|选|选择|我要|就要|去|确认)?\s*第?([一二三四五六七八九十]|\d{1,2})(?:个|项|条)?(?:吧|✅|。|！|!)?$/);
